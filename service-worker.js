@@ -1,18 +1,4 @@
-var CACHE_NAME = 'mastery-v1';
-var urlsToCache = ['/'];
-
-self.addEventListener('install', function(event) {
-  event.waitUntil(caches.open(CACHE_NAME).then(function(cache) { return cache.addAll(urlsToCache); }));
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', function(event) {
-  event.waitUntil(caches.keys().then(function(names) {
-    return Promise.all(names.filter(function(name) { return name !== CACHE_NAME; }).map(function(name) { return caches.delete(name); }));
-  }));
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', function(event) {
-  event.respondWith(fetch(event.request).catch(function() { return caches.match(event.request); }));
-});
+var CACHE_NAME='mastery-v1';
+self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE_NAME).then(function(c){return c.addAll(['/'])}));self.skipWaiting()});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(n){return Promise.all(n.filter(function(x){return x!==CACHE_NAME}).map(function(x){return caches.delete(x)}))}));self.clients.claim()});
+self.addEventListener('fetch',function(e){e.respondWith(fetch(e.request).catch(function(){return caches.match(e.request)}))});
