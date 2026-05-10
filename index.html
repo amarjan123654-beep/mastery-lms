@@ -3,27 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mastery LMS - Medical Lab MCQs</title>
-<meta name="description" content="Practice 2000+ MLT MCQs. First chapter FREE.">
-<meta name="theme-color" content="#7C3AED">
-<link rel="manifest" href="manifest.json">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Mastery LMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-:root{--pri:#7C3AED;--sec:#EC4899;--bg:#F3F4F6;--card:#FFF;--dk:#111827;--mut:#6B7280;--bdr:#E5E7EB;--grn:#10B981;--red:#EF4444;--ylw:#F59E0B;--ft:'Outfit',sans-serif;--rd:12px;--sh:0 2px 4px rgba(0,0,0,.05)}
+:root{--pri:#7C3AED;--sec:#EC4899;--bg:#F3F4F6;--card:#FFF;--dk:#111827;--mut:#6B7280;--bdr:#E5E7EB;--grn:#10B981;--red:#EF4444;--ylw:#F59E0B;--ft:'Plus Jakarta Sans',sans-serif;--rd:12px;--sh:0 2px 4px rgba(0,0,0,.05)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--ft);color:var(--dk);background:var(--bg);padding-bottom:85px}
 .ctn{width:93%;max-width:1200px;margin:0 auto}
+
+/* Header */
 header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.06)}
 header .ctn{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:22px;font-weight:800;color:var(--dk);display:flex;align-items:center;gap:8px;cursor:pointer}
 .logo i{background:linear-gradient(135deg,var(--pri),var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:26px}
 .dnav{display:none}
+
+/* Mobile Nav */
 .mnav{position:fixed;bottom:0;left:0;width:100%;background:var(--card);display:flex;justify-content:space-around;padding:8px 8px 18px;border-radius:20px 20px 0 0;box-shadow:0 -5px 25px rgba(0,0,0,.08);z-index:1000}
-.mi{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--mut);font-size:10px;font-weight:600;cursor:pointer;padding:4px 8px}
+.mi{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--mut);font-size:10px;font-weight:600;cursor:pointer;padding:4px 8px;text-decoration:none}
 .mi i{font-size:20px;padding:6px;border-radius:10px}
 .mi.on{color:var(--pri)}
 .mi.on i{background:rgba(124,58,237,.1)}
+
+/* Hero */
 .hero{background:linear-gradient(135deg,#1E1B4B,var(--pri));border-radius:16px;padding:30px 20px;margin:16px 0;color:#fff;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:rgba(255,255,255,.05);border-radius:50%}
 .hero h1{font-size:28px;font-weight:800;margin-bottom:8px;line-height:1.2}
@@ -32,11 +35,15 @@ header .ctn{display:flex;justify-content:space-between;align-items:center}
 .stat{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 16px}
 .stat b{display:block;font-size:20px}
 .stat span{font-size:11px;opacity:.8}
+
+/* Section */
 .sec-t{font-size:18px;font-weight:800;margin:24px 0 14px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+
+/* Cards */
 .cd{background:var(--card);border-radius:var(--rd);box-shadow:var(--sh);overflow:hidden;cursor:pointer;transition:.25s;border:1px solid rgba(0,0,0,.04);display:flex;flex-direction:column}
 .cd:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
-.cd-img{width:100%;height:120px;object-fit:cover}
+.cd-img{width:100%;height:120px;object-fit:cover;background:linear-gradient(135deg,var(--pri),var(--sec));display:flex;align-items:center;justify-content:center;color:#fff;font-size:40px}
 .cd-body{padding:12px;flex:1;display:flex;flex-direction:column}
 .cd-title{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3}
 .cd-desc{font-size:11px;color:var(--mut);margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -45,6 +52,8 @@ header .ctn{display:flex;justify-content:space-between;align-items:center}
 .cd-tag{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:700}
 .tag-free{background:#D1FAE5;color:#065F46}
 .tag-paid{background:#EDE9FE;color:var(--pri)}
+
+/* Forms */
 .box{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--sh);margin-bottom:20px}
 .fg{margin-bottom:14px}
 .fg label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
@@ -54,43 +63,75 @@ textarea.fc{min-height:100px;resize:vertical}
 .btn{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;border:none;padding:14px 20px;border-radius:var(--rd);font-weight:700;font-size:15px;width:100%;cursor:pointer;font-family:var(--ft)}
 .btn:disabled{opacity:.6;cursor:not-allowed}
 .btn-sm{padding:10px 20px;font-size:13px;width:auto}
+
+/* Flash */
 .flash{background:var(--grn);color:#fff;padding:12px 16px;border-radius:var(--rd);margin:12px 0;font-weight:600;font-size:14px;display:none}
 .flash.err{background:var(--red)}
+
+/* Views */
 .v{display:none}
 .v.on{display:block}
 .as{display:none}
 .gs{display:inline-flex}
 .ms{display:none}
+
+/* Chapter List */
 .ch{display:flex;align-items:center;padding:14px;background:var(--card);border-radius:var(--rd);margin-bottom:10px;border:1px solid var(--bdr);cursor:pointer;transition:.2s}
 .ch:hover{border-color:var(--pri);transform:translateX(3px)}
-.ch.lock{opacity:.55}
 .ch-n{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-right:12px;flex-shrink:0}
-.ch.lock .ch-n{background:var(--bdr);color:var(--mut)}
 .ch-i h4{font-size:14px;font-weight:700}
-.ch-free{background:var(--grn);color:#fff;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;margin-left:auto}
-.ch-lock{color:var(--ylw);margin-left:auto;font-size:18px}
+
+/* Breadcrumb */
 .bc{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);margin-bottom:10px;flex-wrap:wrap}
 .bc a{color:var(--pri);text-decoration:none;font-weight:600;cursor:pointer}
 .bc span{color:var(--bdr)}
-.cnt-area{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--sh);border:1px solid var(--bdr);margin:12px 0;line-height:1.8;font-size:15px;overflow-x:auto}
-.cnt-area h1,.cnt-area h2,.cnt-area h3{margin:18px 0 8px}
-.cnt-area p{margin-bottom:10px}
-.cnt-area table{border-collapse:collapse;width:100%;margin:12px 0}
-.cnt-area table th,.cnt-area table td{border:1px solid var(--bdr);padding:8px 10px;text-align:left}
-.cnt-area table th{background:#F9FAFB}
-.cnt-area ul,.cnt-area ol{margin:8px 0 8px 20px}
-.cnt-area img{max-width:100%;border-radius:8px}
-.gbtn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--pri));color:#fff;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--ft)}
-.lock-box{text-align:center;padding:40px 20px}
-.lock-box i{font-size:48px;color:var(--ylw);margin-bottom:16px;display:block}
+
+/* =========== CONTENT RENDER AREA =========== */
+.cnt-area{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--sh);border:1px solid var(--bdr);margin:12px 0;line-height:1.8;font-size:15px;overflow-x:auto;word-wrap:break-word}
+.cnt-area h1{font-size:26px;font-weight:800;margin:20px 0 10px;color:var(--dk)}
+.cnt-area h2{font-size:22px;font-weight:700;margin:18px 0 8px;color:var(--dk)}
+.cnt-area h3{font-size:18px;font-weight:700;margin:16px 0 8px;color:var(--dk)}
+.cnt-area h4{font-size:16px;font-weight:700;margin:14px 0 6px;color:var(--dk)}
+.cnt-area p{margin-bottom:12px}
+.cnt-area b,.cnt-area strong{font-weight:700}
+.cnt-area i,.cnt-area em{font-style:italic}
+.cnt-area u{text-decoration:underline}
+.cnt-area table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+.cnt-area table th{background:#F9FAFB;border:1px solid var(--bdr);padding:10px 12px;text-align:left;font-weight:700}
+.cnt-area table td{border:1px solid var(--bdr);padding:10px 12px;text-align:left}
+.cnt-area table tr:nth-child(even){background:#FAFAFA}
+.cnt-area table tr:hover{background:#F0F0FF}
+.cnt-area ul,.cnt-area ol{margin:10px 0 10px 24px}
+.cnt-area li{margin-bottom:6px}
+.cnt-area img{max-width:100%;border-radius:8px;margin:10px 0}
+.cnt-area blockquote{border-left:4px solid var(--pri);padding:12px 16px;margin:12px 0;background:#F9FAFB;border-radius:0 8px 8px 0;font-style:italic}
+.cnt-area code{background:#F1F5F9;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:13px}
+.cnt-area pre{background:#1E293B;color:#E2E8F0;padding:16px;border-radius:10px;overflow-x:auto;margin:12px 0;font-size:13px;line-height:1.5}
+.cnt-area pre code{background:none;color:inherit;padding:0}
+.cnt-area hr{border:0;border-top:2px solid var(--bdr);margin:20px 0}
+.cnt-area a{color:var(--pri);text-decoration:underline}
+.cnt-area .center{text-align:center}
+.cnt-area .right{text-align:right}
+
+/* Empty state */
+.empty{text-align:center;padding:50px 20px}
+.empty i{font-size:50px;color:var(--bdr);margin-bottom:16px;display:block}
+.empty h3{color:var(--mut);font-size:18px;margin-bottom:8px}
+.empty p{color:var(--mut);font-size:13px}
+
+/* Admin */
+.agrid{display:grid;grid-template-columns:1fr;gap:12px}
 .atabs{display:flex;gap:8px;margin-bottom:18px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
 .atabs::-webkit-scrollbar{display:none}
 .atabs a{padding:10px 16px;background:var(--card);border-radius:30px;font-weight:600;color:var(--mut);white-space:nowrap;border:1px solid var(--bdr);font-size:13px;cursor:pointer}
 .atabs a.on{background:var(--pri);color:#fff;border-color:var(--pri)}
-.inst{background:linear-gradient(135deg,#1E1B4B,var(--pri));color:#fff;padding:14px;border-radius:12px;margin:12px 0;display:flex;align-items:center;gap:12px}
-.inst .bok{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
-.sn{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--pri);color:#fff;font-weight:800;font-size:13px;margin-right:8px}
-.vbox{background:#F0FDF4;border:2px solid #BBF7D0;border-radius:16px;padding:20px;margin-top:16px}
+
+/* Lock */
+.lock-box{text-align:center;padding:40px 20px}
+.lock-box i{font-size:48px;color:var(--ylw);margin-bottom:16px;display:block}
+.gbtn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--pri));color:#fff;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--ft)}
+
+/* Responsive */
 @media(min-width:768px){
 body{padding-bottom:30px}
 .mnav{display:none}
@@ -102,20 +143,19 @@ body{padding-bottom:30px}
 .cd-img{height:170px}
 .cd-body{padding:18px}
 .cd-title{font-size:18px}
-.cd-desc{-webkit-line-clamp:3}
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.agrid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
 <div class="ctn">
 <a onclick="go('home')" class="logo"><i class="fa-solid fa-microscope"></i> Mastery LMS</a>
 <ul class="dnav">
 <li><a onclick="go('home')">Home</a></li>
 <li class="as" id="d-user" style="background:#F3F4F6;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;"></li>
-<li class="as"><a onclick="go('verify')" style="color:var(--pri);font-weight:800;">Verify</a></li>
 <li class="ms"><a onclick="go('admin')" style="color:var(--sec);">Admin</a></li>
 <li class="as"><a onclick="doLogout()" style="color:var(--mut);cursor:pointer;">Logout</a></li>
 <li class="gs"><a onclick="go('login')" style="background:var(--pri);color:#fff;padding:8px 16px;border-radius:30px;font-weight:600;">Login</a></li>
@@ -123,24 +163,22 @@ body{padding-bottom:30px}
 </div>
 </header>
 
+<!-- MAIN -->
 <main class="ctn">
 <div id="fl" class="flash"></div>
 
+<!-- HOME -->
 <div id="v-home" class="v on">
-<div class="inst" id="inst-banner">
-<i class="fa-solid fa-mobile-screen-button" style="font-size:28px;"></i>
-<div style="flex:1"><strong>Install App</strong><br><span style="font-size:11px;opacity:.8">Browser menu then Add to Home Screen</span></div>
-<button class="bok" onclick="this.parentElement.style.display='none'">OK</button>
-</div>
 <div class="hero">
 <h1>Master Medical Lab<br>Technology MCQs</h1>
-<p>Comprehensive study materials with detailed notes, practice MCQs and explanations.</p>
+<p>Comprehensive study materials with detailed notes and practice questions.</p>
 <div class="stats" id="home-stats"></div>
 </div>
 <h3 class="sec-t"><i class="fa-solid fa-fire" style="color:var(--sec)"></i> All Subjects</h3>
 <div id="home-list"></div>
 </div>
 
+<!-- SUBJECT VIEW -->
 <div id="v-subject" class="v">
 <div class="bc" id="subj-bc"></div>
 <div id="subj-top"></div>
@@ -148,35 +186,17 @@ body{padding-bottom:30px}
 <div id="subj-chs"></div>
 </div>
 
+<!-- CHAPTER VIEW (HTML CONTENT RENDERS HERE) -->
 <div id="v-chapter" class="v">
 <div class="bc" id="ch-bc"></div>
 <div id="ch-head"></div>
 <div class="cnt-area" id="ch-body"></div>
-<div style="text-align:center;margin:16px 0"><button class="btn btn-sm" id="ch-back">Back to Chapters</button></div>
-</div>
-
-<div id="v-verify" class="v">
-<h3 class="sec-t">Verify Purchase</h3>
-<div class="box" style="max-width:550px">
-<div style="background:#F0F9FF;border:1px solid #BAE6FD;border-radius:12px;padding:16px;margin-bottom:18px">
-<h4 style="color:#0369A1;margin-bottom:8px"><i class="fa-solid fa-circle-info"></i> Steps:</h4>
-<div style="font-size:13px;color:#0C4A6E;line-height:2">
-<span class="sn">1</span> Click Buy on Gumroad on subject page<br>
-<span class="sn">2</span> Pay with card or PayPal<br>
-<span class="sn">3</span> Copy Receipt ID from Gumroad<br>
-<span class="sn">4</span> Paste below and Admin verifies
-</div>
-</div>
-<form id="vf-form">
-<div class="fg"><label>Email (same as Gumroad)</label><input type="email" id="vf-em" class="fc" required></div>
-<div class="fg"><label>Receipt ID</label><input type="text" id="vf-rc" class="fc" required placeholder="From Gumroad receipt"></div>
-<div class="fg"><label>Which Subject?</label><select id="vf-sj" class="fc"></select></div>
-<button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Submit</button>
-</form>
-<div class="vbox" id="vf-st" style="display:none"></div>
+<div style="text-align:center;margin:16px 0">
+<button class="btn btn-sm" id="ch-back">Back to Chapters</button>
 </div>
 </div>
 
+<!-- LOGIN -->
 <div id="v-login" class="v">
 <div class="box" style="max-width:400px;margin:40px auto">
 <h2 style="text-align:center;margin-bottom:20px">Login</h2>
@@ -189,6 +209,7 @@ body{padding-bottom:30px}
 </div>
 </div>
 
+<!-- REGISTER -->
 <div id="v-reg" class="v">
 <div class="box" style="max-width:400px;margin:40px auto">
 <h2 style="text-align:center;margin-bottom:20px">Register</h2>
@@ -202,6 +223,7 @@ body{padding-bottom:30px}
 </div>
 </div>
 
+<!-- ADMIN -->
 <div id="v-admin" class="v">
 <div class="hero" style="padding:20px;background:var(--dk);margin:12px 0">
 <h2 style="font-size:22px;margin:0"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h2>
@@ -209,66 +231,65 @@ body{padding-bottom:30px}
 <div class="atabs">
 <a onclick="at('add')" id="at-add" class="on"><i class="fa-solid fa-plus"></i> Add Subject</a>
 <a onclick="at('mg')" id="at-mg"><i class="fa-solid fa-list"></i> Manage</a>
-<a onclick="at('ord')" id="at-ord"><i class="fa-solid fa-receipt"></i> Orders</a>
 </div>
 
+<!-- ADD SUBJECT TAB -->
 <div id="ap-add" class="ap">
 <div class="box">
 <h3 style="margin-bottom:4px">Add New Subject + Content</h3>
-<p style="font-size:13px;color:var(--mut);margin-bottom:16px">Fill details and paste your HTML content below.</p>
+<p style="font-size:13px;color:var(--mut);margin-bottom:16px">Subject banao aur apna HTML content paste karo.</p>
 <form id="subj-f">
 <div class="fg"><label>Subject Name *</label><input type="text" id="as-nm" class="fc" required placeholder="e.g., RBCs Disorder"></div>
-<div class="fg"><label>Description *</label><textarea id="as-ds" class="fc" required placeholder="Short description" style="min-height:70px"></textarea></div>
-<div class="agrid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-<div class="fg"><label>Price USD — 0 = free</label><input type="number" id="as-pr" class="fc" value="5" min="0" step="0.01"></div>
-<div class="fg"><label>Gumroad URL</label><input type="url" id="as-gm" class="fc" placeholder="https://gumroad.com/l/xxx"></div>
-</div>
-<div class="fg"><label>Paste FULL HTML Content *</label>
-<p style="font-size:11px;color:var(--mut);margin-bottom:6px">Paste any HTML — headings, tables, lists, MCQs — students see exactly what you paste.</p>
-<textarea id="as-ht" class="fc" style="min-height:350px;font-family:monospace;font-size:12px" placeholder="Paste your HTML here...
+<div class="fg"><label>Description *</label><textarea id="as-ds" class="fc" required placeholder="Short description" style="min-height:60px"></textarea></div>
+<div class="fg"><label>Chapter Title *</label><input type="text" id="as-ch" class="fc" required placeholder="e.g., Introduction to RBCs"></div>
+<div class="fg"><label>Paste Your FULL HTML Content *</label>
+<p style="font-size:11px;color:var(--mut);margin-bottom:6px">
+Apna poora HTML yahan paste karo — headings, tables, lists, images, MCQs kuch bhi. Yeh waisa hi render hoga jaise aapne likha hai.
+</p>
+<textarea id="as-ht" class="fc" style="min-height:300px;font-family:monospace;font-size:12px" placeholder="Paste your HTML here...
 
-Example:
+Examples:
 <h2>Topic Name</h2>
-<p>Explanation text...</p>
-<table border=1>
+<p>Explanation text here...</p>
+
+<table border='1'>
 <tr><th>Question</th><th>Answer</th></tr>
-<tr><td>Q1?</td><td>A1</td></tr>
-</table>"></textarea></div>
-<button type="submit" id="pub-btn" class="btn"><i class="fa-solid fa-rocket"></i> Publish Subject</button>
+<tr><td>What is X?</td><td>X is Y</td></tr>
+</table>
+
+<ul>
+<li>Point 1</li>
+<li>Point 2</li>
+</ul>"></textarea></div>
+<button type="submit" id="pub-btn" class="btn"><i class="fa-solid fa-rocket"></i> Publish</button>
 </form>
 <div id="as-res" style="margin-top:10px;font-size:13px"></div>
 </div>
 </div>
 
+<!-- MANAGE TAB -->
 <div id="ap-mg" class="ap" style="display:none">
 <div class="box">
 <h3 style="margin-bottom:14px">All Subjects</h3>
 <div id="mg-ls"></div>
 </div>
 </div>
-
-<div id="ap-ord" class="ap" style="display:none">
-<div class="box">
-<h3 style="margin-bottom:14px">Orders</h3>
-<p style="font-size:12px;color:var(--mut);margin-bottom:14px">Verify on Gumroad then click Confirm.</p>
-<div style="overflow-x:auto"><table id="ord-tb" style="width:100%;border-collapse:collapse;font-size:13px"></table></div>
-</div>
-</div>
 </div>
 </main>
 
+<!-- MOBILE NAV -->
 <nav class="mnav">
 <a onclick="go('home')" id="mn-home" class="mi on"><i class="fa-solid fa-house"></i> Home</a>
-<a onclick="go('verify')" id="mn-verify" class="as"><i class="fa-solid fa-circle-check"></i> Verify</a>
-<a onclick="go('login')" id="mn-login" class="gs" style="display:flex"><i class="fa-solid fa-user"></i> Login</a>
+<a onclick="go('login')" id="mn-login" class="gs"><i class="fa-solid fa-user"></i> Login</a>
 <a onclick="go('admin')" id="mn-admin" class="ms"><i class="fa-solid fa-shield-halved"></i> Admin</a>
 <a onclick="doLogout()" class="as"><i class="fa-solid fa-power-off"></i> Logout</a>
 </nav>
 
+<!-- ========== FIREBASE SCRIPT ========== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import { getDatabase, ref, set, onValue, push, remove, update } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 const firebaseConfig = {
 apiKey: "AIzaSyDUZE3XaBrTXP9BHV3rIvhlrfgGhWbjQBY",
@@ -287,9 +308,9 @@ const db = getDatabase(app);
 let currentUser = null;
 let isAdmin = false;
 let sData = {};
-let oData = {};
 const ADM = "admin@masterylms.com";
 
+// ============ UTILITY ============
 function fl(msg, isErr) {
 const el = document.getElementById("fl");
 el.textContent = msg;
@@ -306,15 +327,7 @@ d.textContent = s;
 return d.innerHTML;
 }
 
-function bought(uid, sid) {
-if (!oData) return false;
-for (let k in oData) {
-let o = oData[k];
-if (o.user_id === uid && o.subject_id === sid && o.status === "Confirmed") return true;
-}
-return false;
-}
-
+// ============ NAVIGATION ============
 function go(v) {
 document.querySelectorAll(".v").forEach(el => el.classList.remove("on"));
 let t = document.getElementById("v-" + v);
@@ -328,7 +341,7 @@ else if (v.indexOf("subject-") === 0) rSubj(v.replace("subject-", ""));
 else if (v.indexOf("chapter-") === 0) {
 let p = v.replace("chapter-", "").split("-");
 if (p.length >= 2) rChap(p[0], p[1]);
-} else if (v === "verify") rVer();
+}
 window.scrollTo(0, 0);
 }
 window.go = go;
@@ -337,6 +350,7 @@ window.addEventListener("hashchange", () => {
 go(window.location.hash.replace("#", "") || "home");
 });
 
+// ============ UI STATE ============
 function ui() {
 if (currentUser) {
 document.querySelectorAll(".as").forEach(el => el.style.display = "flex");
@@ -350,6 +364,7 @@ document.querySelectorAll(".gs").forEach(el => el.style.display = "flex");
 }
 }
 
+// ============ RENDER HOME ============
 function rHome() {
 let c = document.getElementById("home-list");
 let ks = Object.keys(sData);
@@ -360,35 +375,34 @@ if (s.chapters) totalCh += Object.keys(s.chapters).length;
 }
 document.getElementById("home-stats").innerHTML =
 '<div class="stat"><b>' + ks.length + '</b><span>Subjects</span></div>' +
-'<div class="stat"><b>' + totalCh + '</b><span>Chapters</span></div>' +
-'<div class="stat"><b>FREE</b><span>First Chapter</span></div>';
+'<div class="stat"><b>' + totalCh + '</b><span>Chapters</span></div>';
 
 if (ks.length === 0) {
-c.innerHTML = '<div class="box" style="text-align:center;padding:40px"><i class="fa-solid fa-book-open" style="font-size:40px;color:var(--bdr);margin-bottom:10px;display:block"></i><p style="color:var(--mut)">Coming soon! Admin is adding content.</p></div>';
+c.innerHTML = '<div class="empty"><i class="fa-solid fa-book-open"></i><h3>Coming Soon</h3><p>Admin is adding content.</p></div>';
 return;
 }
 let h = '<div class="grid">';
 for (let sid in sData) {
 let s = sData[sid];
 let chC = s.chapters ? Object.keys(s.chapters).length : 0;
+let letter = s.name ? s.name.charAt(0).toUpperCase() : 'M';
 h += '<div class="cd" onclick="go(\'subject-' + sid + '\')">';
-h += '<img src="https://placehold.co/400x200/7C3AED/ffffff?text=' + encodeURIComponent(s.name) + '" class="cd-img">';
+h += '<div class="cd-img">' + letter + '</div>';
 h += '<div class="cd-body"><div class="cd-title">' + esc(s.name) + '</div><div class="cd-desc">' + esc(s.description || "") + '</div>';
-h += '<div class="cd-foot"><span class="cd-price">' + (s.price > 0 ? "$" + s.price : "FREE") + '</span>';
-if (s.price > 0) h += '<span class="cd-tag tag-paid">' + chC + ' ch</span>';
-else h += '<span class="cd-tag tag-free">Free</span>';
-h += '</div></div></div>';
+h += '<div class="cd-foot"><span class="cd-price">Free</span><span class="cd-tag tag-free">' + chC + ' ch</span></div>';
+h += '</div></div>';
 }
 h += '</div>';
 c.innerHTML = h;
 }
 
+// ============ RENDER SUBJECT ============
 function rSubj(sid) {
 let s = sData[sid];
 if (!s) { go("home"); return; }
 
 document.getElementById("subj-bc").innerHTML = '<a onclick="go(\'home\')">Home</a> <span>/</span> ' + esc(s.name);
-document.getElementById("subj-top").innerHTML = '<div class="hero" style="padding:20px"><h2 style="font-size:20px;margin:0">' + esc(s.name) + '</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9">' + esc(s.description || "") + '</p>' + (s.price > 0 ? '<p style="margin-top:8px;font-size:12px;opacity:.7">Full access: $' + s.price + '</p>' : '') + '</div>';
+document.getElementById("subj-top").innerHTML = '<div class="hero" style="padding:20px"><h2 style="font-size:20px;margin:0">' + esc(s.name) + '</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9">' + esc(s.description || "") + '</p></div>';
 
 let chs = [];
 if (s.chapters) {
@@ -398,185 +412,115 @@ chs.sort((a, b) => (a.d.order || 0) - (b.d.order || 0));
 
 let c = document.getElementById("subj-chs");
 
-// CHECK ACCESS
-let uid = currentUser ? currentUser.uid : null;
-let pur = uid ? bought(uid, sid) : false;
-let free = !s.price || s.price <= 0;
-
-// IF NO CHAPTERS BUT HAS HTML_CONTENT AT SUBJECT LEVEL - SHOW DIRECTLY
 if (chs.length === 0) {
-// Check if subject has html_content stored directly
-if (s.html_content) {
-if (free || pur || isAdmin) {
-c.innerHTML = '<div class="cnt-area">' + s.html_content + '</div>';
-} else {
-// Show locked
-c.innerHTML = '<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Content Locked</h3><p>Purchase to unlock.</p>' +
-(s.gumroad_url ? '<a href="' + esc(s.gumroad_url) + '" target="_blank" class="gbtn">Buy on Gumroad $' + s.price + '</a>' : '') + '</div>';
-}
-} else {
-c.innerHTML = '<div class="box" style="text-align:center">No content yet.</div>';
-}
+c.innerHTML = '<div class="empty"><i class="fa-solid fa-folder-open"></i><h3>No chapters yet</h3></div>';
 return;
 }
 
-// HAS CHAPTERS - SHOW LIST
 let h = "";
 for (let i = 0; i < chs.length; i++) {
 let ch = chs[i];
-let first = (i === 0);
-let ok = first || free || pur || isAdmin;
-if (ok) {
 h += '<div class="ch" onclick="go(\'chapter-' + sid + '-' + ch.id + '\')">';
-h += '<div class="ch-n">' + (i + 1) + '</div><div class="ch-i"><h4>' + esc(ch.d.title) + '</h4></div>';
-if (first) h += '<span class="ch-free">FREE</span>';
-h += '</div>';
-} else {
-h += '<div class="ch lock"><div class="ch-n">' + (i + 1) + '</div><div class="ch-i"><h4>' + esc(ch.d.title) + '</h4></div><i class="fa-solid fa-lock ch-lock"></i></div>';
-}
-}
-
-if (!pur && !free && !isAdmin) {
-h += '<div class="box" style="text-align:center;margin-top:16px">';
-h += '<i class="fa-solid fa-lock-open" style="font-size:36px;color:var(--pri);margin-bottom:10px;display:block"></i>';
-h += '<h3>Unlock All Chapters</h3><p style="color:var(--mut);margin-bottom:16px">Full access for $' + s.price + '</p>';
-if (s.gumroad_url) {
-h += '<a href="' + esc(s.gumroad_url) + '" target="_blank" class="gbtn"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad $' + s.price + '</a>';
-h += '<p style="font-size:13px;color:var(--mut);margin-top:14px">After payment: <a onclick="go(\'verify\')" style="color:var(--pri);cursor:pointer;font-weight:700">Verify Purchase</a></p>';
-}
+h += '<div class="ch-n">' + (i + 1) + '</div>';
+h += '<div class="ch-i"><h4>' + esc(ch.d.title) + '</h4></div>';
 h += '</div>';
 }
 c.innerHTML = h;
 }
 
+// ============ RENDER CHAPTER — HTML CONTENT YAHAN RENDER HOTA HAI ============
 function rChap(sid, cid) {
 let s = sData[sid];
 if (!s || !s.chapters || !s.chapters[cid]) { go("home"); return; }
 let ch = s.chapters[cid];
-let chs = [];
-if (s.chapters) { for (let c2 in s.chapters) chs.push({ id: c2, d: s.chapters[c2] }); chs.sort((a, b) => (a.d.order || 0) - (b.d.order || 0)); }
-let idx = -1;
-for (let i = 0; i < chs.length; i++) if (chs[i].id === cid) idx = i;
-let first = (idx === 0);
-let free = !s.price || s.price <= 0;
-let uid = currentUser ? currentUser.uid : null;
-let pur = uid ? bought(uid, sid) : false;
-let ok = first || free || pur || isAdmin;
 
 document.getElementById("ch-bc").innerHTML = '<a onclick="go(\'home\')">Home</a> <span>/</span> <a onclick="go(\'subject-' + sid + '\')">' + esc(s.name) + '</a> <span>/</span> ' + esc(ch.title);
 document.getElementById("ch-back").setAttribute("onclick", "go('subject-" + sid + "')");
+document.getElementById("ch-head").innerHTML = '<h2 style="font-size:20px;font-weight:800;margin-bottom:4px">' + esc(ch.title) + '</h2>';
 
-if (!ok) {
-document.getElementById("ch-head").innerHTML = "";
-document.getElementById("ch-body").innerHTML = '<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Chapter Locked</h3><p>Purchase to unlock.</p>' + (s.gumroad_url ? '<a href="' + esc(s.gumroad_url) + '" target="_blank" class="gbtn" style="font-size:14px;padding:12px 20px">Buy on Gumroad</a>' : '') + '</div>';
-return;
+// ======= YEH HAI KEY LINE — innerHTML se HTML RENDER hota hai =======
+let body = document.getElementById("ch-body");
+if (ch.html_content && ch.html_content.trim().length > 0) {
+body.innerHTML = ch.html_content;
+} else {
+body.innerHTML = '<div class="empty"><i class="fa-solid fa-file-circle-exclamation"></i><h3>No Content</h3><p>Admin has not added content yet.</p></div>';
 }
-document.getElementById("ch-head").innerHTML = '<h2 style="font-size:18px;font-weight:800;margin-bottom:4px">' + esc(ch.title) + '</h2>';
-// RENDER HTML CONTENT DIRECTLY - NO ESCAPING
-document.getElementById("ch-body").innerHTML = ch.html_content || '<p style="color:var(--mut);text-align:center">No content yet.</p>';
-}
-
-function rVer() {
-if (!currentUser) { go("login"); return; }
-document.getElementById("vf-em").value = currentUser.email;
-let sel = document.getElementById("vf-sj");
-let h = '<option value="">-- Select --</option>';
-for (let sid in sData) if (sData[sid].price > 0) h += '<option value="' + sid + '">' + esc(sData[sid].name) + ' ($' + sData[sid].price + ')</option>';
-sel.innerHTML = h;
 }
 
-document.getElementById("vf-form").addEventListener("submit", async (e) => {
-e.preventDefault();
-if (!currentUser) { fl("Login first.", true); return; }
-try {
-await push(ref(db, "orders"), {
-user_id: currentUser.uid,
-email: document.getElementById("vf-em").value,
-subject_id: document.getElementById("vf-sj").value,
-receipt_id: document.getElementById("vf-rc").value,
-status: "Pending",
-timestamp: Date.now()
-});
-document.getElementById("vf-st").style.display = "block";
-document.getElementById("vf-st").innerHTML = '<h4 style="color:#065F46"><i class="fa-solid fa-clock"></i> Submitted!</h4><p style="font-size:13px;color:#065F46">Admin will verify shortly.</p>';
-document.getElementById("vf-form").reset();
-document.getElementById("vf-em").value = currentUser.email;
-fl("Submitted!");
-} catch (err) { fl("Error: " + err.message, true); }
-});
-
+// ============ ADMIN TABS ============
 function at(n) {
 document.querySelectorAll(".atabs a").forEach(el => el.classList.remove("on"));
 document.querySelectorAll(".ap").forEach(el => el.style.display = "none");
 document.getElementById("at-" + n).classList.add("on");
 document.getElementById("ap-" + n).style.display = "block";
 if (n === "mg") rMg();
-if (n === "ord") rOrd();
 }
 window.at = at;
 
-// ========== PUBLISH SUBJECT - FIXED ==========
+// ============ PUBLISH SUBJECT ============
 document.getElementById("subj-f").addEventListener("submit", async (e) => {
 e.preventDefault();
 let btn = document.getElementById("pub-btn");
 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publishing...';
 btn.disabled = true;
 
-let nm = document.getElementById("as-nm").value;
-let ds = document.getElementById("as-ds").value;
-let pr = parseFloat(document.getElementById("as-pr").value) || 0;
-let gm = document.getElementById("as-gm").value.trim();
+let nm = document.getElementById("as-nm").value.trim();
+let ds = document.getElementById("as-ds").value.trim();
+let chTitle = document.getElementById("as-ch").value.trim();
 let ht = document.getElementById("as-ht").value;
 
 if (!ht.trim()) {
-fl("Paste HTML content!", true);
-btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish Subject';
+fl("HTML content paste karo!", true);
+btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish';
 btn.disabled = false;
 return;
 }
 
 try {
-// STEP 1: Create subject
-let newRef = await push(ref(db, "subjects"), {
+// Step 1: Create subject
+let newSubj = await push(ref(db, "subjects"), {
 name: nm,
 description: ds,
-price: pr,
-gumroad_url: gm,
 created_at: Date.now()
 });
 
-// STEP 2: Auto-create chapter with the HTML content
-await push(ref(db, "subjects/" + newRef.key + "/chapters"), {
-title: nm,
+// Step 2: Create chapter with HTML content inside the subject
+await push(ref(db, "subjects/" + newSubj.key + "/chapters"), {
+title: chTitle || nm,
 html_content: ht,
 order: 1,
 created_at: Date.now()
 });
 
 document.getElementById("subj-f").reset();
-document.getElementById("as-res").innerHTML = '<span style="color:var(--grn)"><i class="fa-solid fa-check-circle"></i> Published! Check Home page now.</span>';
+document.getElementById("as-res").innerHTML = '<span style="color:var(--grn)"><i class="fa-solid fa-check-circle"></i> Published successfully! Check Home page.</span>';
 fl("Subject published!");
+
 } catch (err) {
 fl("Error: " + err.message, true);
 } finally {
-btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish Subject';
+btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish';
 btn.disabled = false;
 }
 });
 
+// ============ MANAGE SUBJECTS ============
 function rMg() {
 let c = document.getElementById("mg-ls");
 let ks = Object.keys(sData);
-if (ks.length === 0) { c.innerHTML = '<p style="color:var(--mut);text-align:center">No subjects.</p>'; return; }
+if (ks.length === 0) {
+c.innerHTML = '<p style="color:var(--mut);text-align:center">No subjects yet.</p>';
+return;
+}
 let h = "";
 for (let sid in sData) {
 let s = sData[sid];
 let chC = s.chapters ? Object.keys(s.chapters).length : 0;
 h += '<div style="border:2px solid var(--bdr);border-radius:12px;padding:14px;margin-bottom:12px">';
 h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-h += '<div><strong style="font-size:15px">' + esc(s.name) + '</strong><br><span style="font-size:12px;color:var(--mut)">' + (s.price > 0 ? "$" + s.price : "Free") + ' | ' + chC + ' chapter(s) | ' + (s.gumroad_url ? '<span style="color:var(--grn)">Gumroad OK</span>' : '<span style="color:var(--red)">No Gumroad</span>') + '</span></div>';
-h += '<button onclick="delS(\'' + sid + '\')" style="background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold">Delete</button></div>';
-h += '</div>';
+h += '<div><strong style="font-size:15px">' + esc(s.name) + '</strong><br><span style="font-size:12px;color:var(--mut)">' + chC + ' chapter(s)</span></div>';
+h += '<button onclick="delS(\'' + sid + '\')" style="background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold">Delete</button>';
+h += '</div></div>';
 }
 c.innerHTML = h;
 }
@@ -586,47 +530,17 @@ if (!confirm("Delete this subject and ALL its chapters?")) return;
 try {
 await remove(ref(db, "subjects/" + sid));
 fl("Deleted.");
-} catch (e) { fl("Error", true); }
+} catch (e) { fl("Error deleting.", true); }
 };
 
-function rOrd() {
-let tb = document.getElementById("ord-tb");
-if (!oData || Object.keys(oData).length === 0) {
-tb.innerHTML = '<tr><td style="padding:20px;text-align:center;color:var(--mut)">No orders yet.</td></tr>';
-return;
-}
-let h = '<tr style="background:#F9FAFB"><th style="padding:8px;text-align:left">Email</th><th style="padding:8px;text-align:left">Subject</th><th style="padding:8px;text-align:left">Receipt</th><th style="padding:8px;text-align:left">Status</th><th style="padding:8px;text-align:left">Action</th></tr>';
-let ords = Object.entries(oData).sort((a, b) => (b[1].timestamp || 0) - (a[1].timestamp || 0));
-for (let i = 0; i < ords.length; i++) {
-let id = ords[i][0], o = ords[i][1];
-let sn = sData[o.subject_id] ? sData[o.subject_id].name : "?";
-let sc = o.status === "Confirmed" ? "#D1FAE5;color:#065F46" : "#FEF3C7;color:#92400E";
-h += '<tr><td style="padding:8px;border-bottom:1px solid #eee">' + esc(o.email) + '</td>';
-h += '<td style="padding:8px;border-bottom:1px solid #eee">' + esc(sn) + '</td>';
-h += '<td style="padding:8px;border-bottom:1px solid #eee;font-family:monospace;font-size:11px">' + esc(o.receipt_id || "-") + '</td>';
-h += '<td style="padding:8px;border-bottom:1px solid #eee"><span style="background:' + sc + ';padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700">' + o.status + '</span></td>';
-h += '<td style="padding:8px;border-bottom:1px solid #eee">';
-if (o.status === "Pending") h += '<button onclick="cOrd(\'' + id + '\')" style="padding:6px 10px;background:var(--dk);color:#fff;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:bold">Confirm</button>';
-else h += '<i class="fa-solid fa-check-double" style="color:var(--grn)"></i>';
-h += '</td></tr>';
-}
-tb.innerHTML = h;
-}
-
-window.cOrd = async (id) => {
-try {
-await update(ref(db, "orders/" + id), { status: "Confirmed" });
-fl("Confirmed!");
-} catch (e) { fl("Error", true); }
-};
-
+// ============ AUTH ============
 document.getElementById("rg-f").addEventListener("submit", async (e) => {
 e.preventDefault();
 let em = document.getElementById("rg-em").value;
 let pw = document.getElementById("rg-pw").value;
 let cf = document.getElementById("rg-cf").value;
 if (pw.length < 6) { fl("Password 6+ chars.", true); return; }
-if (pw !== cf) { fl("Passwords do not match.", true); return; }
+if (pw !== cf) { fl("Passwords don't match.", true); return; }
 try {
 let cred = await createUserWithEmailAndPassword(auth, em, pw);
 await set(ref(db, "users/" + cred.user.uid), { email: em, role: em === ADM ? "admin" : "user" });
@@ -654,6 +568,7 @@ window.doLogout = async () => {
 try { await signOut(auth); go("login"); fl("Logged out."); } catch (e) {}
 };
 
+// ============ AUTH STATE ============
 onAuthStateChanged(auth, (user) => {
 if (user) {
 currentUser = user;
@@ -665,25 +580,24 @@ isAdmin = false;
 ui();
 let cv = window.location.hash.replace("#", "") || "home";
 if (currentUser && (cv === "login" || cv === "reg")) go("home");
-if (!currentUser && ["verify", "admin"].indexOf(cv) !== -1) go("login");
+if (!currentUser && ["admin"].indexOf(cv) !== -1) go("login");
 });
 
+// ============ LISTEN TO FIREBASE DATA ============
 onValue(ref(db, "subjects"), (snap) => {
 sData = snap.val() || {};
 let cv = window.location.hash.replace("#", "") || "home";
 if (cv === "home") rHome();
 if (cv.indexOf("subject-") === 0) rSubj(cv.replace("subject-", ""));
+if (cv.indexOf("chapter-") === 0) {
+let p = cv.replace("chapter-", "").split("-");
+if (p.length >= 2) rChap(p[0], p[1]);
+}
 });
 
-onValue(ref(db, "orders"), (snap) => {
-oData = snap.val() || {};
-let cv = window.location.hash.replace("#", "") || "home";
-if (cv === "admin") rOrd();
-});
-
+// ============ INIT ============
 ui();
 go(window.location.hash.replace("#", "") || "home");
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js").catch(() => {});
 </script>
 </body>
 </html>
