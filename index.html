@@ -1,603 +1,812 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mastery LMS</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root{--pri:#7C3AED;--sec:#EC4899;--bg:#F3F4F6;--card:#FFF;--dk:#111827;--mut:#6B7280;--bdr:#E5E7EB;--grn:#10B981;--red:#EF4444;--ylw:#F59E0B;--ft:'Plus Jakarta Sans',sans-serif;--rd:12px;--sh:0 2px 4px rgba(0,0,0,.05)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--ft);color:var(--dk);background:var(--bg);padding-bottom:85px}
-.ctn{width:93%;max-width:1200px;margin:0 auto}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastery LMS - Medical Lab Technology</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* Header */
-header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-header .ctn{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:800;color:var(--dk);display:flex;align-items:center;gap:8px;cursor:pointer}
-.logo i{background:linear-gradient(135deg,var(--pri),var(--sec));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:26px}
-.dnav{display:none}
+    <style>
+        /* === BASE STYLES & VARIABLES === */
+        :root {
+            --primary: #7C3AED;
+            --primary-hover: #6D28D9;
+            --secondary: #EC4899;
+            --bg: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+        }
 
-/* Mobile Nav */
-.mnav{position:fixed;bottom:0;left:0;width:100%;background:var(--card);display:flex;justify-content:space-around;padding:8px 8px 18px;border-radius:20px 20px 0 0;box-shadow:0 -5px 25px rgba(0,0,0,.08);z-index:1000}
-.mi{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--mut);font-size:10px;font-weight:600;cursor:pointer;padding:4px 8px;text-decoration:none}
-.mi i{font-size:20px;padding:6px;border-radius:10px}
-.mi.on{color:var(--pri)}
-.mi.on i{background:rgba(124,58,237,.1)}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding-bottom: 80px; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        /* === LAYOUT === */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hidden { display: none !important; }
+        .view { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Hero */
-.hero{background:linear-gradient(135deg,#1E1B4B,var(--pri));border-radius:16px;padding:30px 20px;margin:16px 0;color:#fff;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:rgba(255,255,255,.05);border-radius:50%}
-.hero h1{font-size:28px;font-weight:800;margin-bottom:8px;line-height:1.2}
-.hero p{font-size:14px;opacity:.85;line-height:1.5}
-.stats{display:flex;gap:15px;margin-top:16px;flex-wrap:wrap}
-.stat{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 16px}
-.stat b{display:block;font-size:20px}
-.stat span{font-size:11px;opacity:.8}
+        /* === NAVIGATION === */
+        /* Desktop Header */
+        header { background: var(--card-bg); padding: 15px 20px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; display: none; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-link { font-weight: 600; color: var(--text-main); transition: color 0.2s; cursor: pointer; }
+        .nav-link:hover { color: var(--primary); }
 
-/* Section */
-.sec-t{font-size:18px;font-weight:800;margin:24px 0 14px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+        /* Mobile Bottom Nav */
+        .bottom-nav { background: var(--card-bg); position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid var(--border); box-shadow: 0 -2px 10px rgba(0,0,0,0.05); z-index: 50; }
+        .b-nav-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; font-weight: 600; color: var(--text-light); gap: 4px; cursor: pointer; }
+        .b-nav-item i { font-size: 20px; }
+        .b-nav-item.active { color: var(--primary); }
 
-/* Cards */
-.cd{background:var(--card);border-radius:var(--rd);box-shadow:var(--sh);overflow:hidden;cursor:pointer;transition:.25s;border:1px solid rgba(0,0,0,.04);display:flex;flex-direction:column}
-.cd:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.1)}
-.cd-img{width:100%;height:120px;object-fit:cover;background:linear-gradient(135deg,var(--pri),var(--sec));display:flex;align-items:center;justify-content:center;color:#fff;font-size:40px}
-.cd-body{padding:12px;flex:1;display:flex;flex-direction:column}
-.cd-title{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3}
-.cd-desc{font-size:11px;color:var(--mut);margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cd-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px dashed var(--bdr)}
-.cd-price{font-size:16px;font-weight:800;color:var(--pri)}
-.cd-tag{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:700}
-.tag-free{background:#D1FAE5;color:#065F46}
-.tag-paid{background:#EDE9FE;color:var(--pri)}
+        @media (min-width: 768px) {
+            header { display: block; }
+            .bottom-nav { display: none; }
+            body { padding-bottom: 0; }
+        }
 
-/* Forms */
-.box{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--sh);margin-bottom:20px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
-.fc{width:100%;padding:12px;border-radius:var(--rd);border:2px solid var(--bdr);background:#FAFAFA;font-family:var(--ft);font-size:14px}
-.fc:focus{border-color:var(--pri);background:#fff;outline:none}
-textarea.fc{min-height:100px;resize:vertical}
-.btn{background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;border:none;padding:14px 20px;border-radius:var(--rd);font-weight:700;font-size:15px;width:100%;cursor:pointer;font-family:var(--ft)}
-.btn:disabled{opacity:.6;cursor:not-allowed}
-.btn-sm{padding:10px 20px;font-size:13px;width:auto}
+        /* === COMPONENTS === */
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; text-align: center; transition: 0.2s; }
+        .btn:hover { background: var(--primary-hover); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .btn-secondary { background: var(--secondary); }
+        .btn-secondary:hover { background: #BE185D; }
+        .btn-danger { background: #EF4444; }
+        .btn-danger:hover { background: #DC2626; }
+        .btn-small { padding: 6px 12px; font-size: 14px; }
+        .btn-block { width: 100%; }
 
-/* Flash */
-.flash{background:var(--grn);color:#fff;padding:12px 16px;border-radius:var(--rd);margin:12px 0;font-weight:600;font-size:14px;display:none}
-.flash.err{background:var(--red)}
+        .card { background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); padding: 24px; border: 1px solid var(--border); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        
+        .input-group { margin-bottom: 16px; }
+        .input-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+        .input-control { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 16px; outline: none; transition: border 0.2s; }
+        .input-control:focus { border-color: var(--primary); }
 
-/* Views */
-.v{display:none}
-.v.on{display:block}
-.as{display:none}
-.gs{display:inline-flex}
-.ms{display:none}
+        /* === SPECIFIC VIEWS === */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 16px; margin-bottom: 40px; }
+        .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+        .hero p { font-size: 18px; opacity: 0.9; }
 
-/* Chapter List */
-.ch{display:flex;align-items:center;padding:14px;background:var(--card);border-radius:var(--rd);margin-bottom:10px;border:1px solid var(--bdr);cursor:pointer;transition:.2s}
-.ch:hover{border-color:var(--pri);transform:translateX(3px)}
-.ch-n{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--sec));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-right:12px;flex-shrink:0}
-.ch-i h4{font-size:14px;font-weight:700}
+        .subject-card { cursor: pointer; transition: transform 0.2s; display: flex; flex-direction: column; }
+        .subject-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .subject-price { background: #FEF3C7; color: #D97706; padding: 4px 10px; border-radius: 20px; font-size: 14px; font-weight: 700; align-self: flex-start; margin-bottom: 12px; }
+        .subject-price.free { background: #D1FAE5; color: #059669; }
 
-/* Breadcrumb */
-.bc{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);margin-bottom:10px;flex-wrap:wrap}
-.bc a{color:var(--pri);text-decoration:none;font-weight:600;cursor:pointer}
-.bc span{color:var(--bdr)}
+        .breadcrumb { display: flex; gap: 8px; font-size: 14px; color: var(--text-light); margin-bottom: 24px; align-items: center; }
+        .breadcrumb a { color: var(--primary); font-weight: 600; cursor: pointer; }
 
-/* =========== CONTENT RENDER AREA =========== */
-.cnt-area{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--sh);border:1px solid var(--bdr);margin:12px 0;line-height:1.8;font-size:15px;overflow-x:auto;word-wrap:break-word}
-.cnt-area h1{font-size:26px;font-weight:800;margin:20px 0 10px;color:var(--dk)}
-.cnt-area h2{font-size:22px;font-weight:700;margin:18px 0 8px;color:var(--dk)}
-.cnt-area h3{font-size:18px;font-weight:700;margin:16px 0 8px;color:var(--dk)}
-.cnt-area h4{font-size:16px;font-weight:700;margin:14px 0 6px;color:var(--dk)}
-.cnt-area p{margin-bottom:12px}
-.cnt-area b,.cnt-area strong{font-weight:700}
-.cnt-area i,.cnt-area em{font-style:italic}
-.cnt-area u{text-decoration:underline}
-.cnt-area table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
-.cnt-area table th{background:#F9FAFB;border:1px solid var(--bdr);padding:10px 12px;text-align:left;font-weight:700}
-.cnt-area table td{border:1px solid var(--bdr);padding:10px 12px;text-align:left}
-.cnt-area table tr:nth-child(even){background:#FAFAFA}
-.cnt-area table tr:hover{background:#F0F0FF}
-.cnt-area ul,.cnt-area ol{margin:10px 0 10px 24px}
-.cnt-area li{margin-bottom:6px}
-.cnt-area img{max-width:100%;border-radius:8px;margin:10px 0}
-.cnt-area blockquote{border-left:4px solid var(--pri);padding:12px 16px;margin:12px 0;background:#F9FAFB;border-radius:0 8px 8px 0;font-style:italic}
-.cnt-area code{background:#F1F5F9;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:13px}
-.cnt-area pre{background:#1E293B;color:#E2E8F0;padding:16px;border-radius:10px;overflow-x:auto;margin:12px 0;font-size:13px;line-height:1.5}
-.cnt-area pre code{background:none;color:inherit;padding:0}
-.cnt-area hr{border:0;border-top:2px solid var(--bdr);margin:20px 0}
-.cnt-area a{color:var(--pri);text-decoration:underline}
-.cnt-area .center{text-align:center}
-.cnt-area .right{text-align:right}
+        .chapter-list { margin-top: 24px; }
+        .chapter-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; background: var(--card-bg); cursor: pointer; transition: 0.2s; }
+        .chapter-item:hover { border-color: var(--primary); }
+        .chapter-item.locked { background: var(--bg); cursor: not-allowed; opacity: 0.7; }
+        .chapter-item.locked:hover { border-color: var(--border); }
 
-/* Empty state */
-.empty{text-align:center;padding:50px 20px}
-.empty i{font-size:50px;color:var(--bdr);margin-bottom:16px;display:block}
-.empty h3{color:var(--mut);font-size:18px;margin-bottom:8px}
-.empty p{color:var(--mut);font-size:13px}
+        /* Admin Tabs */
+        .admin-tabs { display: flex; gap: 10px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 10px; }
+        .tab-btn { padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--card-bg); white-space: nowrap; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .admin-table th, .admin-table td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        .admin-table th { background: var(--bg); font-weight: 700; }
 
-/* Admin */
-.agrid{display:grid;grid-template-columns:1fr;gap:12px}
-.atabs{display:flex;gap:8px;margin-bottom:18px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
-.atabs::-webkit-scrollbar{display:none}
-.atabs a{padding:10px 16px;background:var(--card);border-radius:30px;font-weight:600;color:var(--mut);white-space:nowrap;border:1px solid var(--bdr);font-size:13px;cursor:pointer}
-.atabs a.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+        /* Toast Message */
+        #toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #1F2937; color: white; padding: 12px 24px; border-radius: 30px; font-weight: 600; z-index: 9999; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-/* Lock */
-.lock-box{text-align:center;padding:40px 20px}
-.lock-box i{font-size:48px;color:var(--ylw);margin-bottom:16px;display:block}
-.gbtn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--pri));color:#fff;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--ft)}
+        /* ========================================================= */
+        /* CRITICAL HTML CONTENT RENDERING STYLES (.cnt-area)        */
+        /* ========================================================= */
+        .cnt-area h1 { font-size: 26px; font-weight: 800; margin: 20px 0 10px; }
+        .cnt-area h2 { font-size: 22px; font-weight: 700; margin: 18px 0 8px; }
+        .cnt-area h3 { font-size: 18px; font-weight: 700; margin: 16px 0 8px; }
+        .cnt-area h4 { font-size: 16px; font-weight: 700; margin: 14px 0 6px; }
+        .cnt-area p { margin-bottom: 12px; line-height: 1.8; }
+        .cnt-area table { border-collapse: collapse; width: 100%; margin: 14px 0; }
+        .cnt-area th, .cnt-area td { border: 1px solid #E5E7EB; padding: 10px 12px; text-align: left; }
+        .cnt-area th { background: #F9FAFB; font-weight: 700; }
+        .cnt-area tr:nth-child(even) { background: #FAFAFA; }
+        .cnt-area ul, .cnt-area ol { margin: 10px 0 10px 24px; }
+        .cnt-area li { margin-bottom: 6px; }
+        .cnt-area img { max-width: 100%; border-radius: 8px; }
+        .cnt-area blockquote { border-left: 4px solid #7C3AED; padding: 12px 16px; background: #F9FAFB; }
+        .cnt-area code { background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .cnt-area pre { background: #1E293B; color: #E2E8F0; padding: 16px; border-radius: 10px; overflow-x: auto; margin-bottom: 16px; }
+        .cnt-area hr { border: 0; border-top: 2px solid #E5E7EB; margin: 20px 0; }
+        .cnt-area a { color: var(--primary); text-decoration: underline; }
+        .cnt-area b, .cnt-area strong { font-weight: 800; }
+        .cnt-area i, .cnt-area em { font-style: italic; }
 
-/* Responsive */
-@media(min-width:768px){
-body{padding-bottom:30px}
-.mnav{display:none}
-.dnav{display:flex;gap:20px;list-style:none;align-items:center}
-.dnav a{color:var(--dk);text-decoration:none;font-weight:600;font-size:15px;cursor:pointer}
-.hero{padding:50px;margin:30px 0}
-.hero h1{font-size:42px}
-.grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.cd-img{height:170px}
-.cd-body{padding:18px}
-.cd-title{font-size:18px}
-.agrid{grid-template-columns:1fr 1fr}
-}
-</style>
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-<div class="ctn">
-<a onclick="go('home')" class="logo"><i class="fa-solid fa-microscope"></i> Mastery LMS</a>
-<ul class="dnav">
-<li><a onclick="go('home')">Home</a></li>
-<li class="as" id="d-user" style="background:#F3F4F6;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;"></li>
-<li class="ms"><a onclick="go('admin')" style="color:var(--sec);">Admin</a></li>
-<li class="as"><a onclick="doLogout()" style="color:var(--mut);cursor:pointer;">Logout</a></li>
-<li class="gs"><a onclick="go('login')" style="background:var(--pri);color:#fff;padding:8px 16px;border-radius:30px;font-weight:600;">Login</a></li>
-</ul>
-</div>
-</header>
+    <!-- Desktop Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo" onclick="window.location.hash='#home'" style="cursor:pointer;">
+                <i class="fa-solid fa-microscope"></i> MasteryLMS
+            </div>
+            <nav class="nav-links" id="desktop-nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#login" class="nav-link guest-only">Login</a>
+                <a href="#register" class="btn btn-small guest-only">Register</a>
+                <a href="#admin" class="nav-link admin-only hidden"><i class="fa-solid fa-gear"></i> Admin</a>
+                <a class="nav-link user-only hidden" id="desktop-user-email"></a>
+                <a onclick="logoutUser()" class="nav-link user-only hidden">Logout</a>
+            </nav>
+        </div>
+    </header>
 
-<!-- MAIN -->
-<main class="ctn">
-<div id="fl" class="flash"></div>
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- PAGE: HOME -->
+        <div id="view-home" class="view">
+            <div class="hero">
+                <h1>Medical Lab Technology Mastery</h1>
+                <p>Top-tier study materials, notes, and MCQs for MLT students.</p>
+            </div>
+            <h2 style="margin-bottom: 20px;">Available Subjects</h2>
+            <div class="grid" id="home-subjects-grid">
+                <!-- Populated via JS -->
+                <p>Loading subjects...</p>
+            </div>
+        </div>
 
-<!-- HOME -->
-<div id="v-home" class="v on">
-<div class="hero">
-<h1>Master Medical Lab<br>Technology MCQs</h1>
-<p>Comprehensive study materials with detailed notes and practice questions.</p>
-<div class="stats" id="home-stats"></div>
-</div>
-<h3 class="sec-t"><i class="fa-solid fa-fire" style="color:var(--sec)"></i> All Subjects</h3>
-<div id="home-list"></div>
-</div>
+        <!-- PAGE: SUBJECT -->
+        <div id="view-subject" class="view hidden">
+            <div class="breadcrumb">
+                <a href="#home"><i class="fa-solid fa-home"></i> Home</a> <i class="fa-solid fa-chevron-right"></i> <span id="subj-crumb">...</span>
+            </div>
+            
+            <div class="card" style="margin-bottom: 24px;">
+                <div id="subj-price-badge" class="subject-price"></div>
+                <h1 id="subj-title" style="font-size: 28px; margin-bottom: 8px;"></h1>
+                <p id="subj-desc" style="color: var(--text-light); margin-bottom: 20px;"></p>
+                
+                <div id="subj-actions" class="hidden" style="display:flex; gap:10px; flex-wrap:wrap; padding-top:15px; border-top:1px solid var(--border);">
+                    <a id="btn-gumroad" target="_blank" class="btn"><i class="fa-solid fa-cart-shopping"></i> Buy Full Access</a>
+                    <a id="btn-verify" class="btn btn-secondary"><i class="fa-solid fa-receipt"></i> Verify Purchase</a>
+                </div>
+                <div id="subj-unlocked-msg" class="hidden" style="color: #059669; font-weight: 700; padding-top:15px;">
+                    <i class="fa-solid fa-check-circle"></i> You have full access to this subject.
+                </div>
+            </div>
 
-<!-- SUBJECT VIEW -->
-<div id="v-subject" class="v">
-<div class="bc" id="subj-bc"></div>
-<div id="subj-top"></div>
-<h3 class="sec-t">Chapters</h3>
-<div id="subj-chs"></div>
-</div>
+            <h2>Chapters</h2>
+            <div class="chapter-list" id="subj-chapters">
+                <!-- Populated via JS -->
+            </div>
+        </div>
 
-<!-- CHAPTER VIEW (HTML CONTENT RENDERS HERE) -->
-<div id="v-chapter" class="v">
-<div class="bc" id="ch-bc"></div>
-<div id="ch-head"></div>
-<div class="cnt-area" id="ch-body"></div>
-<div style="text-align:center;margin:16px 0">
-<button class="btn btn-sm" id="ch-back">Back to Chapters</button>
-</div>
-</div>
+        <!-- PAGE: CHAPTER (CRITICAL HTML RENDERING PAGE) -->
+        <div id="view-chapter" class="view hidden">
+            <div class="breadcrumb" id="chap-breadcrumb">
+                <a href="#home">Home</a> <i class="fa-solid fa-chevron-right"></i> <a id="chap-back-subj">...</a> <i class="fa-solid fa-chevron-right"></i> <span id="chap-crumb">...</span>
+            </div>
+            <div class="card">
+                <h1 id="ch-title" style="margin-bottom: 24px; font-size: 32px; border-bottom: 2px solid var(--border); padding-bottom: 12px;"></h1>
+                
+                <!-- CRITICAL: THIS DIV RENDERS THE RAW HTML -->
+                <div id="ch-body" class="cnt-area"></div>
+                
+            </div>
+        </div>
 
-<!-- LOGIN -->
-<div id="v-login" class="v">
-<div class="box" style="max-width:400px;margin:40px auto">
-<h2 style="text-align:center;margin-bottom:20px">Login</h2>
-<form id="lg-f">
-<div class="fg"><label>Email</label><input type="email" id="lg-em" class="fc" required placeholder="your@email.com"></div>
-<div class="fg"><label>Password</label><input type="password" id="lg-pw" class="fc" required placeholder="Password"></div>
-<button type="submit" class="btn">Login</button>
-<div style="text-align:center;margin-top:14px;font-size:13px">No account? <a onclick="go('reg')" style="color:var(--pri);cursor:pointer;font-weight:700">Register</a></div>
-</form>
-</div>
-</div>
+        <!-- PAGE: LOGIN -->
+        <div id="view-login" class="view hidden" style="max-width: 400px; margin: 40px auto;">
+            <div class="card">
+                <h2 style="margin-bottom: 20px; text-align: center;">Welcome Back</h2>
+                <form id="form-login" onsubmit="loginUser(event)">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" class="input-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="login-pwd" class="input-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-block">Login</button>
+                </form>
+                <p style="text-align: center; margin-top: 16px; font-size: 14px;">
+                    Don't have an account? <a href="#register" style="color: var(--primary); font-weight:600;">Register</a>
+                </p>
+            </div>
+        </div>
 
-<!-- REGISTER -->
-<div id="v-reg" class="v">
-<div class="box" style="max-width:400px;margin:40px auto">
-<h2 style="text-align:center;margin-bottom:20px">Register</h2>
-<form id="rg-f">
-<div class="fg"><label>Email</label><input type="email" id="rg-em" class="fc" required placeholder="your@email.com"></div>
-<div class="fg"><label>Password 6+ characters</label><input type="password" id="rg-pw" class="fc" required placeholder="Min 6 characters"></div>
-<div class="fg"><label>Confirm Password</label><input type="password" id="rg-cf" class="fc" required placeholder="Again"></div>
-<button type="submit" class="btn">Register</button>
-<div style="text-align:center;margin-top:14px;font-size:13px">Have account? <a onclick="go('login')" style="color:var(--pri);cursor:pointer;font-weight:700">Login</a></div>
-</form>
-</div>
-</div>
+        <!-- PAGE: REGISTER -->
+        <div id="view-register" class="view hidden" style="max-width: 400px; margin: 40px auto;">
+            <div class="card">
+                <h2 style="margin-bottom: 20px; text-align: center;">Create Account</h2>
+                <form id="form-register" onsubmit="registerUser(event)">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" class="input-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password (min 6 chars)</label>
+                        <input type="password" id="reg-pwd" class="input-control" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-block">Register</button>
+                </form>
+                <p style="text-align: center; margin-top: 16px; font-size: 14px;">
+                    Already have an account? <a href="#login" style="color: var(--primary); font-weight:600;">Login</a>
+                </p>
+            </div>
+        </div>
 
-<!-- ADMIN -->
-<div id="v-admin" class="v">
-<div class="hero" style="padding:20px;background:var(--dk);margin:12px 0">
-<h2 style="font-size:22px;margin:0"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h2>
-</div>
-<div class="atabs">
-<a onclick="at('add')" id="at-add" class="on"><i class="fa-solid fa-plus"></i> Add Subject</a>
-<a onclick="at('mg')" id="at-mg"><i class="fa-solid fa-list"></i> Manage</a>
-</div>
+        <!-- PAGE: VERIFY PURCHASE -->
+        <div id="view-verify" class="view hidden" style="max-width: 500px; margin: 40px auto;">
+            <div class="card">
+                <h2 style="margin-bottom: 10px;">Verify Purchase</h2>
+                <p style="margin-bottom: 20px; color: var(--text-light); font-size: 14px;">Enter your Gumroad receipt ID to unlock the chapters. An admin will review and confirm it.</p>
+                <form id="form-verify" onsubmit="submitVerification(event)">
+                    <input type="hidden" id="ver-sub-id">
+                    <div class="input-group">
+                        <label>Gumroad Receipt ID</label>
+                        <input type="text" id="ver-receipt" class="input-control" placeholder="e.g. XXXX-XXXX-XXXX" required>
+                    </div>
+                    <button type="submit" class="btn btn-block">Submit Verification</button>
+                </form>
+            </div>
+        </div>
 
-<!-- ADD SUBJECT TAB -->
-<div id="ap-add" class="ap">
-<div class="box">
-<h3 style="margin-bottom:4px">Add New Subject + Content</h3>
-<p style="font-size:13px;color:var(--mut);margin-bottom:16px">Subject banao aur apna HTML content paste karo.</p>
-<form id="subj-f">
-<div class="fg"><label>Subject Name *</label><input type="text" id="as-nm" class="fc" required placeholder="e.g., RBCs Disorder"></div>
-<div class="fg"><label>Description *</label><textarea id="as-ds" class="fc" required placeholder="Short description" style="min-height:60px"></textarea></div>
-<div class="fg"><label>Chapter Title *</label><input type="text" id="as-ch" class="fc" required placeholder="e.g., Introduction to RBCs"></div>
-<div class="fg"><label>Paste Your FULL HTML Content *</label>
-<p style="font-size:11px;color:var(--mut);margin-bottom:6px">
-Apna poora HTML yahan paste karo — headings, tables, lists, images, MCQs kuch bhi. Yeh waisa hi render hoga jaise aapne likha hai.
-</p>
-<textarea id="as-ht" class="fc" style="min-height:300px;font-family:monospace;font-size:12px" placeholder="Paste your HTML here...
+        <!-- PAGE: ADMIN PANEL -->
+        <div id="view-admin" class="view hidden">
+            <h1 style="margin-bottom: 20px;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h1>
+            
+            <div class="admin-tabs">
+                <div class="tab-btn active" onclick="switchAdminTab('add')">Add Subject</div>
+                <div class="tab-btn" onclick="switchAdminTab('manage')">Manage Subjects</div>
+                <div class="tab-btn" onclick="switchAdminTab('orders')">Orders</div>
+            </div>
 
-Examples:
-<h2>Topic Name</h2>
-<p>Explanation text here...</p>
+            <!-- Tab: Add Subject -->
+            <div id="admin-tab-add" class="card">
+                <h2 style="margin-bottom: 20px;">Publish New Subject & Chapter 1</h2>
+                <form id="form-admin-add" onsubmit="adminPublishSubject(event)">
+                    <div class="grid">
+                        <div class="input-group">
+                            <label>Subject Name</label>
+                            <input type="text" id="add-sub-name" class="input-control" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Price ($) - 0 for Free</label>
+                            <input type="number" id="add-sub-price" class="input-control" value="0" min="0" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Description</label>
+                        <input type="text" id="add-sub-desc" class="input-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Gumroad URL (Optional if Free)</label>
+                        <input type="url" id="add-sub-url" class="input-control">
+                    </div>
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 15px;">First Chapter Content</h3>
+                    <div class="input-group">
+                        <label>Chapter Title</label>
+                        <input type="text" id="add-ch-title" class="input-control" required>
+                    </div>
+                    <div class="input-group">
+                        <label>RAW HTML CONTENT (Notes, Tables, MCQs)</label>
+                        <textarea id="add-ch-html" class="input-control" style="min-height: 400px; font-family: monospace;" placeholder="<h1>Heading</h1><p>Notes here...</p>" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block" id="btn-publish-sub">Publish Content</button>
+                </form>
+            </div>
 
-<table border='1'>
-<tr><th>Question</th><th>Answer</th></tr>
-<tr><td>What is X?</td><td>X is Y</td></tr>
-</table>
+            <!-- Tab: Manage Subjects -->
+            <div id="admin-tab-manage" class="card hidden">
+                <h2 style="margin-bottom: 20px;">Manage Existing Subjects</h2>
+                <div style="overflow-x:auto;">
+                    <table class="admin-table">
+                        <thead><tr><th>Subject</th><th>Price</th><th>Actions</th></tr></thead>
+                        <tbody id="admin-subjects-list"></tbody>
+                    </table>
+                </div>
 
-<ul>
-<li>Point 1</li>
-<li>Point 2</li>
-</ul>"></textarea></div>
-<button type="submit" id="pub-btn" class="btn"><i class="fa-solid fa-rocket"></i> Publish</button>
-</form>
-<div id="as-res" style="margin-top:10px;font-size:13px"></div>
-</div>
-</div>
+                <!-- Hidden form to add chapter to existing subject -->
+                <div id="admin-add-chapter-box" class="hidden" style="margin-top: 30px; border-top: 2px dashed var(--border); padding-top: 20px;">
+                    <h3 style="margin-bottom: 15px; color: var(--primary);">Add Chapter to: <span id="append-sub-name"></span></h3>
+                    <form onsubmit="adminAppendChapter(event)">
+                        <input type="hidden" id="append-sub-id">
+                        <div class="input-group">
+                            <label>Chapter Title</label>
+                            <input type="text" id="append-ch-title" class="input-control" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Chapter Order Number</label>
+                            <input type="number" id="append-ch-order" class="input-control" value="2" required>
+                        </div>
+                        <div class="input-group">
+                            <label>RAW HTML CONTENT</label>
+                            <textarea id="append-ch-html" class="input-control" style="min-height: 300px; font-family: monospace;" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Add Chapter</button>
+                        <button type="button" class="btn btn-outline" onclick="document.getElementById('admin-add-chapter-box').classList.add('hidden')">Cancel</button>
+                    </form>
+                </div>
+            </div>
 
-<!-- MANAGE TAB -->
-<div id="ap-mg" class="ap" style="display:none">
-<div class="box">
-<h3 style="margin-bottom:14px">All Subjects</h3>
-<div id="mg-ls"></div>
-</div>
-</div>
-</div>
-</main>
+            <!-- Tab: Orders -->
+            <div id="admin-tab-orders" class="card hidden">
+                <h2 style="margin-bottom: 20px;">Verification Requests</h2>
+                <div style="overflow-x:auto;">
+                    <table class="admin-table">
+                        <thead><tr><th>User Email</th><th>Subject ID</th><th>Receipt ID</th><th>Status</th><th>Action</th></tr></thead>
+                        <tbody id="admin-orders-list"></tbody>
+                    </table>
+                </div>
+            </div>
 
-<!-- MOBILE NAV -->
-<nav class="mnav">
-<a onclick="go('home')" id="mn-home" class="mi on"><i class="fa-solid fa-house"></i> Home</a>
-<a onclick="go('login')" id="mn-login" class="gs"><i class="fa-solid fa-user"></i> Login</a>
-<a onclick="go('admin')" id="mn-admin" class="ms"><i class="fa-solid fa-shield-halved"></i> Admin</a>
-<a onclick="doLogout()" class="as"><i class="fa-solid fa-power-off"></i> Logout</a>
-</nav>
+        </div>
 
-<!-- ========== FIREBASE SCRIPT ========== -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    </main>
 
-const firebaseConfig = {
-apiKey: "AIzaSyDUZE3XaBrTXP9BHV3rIvhlrfgGhWbjQBY",
-authDomain: "mastery-lms-e153c.firebaseapp.com",
-databaseURL: "https://mastery-lms-e153c-default-rtdb.firebaseio.com",
-projectId: "mastery-lms-e153c",
-storageBucket: "mastery-lms-e153c.firebasestorage.app",
-messagingSenderId: "43972740535",
-appId: "1:43972740535:web:66966b5132f80716549432"
-};
+    <!-- Mobile Bottom Nav -->
+    <nav class="bottom-nav">
+        <a href="#home" class="b-nav-item active" id="m-nav-home"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#login" class="b-nav-item guest-only"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a href="#admin" class="b-nav-item admin-only hidden"><i class="fa-solid fa-gear"></i> Admin</a>
+        <a onclick="logoutUser()" class="b-nav-item user-only hidden"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
+    <!-- Toast Notification -->
+    <div id="toast">Message</div>
 
-let currentUser = null;
-let isAdmin = false;
-let sData = {};
-const ADM = "admin@masterylms.com";
+    <!-- FIREBASE & JS LOGIC -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+        import { getDatabase, ref, push, set, get, update, remove, child } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
-// ============ UTILITY ============
-function fl(msg, isErr) {
-const el = document.getElementById("fl");
-el.textContent = msg;
-el.className = "flash" + (isErr ? " err" : "");
-el.style.display = "block";
-setTimeout(() => { el.style.display = "none"; }, 5000);
-}
-window.fl = fl;
+        // ==========================================
+        // EXACT FIREBASE CONFIGURATION PROVIDED
+        // ==========================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUZE3XaBrTXP9BHV3rIvhlrfgGhWbjQBY",
+            authDomain: "mastery-lms-e153c.firebaseapp.com",
+            databaseURL: "https://mastery-lms-e153c-default-rtdb.firebaseio.com",
+            projectId: "mastery-lms-e153c",
+            storageBucket: "mastery-lms-e153c.firebasestorage.app",
+            messagingSenderId: "43972740535",
+            appId: "1:43972740535:web:66966b5132f80716549432"
+        };
 
-function esc(s) {
-if (!s) return "";
-const d = document.createElement("div");
-d.textContent = s;
-return d.innerHTML;
-}
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
 
-// ============ NAVIGATION ============
-function go(v) {
-document.querySelectorAll(".v").forEach(el => el.classList.remove("on"));
-let t = document.getElementById("v-" + v);
-if (t) t.classList.add("on");
-document.querySelectorAll(".mnav .mi").forEach(el => el.classList.remove("on"));
-let mn = document.getElementById("mn-" + v);
-if (mn) mn.classList.add("on");
-if (window.location.hash !== "#" + v) window.history.pushState(null, null, "#" + v);
-if (v === "home") rHome();
-else if (v.indexOf("subject-") === 0) rSubj(v.replace("subject-", ""));
-else if (v.indexOf("chapter-") === 0) {
-let p = v.replace("chapter-", "").split("-");
-if (p.length >= 2) rChap(p[0], p[1]);
-}
-window.scrollTo(0, 0);
-}
-window.go = go;
+        // GLOBAL STATE
+        window.currentUser = null;
+        window.isAdmin = false;
 
-window.addEventListener("hashchange", () => {
-go(window.location.hash.replace("#", "") || "home");
-});
+        // ==========================================
+        // UTILITY FUNCTIONS
+        // ==========================================
+        window.showToast = function(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.style.display = "block";
+            setTimeout(() => { toast.style.display = "none"; }, 3000);
+        }
 
-// ============ UI STATE ============
-function ui() {
-if (currentUser) {
-document.querySelectorAll(".as").forEach(el => el.style.display = "flex");
-document.querySelectorAll(".gs").forEach(el => el.style.display = "none");
-document.getElementById("d-user").innerHTML = '<i class="fa-solid fa-user-circle"></i> ' + currentUser.email;
-document.querySelectorAll(".ms").forEach(el => el.style.display = isAdmin ? "flex" : "none");
-} else {
-document.querySelectorAll(".as").forEach(el => el.style.display = "none");
-document.querySelectorAll(".ms").forEach(el => el.style.display = "none");
-document.querySelectorAll(".gs").forEach(el => el.style.display = "flex");
-}
-}
+        async function getDB(path) {
+            const snapshot = await get(child(ref(db), path));
+            return snapshot.exists() ? snapshot.val() : null;
+        }
 
-// ============ RENDER HOME ============
-function rHome() {
-let c = document.getElementById("home-list");
-let ks = Object.keys(sData);
-let totalCh = 0;
-for (let sid in sData) {
-let s = sData[sid];
-if (s.chapters) totalCh += Object.keys(s.chapters).length;
-}
-document.getElementById("home-stats").innerHTML =
-'<div class="stat"><b>' + ks.length + '</b><span>Subjects</span></div>' +
-'<div class="stat"><b>' + totalCh + '</b><span>Chapters</span></div>';
+        // ==========================================
+        // AUTHENTICATION LOGIC
+        // ==========================================
+        onAuthStateChanged(auth, async (user) => {
+            window.currentUser = user;
+            if(user) {
+                if(user.email === 'admin@masterylms.com') {
+                    window.isAdmin = true;
+                    await set(ref(db, 'users/' + user.uid), { email: user.email, role: 'admin' });
+                } else {
+                    window.isAdmin = false;
+                    const u = await getDB('users/' + user.uid);
+                    if(!u) await set(ref(db, 'users/' + user.uid), { email: user.email, role: 'user' });
+                }
+                document.getElementById('desktop-user-email').innerText = user.email;
+            } else {
+                window.isAdmin = false;
+            }
+            updateNavUI();
+            handleRoute(); // Re-render current page to update locks/buttons
+        });
 
-if (ks.length === 0) {
-c.innerHTML = '<div class="empty"><i class="fa-solid fa-book-open"></i><h3>Coming Soon</h3><p>Admin is adding content.</p></div>';
-return;
-}
-let h = '<div class="grid">';
-for (let sid in sData) {
-let s = sData[sid];
-let chC = s.chapters ? Object.keys(s.chapters).length : 0;
-let letter = s.name ? s.name.charAt(0).toUpperCase() : 'M';
-h += '<div class="cd" onclick="go(\'subject-' + sid + '\')">';
-h += '<div class="cd-img">' + letter + '</div>';
-h += '<div class="cd-body"><div class="cd-title">' + esc(s.name) + '</div><div class="cd-desc">' + esc(s.description || "") + '</div>';
-h += '<div class="cd-foot"><span class="cd-price">Free</span><span class="cd-tag tag-free">' + chC + ' ch</span></div>';
-h += '</div></div>';
-}
-h += '</div>';
-c.innerHTML = h;
-}
+        function updateNavUI() {
+            const guests = document.querySelectorAll('.guest-only');
+            const users = document.querySelectorAll('.user-only');
+            const admins = document.querySelectorAll('.admin-only');
 
-// ============ RENDER SUBJECT ============
-function rSubj(sid) {
-let s = sData[sid];
-if (!s) { go("home"); return; }
+            if(window.currentUser) {
+                guests.forEach(el => el.classList.add('hidden'));
+                users.forEach(el => el.classList.remove('hidden'));
+                if(window.isAdmin) admins.forEach(el => el.classList.remove('hidden'));
+                else admins.forEach(el => el.classList.add('hidden'));
+            } else {
+                guests.forEach(el => el.classList.remove('hidden'));
+                users.forEach(el => el.classList.add('hidden'));
+                admins.forEach(el => el.classList.add('hidden'));
+            }
+        }
 
-document.getElementById("subj-bc").innerHTML = '<a onclick="go(\'home\')">Home</a> <span>/</span> ' + esc(s.name);
-document.getElementById("subj-top").innerHTML = '<div class="hero" style="padding:20px"><h2 style="font-size:20px;margin:0">' + esc(s.name) + '</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9">' + esc(s.description || "") + '</p></div>';
+        window.loginUser = async function(e) {
+            e.preventDefault();
+            try {
+                await signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-pwd').value);
+                showToast("Logged in successfully!");
+                window.location.hash = '#home';
+            } catch(err) { showToast("Error: " + err.message); }
+        }
 
-let chs = [];
-if (s.chapters) {
-for (let cid in s.chapters) chs.push({ id: cid, d: s.chapters[cid] });
-chs.sort((a, b) => (a.d.order || 0) - (b.d.order || 0));
-}
+        window.registerUser = async function(e) {
+            e.preventDefault();
+            try {
+                await createUserWithEmailAndPassword(auth, document.getElementById('reg-email').value, document.getElementById('reg-pwd').value);
+                showToast("Account created!");
+                window.location.hash = '#home';
+            } catch(err) { showToast("Error: " + err.message); }
+        }
 
-let c = document.getElementById("subj-chs");
+        window.logoutUser = async function() {
+            await signOut(auth);
+            showToast("Logged out");
+            window.location.hash = '#home';
+        }
 
-if (chs.length === 0) {
-c.innerHTML = '<div class="empty"><i class="fa-solid fa-folder-open"></i><h3>No chapters yet</h3></div>';
-return;
-}
+        // ==========================================
+        // ROUTING SYSTEM
+        // ==========================================
+        function hideAllViews() {
+            document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+            document.querySelectorAll('.b-nav-item').forEach(n => n.classList.remove('active'));
+        }
 
-let h = "";
-for (let i = 0; i < chs.length; i++) {
-let ch = chs[i];
-h += '<div class="ch" onclick="go(\'chapter-' + sid + '-' + ch.id + '\')">';
-h += '<div class="ch-n">' + (i + 1) + '</div>';
-h += '<div class="ch-i"><h4>' + esc(ch.d.title) + '</h4></div>';
-h += '</div>';
-}
-c.innerHTML = h;
-}
+        async function handleRoute() {
+            hideAllViews();
+            let hash = window.location.hash || '#home';
+            let parts = hash.split('/');
 
-// ============ RENDER CHAPTER — HTML CONTENT YAHAN RENDER HOTA HAI ============
-function rChap(sid, cid) {
-let s = sData[sid];
-if (!s || !s.chapters || !s.chapters[cid]) { go("home"); return; }
-let ch = s.chapters[cid];
+            if(hash === '#home') {
+                document.getElementById('view-home').classList.remove('hidden');
+                document.getElementById('m-nav-home').classList.add('active');
+                renderHome();
+            }
+            else if(parts[0] === '#subject' && parts[1]) {
+                document.getElementById('view-subject').classList.remove('hidden');
+                renderSubject(parts[1]);
+            }
+            else if(parts[0] === '#chapter' && parts[1] && parts[2]) {
+                document.getElementById('view-chapter').classList.remove('hidden');
+                renderChapter(parts[1], parts[2]);
+            }
+            else if(hash === '#login') { document.getElementById('view-login').classList.remove('hidden'); }
+            else if(hash === '#register') { document.getElementById('view-register').classList.remove('hidden'); }
+            else if(parts[0] === '#verify' && parts[1]) {
+                if(!window.currentUser) { window.location.hash = '#login'; return; }
+                document.getElementById('view-verify').classList.remove('hidden');
+                document.getElementById('ver-sub-id').value = parts[1];
+            }
+            else if(hash === '#admin') {
+                if(!window.isAdmin) { window.location.hash = '#home'; return; }
+                document.getElementById('view-admin').classList.remove('hidden');
+                document.querySelector('.b-nav-item.admin-only').classList.add('active');
+                loadAdminData();
+            }
+        }
+        window.addEventListener('hashchange', handleRoute);
 
-document.getElementById("ch-bc").innerHTML = '<a onclick="go(\'home\')">Home</a> <span>/</span> <a onclick="go(\'subject-' + sid + '\')">' + esc(s.name) + '</a> <span>/</span> ' + esc(ch.title);
-document.getElementById("ch-back").setAttribute("onclick", "go('subject-" + sid + "')");
-document.getElementById("ch-head").innerHTML = '<h2 style="font-size:20px;font-weight:800;margin-bottom:4px">' + esc(ch.title) + '</h2>';
+        // Access check helper
+        async function checkSubjectAccess(subId, price) {
+            if(price == 0 || window.isAdmin) return true;
+            if(!window.currentUser) return false;
+            const orders = await getDB('orders');
+            if(orders) {
+                for(let k in orders) {
+                    if(orders[k].user_id === window.currentUser.uid && orders[k].subject_id === subId && orders[k].status === 'Confirmed') {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
-// ======= YEH HAI KEY LINE — innerHTML se HTML RENDER hota hai =======
-let body = document.getElementById("ch-body");
-if (ch.html_content && ch.html_content.trim().length > 0) {
-body.innerHTML = ch.html_content;
-} else {
-body.innerHTML = '<div class="empty"><i class="fa-solid fa-file-circle-exclamation"></i><h3>No Content</h3><p>Admin has not added content yet.</p></div>';
-}
-}
+        // ==========================================
+        // PAGE RENDERERS
+        // ==========================================
+        
+        async function renderHome() {
+            const grid = document.getElementById('home-subjects-grid');
+            const subjects = await getDB('subjects');
+            grid.innerHTML = '';
+            
+            if(!subjects) { grid.innerHTML = '<p>No subjects available yet.</p>'; return; }
 
-// ============ ADMIN TABS ============
-function at(n) {
-document.querySelectorAll(".atabs a").forEach(el => el.classList.remove("on"));
-document.querySelectorAll(".ap").forEach(el => el.style.display = "none");
-document.getElementById("at-" + n).classList.add("on");
-document.getElementById("ap-" + n).style.display = "block";
-if (n === "mg") rMg();
-}
-window.at = at;
+            for(let key in subjects) {
+                let s = subjects[key];
+                let priceText = s.price > 0 ? `$${s.price}` : 'FREE';
+                let priceClass = s.price == 0 ? 'free' : '';
+                
+                grid.innerHTML += `
+                    <div class="card subject-card" onclick="window.location.hash='#subject/${key}'">
+                        <div class="subject-price ${priceClass}">${priceText}</div>
+                        <h3 style="margin-bottom: 8px;">${s.name}</h3>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 15px; flex-grow: 1;">${s.description}</p>
+                        <div style="color: var(--primary); font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 5px;">
+                            View Details <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+            }
+        }
 
-// ============ PUBLISH SUBJECT ============
-document.getElementById("subj-f").addEventListener("submit", async (e) => {
-e.preventDefault();
-let btn = document.getElementById("pub-btn");
-btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publishing...';
-btn.disabled = true;
+        async function renderSubject(subId) {
+            const subj = await getDB(`subjects/${subId}`);
+            if(!subj) { window.location.hash = '#home'; return; }
 
-let nm = document.getElementById("as-nm").value.trim();
-let ds = document.getElementById("as-ds").value.trim();
-let chTitle = document.getElementById("as-ch").value.trim();
-let ht = document.getElementById("as-ht").value;
+            document.getElementById('subj-crumb').innerText = subj.name;
+            document.getElementById('subj-title').innerText = subj.name;
+            document.getElementById('subj-desc').innerText = subj.description;
+            
+            let badge = document.getElementById('subj-price-badge');
+            badge.innerText = subj.price > 0 ? `Price: $${subj.price}` : 'FREE SUBJECT';
+            badge.className = `subject-price ${subj.price == 0 ? 'free' : ''}`;
 
-if (!ht.trim()) {
-fl("HTML content paste karo!", true);
-btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish';
-btn.disabled = false;
-return;
-}
+            const hasAccess = await checkSubjectAccess(subId, subj.price);
+            
+            const actions = document.getElementById('subj-actions');
+            const unlockedMsg = document.getElementById('subj-unlocked-msg');
+            
+            if(subj.price > 0 && !hasAccess) {
+                actions.classList.remove('hidden');
+                unlockedMsg.classList.add('hidden');
+                let btnGum = document.getElementById('btn-gumroad');
+                if(subj.gumroad_url) { btnGum.href = subj.gumroad_url; btnGum.style.display = 'inline-block'; }
+                else { btnGum.style.display = 'none'; }
+                document.getElementById('btn-verify').onclick = () => window.location.hash = `#verify/${subId}`;
+            } else {
+                actions.classList.add('hidden');
+                if(subj.price > 0) unlockedMsg.classList.remove('hidden');
+                else unlockedMsg.classList.add('hidden');
+            }
 
-try {
-// Step 1: Create subject
-let newSubj = await push(ref(db, "subjects"), {
-name: nm,
-description: ds,
-created_at: Date.now()
-});
+            const chList = document.getElementById('subj-chapters');
+            chList.innerHTML = '';
+            
+            if(!subj.chapters) { chList.innerHTML = '<p>No chapters yet.</p>'; return; }
 
-// Step 2: Create chapter with HTML content inside the subject
-await push(ref(db, "subjects/" + newSubj.key + "/chapters"), {
-title: chTitle || nm,
-html_content: ht,
-order: 1,
-created_at: Date.now()
-});
+            // Sort chapters by order
+            let chaptersArr = Object.keys(subj.chapters).map(k => ({id: k, ...subj.chapters[k]}));
+            chaptersArr.sort((a,b) => a.order - b.order);
 
-document.getElementById("subj-f").reset();
-document.getElementById("as-res").innerHTML = '<span style="color:var(--grn)"><i class="fa-solid fa-check-circle"></i> Published successfully! Check Home page.</span>';
-fl("Subject published!");
+            chaptersArr.forEach((ch, index) => {
+                let isFreeChapter = (index === 0);
+                let canView = hasAccess || isFreeChapter;
+                
+                if(canView) {
+                    chList.innerHTML += `
+                        <div class="chapter-item" onclick="window.location.hash='#chapter/${subId}/${ch.id}'">
+                            <div>
+                                <div style="font-size:12px; color:var(--text-light); font-weight:600;">Chapter ${ch.order}</div>
+                                <div style="font-weight:700;">${ch.title}</div>
+                            </div>
+                            <div style="color:var(--primary);"><i class="fa-solid fa-book-open"></i></div>
+                        </div>
+                    `;
+                } else {
+                    chList.innerHTML += `
+                        <div class="chapter-item locked" onclick="showToast('This chapter is locked. Please purchase to view.')">
+                            <div>
+                                <div style="font-size:12px; color:var(--text-light); font-weight:600;">Chapter ${ch.order}</div>
+                                <div style="font-weight:700;">${ch.title}</div>
+                            </div>
+                            <div style="color:var(--text-light);"><i class="fa-solid fa-lock"></i></div>
+                        </div>
+                    `;
+                }
+            });
+        }
 
-} catch (err) {
-fl("Error: " + err.message, true);
-} finally {
-btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publish';
-btn.disabled = false;
-}
-});
+        async function renderChapter(subId, chId) {
+            const subj = await getDB(`subjects/${subId}`);
+            if(!subj || !subj.chapters || !subj.chapters[chId]) { window.location.hash='#home'; return; }
+            
+            const ch = subj.chapters[chId];
+            
+            // Check Access again for safety
+            let chaptersArr = Object.keys(subj.chapters).map(k => ({id: k, ...subj.chapters[k]}));
+            chaptersArr.sort((a,b) => a.order - b.order);
+            let isFreeChapter = (chaptersArr[0].id === chId);
+            
+            const hasAccess = await checkSubjectAccess(subId, subj.price);
+            if(!hasAccess && !isFreeChapter) {
+                showToast("You do not have access to this chapter.");
+                window.location.hash = `#subject/${subId}`;
+                return;
+            }
 
-// ============ MANAGE SUBJECTS ============
-function rMg() {
-let c = document.getElementById("mg-ls");
-let ks = Object.keys(sData);
-if (ks.length === 0) {
-c.innerHTML = '<p style="color:var(--mut);text-align:center">No subjects yet.</p>';
-return;
-}
-let h = "";
-for (let sid in sData) {
-let s = sData[sid];
-let chC = s.chapters ? Object.keys(s.chapters).length : 0;
-h += '<div style="border:2px solid var(--bdr);border-radius:12px;padding:14px;margin-bottom:12px">';
-h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-h += '<div><strong style="font-size:15px">' + esc(s.name) + '</strong><br><span style="font-size:12px;color:var(--mut)">' + chC + ' chapter(s)</span></div>';
-h += '<button onclick="delS(\'' + sid + '\')" style="background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold">Delete</button>';
-h += '</div></div>';
-}
-c.innerHTML = h;
-}
+            document.getElementById('chap-back-subj').innerText = subj.name;
+            document.getElementById('chap-back-subj').href = `#subject/${subId}`;
+            document.getElementById('chap-crumb').innerText = ch.title;
+            
+            document.getElementById('ch-title').innerText = ch.title;
+            
+            // =======================================================
+            // CRITICAL: RENDERING RAW HTML CONTENT USING innerHTML
+            // =======================================================
+            document.getElementById('ch-body').innerHTML = ch.html_content;
+        }
 
-window.delS = async (sid) => {
-if (!confirm("Delete this subject and ALL its chapters?")) return;
-try {
-await remove(ref(db, "subjects/" + sid));
-fl("Deleted.");
-} catch (e) { fl("Error deleting.", true); }
-};
+        window.submitVerification = async function(e) {
+            e.preventDefault();
+            const subId = document.getElementById('ver-sub-id').value;
+            const receipt = document.getElementById('ver-receipt').value;
+            
+            try {
+                await push(ref(db, 'orders'), {
+                    user_id: window.currentUser.uid,
+                    email: window.currentUser.email,
+                    subject_id: subId,
+                    receipt_id: receipt,
+                    status: 'Pending',
+                    timestamp: Date.now()
+                });
+                showToast("Verification submitted! An admin will review it soon.");
+                window.location.hash = `#subject/${subId}`;
+            } catch(err) { showToast("Error: " + err.message); }
+        }
 
-// ============ AUTH ============
-document.getElementById("rg-f").addEventListener("submit", async (e) => {
-e.preventDefault();
-let em = document.getElementById("rg-em").value;
-let pw = document.getElementById("rg-pw").value;
-let cf = document.getElementById("rg-cf").value;
-if (pw.length < 6) { fl("Password 6+ chars.", true); return; }
-if (pw !== cf) { fl("Passwords don't match.", true); return; }
-try {
-let cred = await createUserWithEmailAndPassword(auth, em, pw);
-await set(ref(db, "users/" + cred.user.uid), { email: em, role: em === ADM ? "admin" : "user" });
-fl("Registered!");
-if (em === ADM) go("admin"); else go("home");
-} catch (err) {
-if (err.code === "auth/email-already-in-use") fl("Already registered. Login.", true);
-else fl("Error: " + err.message, true);
-}
-});
+        // ==========================================
+        // ADMIN FUNCTIONS
+        // ==========================================
+        window.switchAdminTab = function(tabName) {
+            document.querySelectorAll('.admin-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('#view-admin > .card').forEach(c => c.classList.add('hidden'));
+            
+            document.querySelector(`.admin-tabs .tab-btn[onclick="switchAdminTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`admin-tab-${tabName}`).classList.remove('hidden');
+        }
 
-document.getElementById("lg-f").addEventListener("submit", async (e) => {
-e.preventDefault();
-try {
-await signInWithEmailAndPassword(auth, document.getElementById("lg-em").value, document.getElementById("lg-pw").value);
-fl("Welcome!");
-} catch (err) {
-if (err.code === "auth/user-not-found") fl("No account. Register.", true);
-else if (err.code === "auth/invalid-credential") fl("Wrong email/password.", true);
-else fl("Error: " + err.message, true);
-}
-});
+        window.adminPublishSubject = async function(e) {
+            e.preventDefault();
+            let btn = document.getElementById('btn-publish-sub');
+            btn.innerText = "Publishing..."; btn.disabled = true;
 
-window.doLogout = async () => {
-try { await signOut(auth); go("login"); fl("Logged out."); } catch (e) {}
-};
+            try {
+                // 1. Push Subject
+                const subRef = push(ref(db, 'subjects'));
+                await set(subRef, {
+                    name: document.getElementById('add-sub-name').value,
+                    description: document.getElementById('add-sub-desc').value,
+                    price: Number(document.getElementById('add-sub-price').value),
+                    gumroad_url: document.getElementById('add-sub-url').value,
+                    created_at: Date.now()
+                });
 
-// ============ AUTH STATE ============
-onAuthStateChanged(auth, (user) => {
-if (user) {
-currentUser = user;
-isAdmin = user.email === ADM;
-} else {
-currentUser = null;
-isAdmin = false;
-}
-ui();
-let cv = window.location.hash.replace("#", "") || "home";
-if (currentUser && (cv === "login" || cv === "reg")) go("home");
-if (!currentUser && ["admin"].indexOf(cv) !== -1) go("login");
-});
+                // 2. Push Chapter 1 with RAW HTML
+                await push(ref(db, `subjects/${subRef.key}/chapters`), {
+                    title: document.getElementById('add-ch-title').value,
+                    html_content: document.getElementById('add-ch-html').value, // Stored as RAW HTML
+                    order: 1,
+                    created_at: Date.now()
+                });
 
-// ============ LISTEN TO FIREBASE DATA ============
-onValue(ref(db, "subjects"), (snap) => {
-sData = snap.val() || {};
-let cv = window.location.hash.replace("#", "") || "home";
-if (cv === "home") rHome();
-if (cv.indexOf("subject-") === 0) rSubj(cv.replace("subject-", ""));
-if (cv.indexOf("chapter-") === 0) {
-let p = cv.replace("chapter-", "").split("-");
-if (p.length >= 2) rChap(p[0], p[1]);
-}
-});
+                showToast("Subject & Chapter published successfully!");
+                document.getElementById('form-admin-add').reset();
+                loadAdminData();
+            } catch(err) { showToast("Error: " + err.message); }
+            
+            btn.innerText = "Publish Content"; btn.disabled = false;
+        }
 
-// ============ INIT ============
-ui();
-go(window.location.hash.replace("#", "") || "home");
-</script>
+        async function loadAdminData() {
+            // Load Manage Subjects
+            const tbodyS = document.getElementById('admin-subjects-list');
+            const subjects = await getDB('subjects');
+            tbodyS.innerHTML = '';
+            if(subjects) {
+                for(let key in subjects) {
+                    let s = subjects[key];
+                    tbodyS.innerHTML += `
+                        <tr>
+                            <td style="font-weight:600;">${s.name}</td>
+                            <td>$${s.price}</td>
+                            <td style="display:flex; gap:8px;">
+                                <button class="btn btn-small" onclick="prepAddChapter('${key}', '${s.name.replace(/'/g,"\\'")}')"><i class="fa-solid fa-plus"></i> Add Chapter</button>
+                                <button class="btn btn-small btn-danger" onclick="deleteSubject('${key}')"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                }
+            } else { tbodyS.innerHTML = '<tr><td colspan="3">No subjects found.</td></tr>'; }
+
+            // Load Orders
+            const tbodyO = document.getElementById('admin-orders-list');
+            const orders = await getDB('orders');
+            tbodyO.innerHTML = '';
+            if(orders) {
+                for(let key in orders) {
+                    let o = orders[key];
+                    let actBtn = o.status === 'Pending' 
+                        ? `<button class="btn btn-small btn-secondary" onclick="confirmOrder('${key}')">Confirm</button>`
+                        : `<span style="color:#059669; font-weight:bold;"><i class="fa-solid fa-check"></i> Done</span>`;
+                    
+                    tbodyO.innerHTML += `
+                        <tr>
+                            <td>${o.email}</td>
+                            <td style="font-size:12px; font-family:monospace;">${o.subject_id}</td>
+                            <td style="font-family:monospace;">${o.receipt_id}</td>
+                            <td>${o.status}</td>
+                            <td>${actBtn}</td>
+                        </tr>
+                    `;
+                }
+            } else { tbodyO.innerHTML = '<tr><td colspan="5">No orders found.</td></tr>'; }
+        }
+
+        window.prepAddChapter = function(subId, subName) {
+            document.getElementById('admin-add-chapter-box').classList.remove('hidden');
+            document.getElementById('append-sub-name').innerText = subName;
+            document.getElementById('append-sub-id').value = subId;
+            document.getElementById('append-ch-title').value = '';
+            document.getElementById('append-ch-html').value = '';
+            document.getElementById('append-ch-order').value = '';
+        }
+
+        window.adminAppendChapter = async function(e) {
+            e.preventDefault();
+            const subId = document.getElementById('append-sub-id').value;
+            try {
+                await push(ref(db, `subjects/${subId}/chapters`), {
+                    title: document.getElementById('append-ch-title').value,
+                    html_content: document.getElementById('append-ch-html').value, // Stored as RAW HTML
+                    order: Number(document.getElementById('append-ch-order').value),
+                    created_at: Date.now()
+                });
+                showToast("Chapter added!");
+                document.getElementById('admin-add-chapter-box').classList.add('hidden');
+            } catch(err) { showToast("Error: " + err.message); }
+        }
+
+        window.deleteSubject = async function(subId) {
+            if(confirm("Are you sure you want to delete this subject entirely?")) {
+                await remove(ref(db, `subjects/${subId}`));
+                showToast("Subject deleted.");
+                loadAdminData();
+            }
+        }
+
+        window.confirmOrder = async function(orderId) {
+            await update(ref(db, `orders/${orderId}`), { status: 'Confirmed' });
+            showToast("Order confirmed!");
+            loadAdminData();
+        }
+
+        // INIT ROUTE ON LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(handleRoute, 100); // slight delay to allow auth state check
+        });
+
+    </script>
 </body>
 </html>
