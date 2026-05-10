@@ -353,14 +353,14 @@ document.querySelectorAll(".gs").forEach(el => el.style.display = "flex");
 function rHome() {
 let c = document.getElementById("home-list");
 let ks = Object.keys(sData);
-let totalQ = 0;
+let totalCh = 0;
 for (let sid in sData) {
 let s = sData[sid];
-if (s.chapters) for (let cid in s.chapters) totalQ++;
+if (s.chapters) totalCh += Object.keys(s.chapters).length;
 }
 document.getElementById("home-stats").innerHTML =
 '<div class="stat"><b>' + ks.length + '</b><span>Subjects</span></div>' +
-'<div class="stat"><b>' + totalQ + '</b><span>Chapters</span></div>' +
+'<div class="stat"><b>' + totalCh + '</b><span>Chapters</span></div>' +
 '<div class="stat"><b>FREE</b><span>First Chapter</span></div>';
 
 if (ks.length === 0) {
@@ -375,7 +375,7 @@ h += '<div class="cd" onclick="go(\'subject-' + sid + '\')">';
 h += '<img src="https://placehold.co/400x200/7C3AED/ffffff?text=' + encodeURIComponent(s.name) + '" class="cd-img">';
 h += '<div class="cd-body"><div class="cd-title">' + esc(s.name) + '</div><div class="cd-desc">' + esc(s.description || "") + '</div>';
 h += '<div class="cd-foot"><span class="cd-price">' + (s.price > 0 ? "$" + s.price : "FREE") + '</span>';
-if (s.price > 0) h += '<span class="cd-tag tag-paid">' + chC + ' chapters</span>';
+if (s.price > 0) h += '<span class="cd-tag tag-paid">' + chC + ' ch</span>';
 else h += '<span class="cd-tag tag-free">Free</span>';
 h += '</div></div></div>';
 }
@@ -386,6 +386,7 @@ c.innerHTML = h;
 function rSubj(sid) {
 let s = sData[sid];
 if (!s) { go("home"); return; }
+
 document.getElementById("subj-bc").innerHTML = '<a onclick="go(\'home\')">Home</a> <span>/</span> ' + esc(s.name);
 document.getElementById("subj-top").innerHTML = '<div class="hero" style="padding:20px"><h2 style="font-size:20px;margin:0">' + esc(s.name) + '</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9">' + esc(s.description || "") + '</p>' + (s.price > 0 ? '<p style="margin-top:8px;font-size:12px;opacity:.7">Full access: $' + s.price + '</p>' : '') + '</div>';
 
@@ -396,16 +397,31 @@ chs.sort((a, b) => (a.d.order || 0) - (b.d.order || 0));
 }
 
 let c = document.getElementById("subj-chs");
-if (chs.length === 0) {
-c.innerHTML = '<div class="box" style="text-align:center">No chapters yet.</div>';
-return;
-}
 
+// CHECK ACCESS
 let uid = currentUser ? currentUser.uid : null;
 let pur = uid ? bought(uid, sid) : false;
 let free = !s.price || s.price <= 0;
-let h = "";
 
+// IF NO CHAPTERS BUT HAS HTML_CONTENT AT SUBJECT LEVEL - SHOW DIRECTLY
+if (chs.length === 0) {
+// Check if subject has html_content stored directly
+if (s.html_content) {
+if (free || pur || isAdmin) {
+c.innerHTML = '<div class="cnt-area">' + s.html_content + '</div>';
+} else {
+// Show locked
+c.innerHTML = '<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Content Locked</h3><p>Purchase to unlock.</p>' +
+(s.gumroad_url ? '<a href="' + esc(s.gumroad_url) + '" target="_blank" class="gbtn">Buy on Gumroad $' + s.price + '</a>' : '') + '</div>';
+}
+} else {
+c.innerHTML = '<div class="box" style="text-align:center">No content yet.</div>';
+}
+return;
+}
+
+// HAS CHAPTERS - SHOW LIST
+let h = "";
 for (let i = 0; i < chs.length; i++) {
 let ch = chs[i];
 let first = (i === 0);
@@ -456,6 +472,7 @@ document.getElementById("ch-body").innerHTML = '<div class="lock-box"><i class="
 return;
 }
 document.getElementById("ch-head").innerHTML = '<h2 style="font-size:18px;font-weight:800;margin-bottom:4px">' + esc(ch.title) + '</h2>';
+// RENDER HTML CONTENT DIRECTLY - NO ESCAPING
 document.getElementById("ch-body").innerHTML = ch.html_content || '<p style="color:var(--mut);text-align:center">No content yet.</p>';
 }
 
@@ -498,6 +515,7 @@ if (n === "ord") rOrd();
 }
 window.at = at;
 
+// ========== PUBLISH SUBJECT - FIXED ==========
 document.getElementById("subj-f").addEventListener("submit", async (e) => {
 e.preventDefault();
 let btn = document.getElementById("pub-btn");
@@ -518,16 +536,25 @@ return;
 }
 
 try {
-await push(ref(db, "subjects"), {
+// STEP 1: Create subject
+let newRef = await push(ref(db, "subjects"), {
 name: nm,
 description: ds,
 price: pr,
 gumroad_url: gm,
-html_content: ht,
 created_at: Date.now()
 });
+
+// STEP 2: Auto-create chapter with the HTML content
+await push(ref(db, "subjects/" + newRef.key + "/chapters"), {
+title: nm,
+html_content: ht,
+order: 1,
+created_at: Date.now()
+});
+
 document.getElementById("subj-f").reset();
-document.getElementById("as-res").innerHTML = '<span style="color:var(--grn)"><i class="fa-solid fa-check-circle"></i> Published successfully! Check Home page.</span>';
+document.getElementById("as-res").innerHTML = '<span style="color:var(--grn)"><i class="fa-solid fa-check-circle"></i> Published! Check Home page now.</span>';
 fl("Subject published!");
 } catch (err) {
 fl("Error: " + err.message, true);
@@ -544,18 +571,18 @@ if (ks.length === 0) { c.innerHTML = '<p style="color:var(--mut);text-align:cent
 let h = "";
 for (let sid in sData) {
 let s = sData[sid];
+let chC = s.chapters ? Object.keys(s.chapters).length : 0;
 h += '<div style="border:2px solid var(--bdr);border-radius:12px;padding:14px;margin-bottom:12px">';
 h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-h += '<div><strong style="font-size:15px">' + esc(s.name) + '</strong><br><span style="font-size:12px;color:var(--mut)">' + (s.price > 0 ? "$" + s.price : "Free") + ' | ' + (s.gumroad_url ? '<span style="color:var(--grn)">Gumroad OK</span>' : '<span style="color:var(--red)">No Gumroad</span>') + '</span></div>';
+h += '<div><strong style="font-size:15px">' + esc(s.name) + '</strong><br><span style="font-size:12px;color:var(--mut)">' + (s.price > 0 ? "$" + s.price : "Free") + ' | ' + chC + ' chapter(s) | ' + (s.gumroad_url ? '<span style="color:var(--grn)">Gumroad OK</span>' : '<span style="color:var(--red)">No Gumroad</span>') + '</span></div>';
 h += '<button onclick="delS(\'' + sid + '\')" style="background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold">Delete</button></div>';
-if (s.html_content) h += '<div style="margin-top:8px;padding:8px;background:#F9FAFB;border-radius:8px;font-size:11px;color:var(--mut)">Content preview: ' + s.html_content.substring(0, 100) + '...</div>';
 h += '</div>';
 }
 c.innerHTML = h;
 }
 
 window.delS = async (sid) => {
-if (!confirm("Delete this subject?")) return;
+if (!confirm("Delete this subject and ALL its chapters?")) return;
 try {
 await remove(ref(db, "subjects/" + sid));
 fl("Deleted.");
@@ -656,10 +683,7 @@ if (cv === "admin") rOrd();
 
 ui();
 go(window.location.hash.replace("#", "") || "home");
-
-if ("serviceWorker" in navigator) {
-navigator.serviceWorker.register("service-worker.js").catch(() => {});
-}
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js").catch(() => {});
 </script>
 </body>
 </html>
