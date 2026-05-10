@@ -2,405 +2,446 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mastery LMS - Medical Lab MCQs</title>
-<meta name="description" content="Practice 2000+ Medical Lab Technology MCQs with detailed explanations. First chapter FREE.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="Practice 2000+ MLT MCQs. First chapter FREE.">
 <meta name="theme-color" content="#7C3AED">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Mastery LMS">
-<link rel="apple-touch-icon" href="https://placehold.co/192x192/7C3AED/ffffff?text=ML">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="data:,">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-:root{--primary:#7C3AED;--secondary:#EC4899;--bg:#F3F4F6;--card:#FFF;--dark:#111827;--muted:#6B7280;--border:#E5E7EB;--green:#10B981;--red:#EF4444;--yellow:#F59E0B;--font:'Outfit',sans-serif;--r-xl:24px;--r-lg:16px;--r-md:12px;--shadow:0 2px 4px rgba(0,0,0,.05);--shadow-lg:0 10px 25px -5px rgba(0,0,0,.1)}
+:root{--primary:#7C3AED;--secondary:#EC4899;--bg:#F3F4F6;--card:#FFF;--dark:#111827;--muted:#6B7280;--border:#E5E7EB;--green:#10B981;--red:#EF4444;--yellow:#F59E0B;--font:'Outfit',sans-serif;--r-md:12px;--shadow:0 2px 4px rgba(0,0,0,.05)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font);color:var(--dark);background:var(--bg);padding-bottom:90px}
 .container{width:92%;max-width:1200px;margin:0 auto}
-header{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);padding:15px 0;position:sticky;top:0;z-index:1000;box-shadow:0 4px 30px rgba(0,0,0,.05)}
+header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:15px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.05)}
 header .container{display:flex;justify-content:space-between;align-items:center}
-.site-title{font-size:24px;font-weight:800;text-decoration:none;color:var(--dark);display:flex;align-items:center;gap:8px;cursor:pointer}
-.site-title i{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:28px}
+.site-title{font-size:22px;font-weight:800;text-decoration:none;color:var(--dark);display:flex;align-items:center;gap:8px;cursor:pointer}
+.site-title i{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:26px}
 .desktop-nav{display:none}
-.mobile-nav{position:fixed;bottom:0;left:0;width:100%;background:var(--card);display:flex;justify-content:space-around;padding:12px 10px 20px;border-radius:var(--r-xl) var(--r-xl) 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.08);z-index:1000}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);text-decoration:none;font-size:11px;font-weight:600;position:relative;cursor:pointer}
-.nav-item i{font-size:22px;padding:8px;border-radius:12px}
+.mobile-nav{position:fixed;bottom:0;left:0;width:100%;background:var(--card);display:flex;justify-content:space-around;padding:10px 10px 20px;border-radius:20px 20px 0 0;box-shadow:0 -5px 20px rgba(0,0,0,.08);z-index:1000}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);text-decoration:none;font-size:10px;font-weight:600;cursor:pointer}
+.nav-item i{font-size:20px;padding:6px;border-radius:10px}
 .nav-item.active{color:var(--primary)}
-.nav-item.active i{background:rgba(124,58,237,.1);transform:translateY(-3px)}
-.hero{background:linear-gradient(135deg,#1E1B4B 0%,var(--primary) 100%);border-radius:var(--r-lg);padding:30px 20px;margin:20px 0;color:white;overflow:hidden;box-shadow:var(--shadow-lg)}
-.hero h2{font-size:28px;font-weight:800;margin-bottom:10px}
-.hero p{font-size:14px;opacity:.9;margin-bottom:20px}
-.btn-glass{background:rgba(255,255,255,.2);backdrop-filter:blur(5px);color:white;border:1px solid rgba(255,255,255,.4);padding:10px 20px;border-radius:30px;font-weight:600;text-decoration:none;display:inline-block;font-size:14px;cursor:pointer}
-.section-title{font-size:20px;font-weight:800;color:var(--dark);margin:30px 0 15px}
+.nav-item.active i{background:rgba(124,58,237,.1)}
+.hero{background:linear-gradient(135deg,#1E1B4B,var(--primary));border-radius:16px;padding:28px 20px;margin:20px 0;color:white}
+.hero h2{font-size:26px;font-weight:800;margin-bottom:8px}
+.hero p{font-size:14px;opacity:.85;margin-bottom:16px}
+.btn-glass{background:rgba(255,255,255,.2);color:white;border:1px solid rgba(255,255,255,.4);padding:10px 20px;border-radius:30px;font-weight:600;display:inline-block;font-size:14px;cursor:pointer}
+.section-title{font-size:18px;font-weight:800;margin:25px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.card{background:var(--card);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.03);cursor:pointer;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.card{background:var(--card);border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-3px)}
 .card-img{width:100%;height:110px;object-fit:cover}
-.card-body{padding:10px;display:flex;flex-direction:column;flex-grow:1}
-.card-title{font-size:13px;font-weight:700;line-height:1.3;margin-bottom:4px}
-.card-desc{display:none}
-.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px;border-top:1px dashed var(--border)}
+.card-body{padding:10px}
+.card-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
 .price{font-size:15px;font-weight:800;color:var(--primary)}
-.box{background:var(--card);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border)}
+.box{background:var(--card);border-radius:16px;padding:24px;box-shadow:var(--shadow);margin-bottom:20px}
 .form-group{margin-bottom:15px}
 .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
-.form-control{width:100%;padding:12px 14px;border-radius:var(--r-md);border:2px solid var(--border);background:#FAFAFA;font-family:var(--font);font-size:14px}
+.form-control{width:100%;padding:12px;border-radius:var(--r-md);border:2px solid var(--border);background:#FAFAFA;font-family:var(--font);font-size:14px}
 .form-control:focus{border-color:var(--primary);background:white;outline:none}
-textarea.form-control{min-height:80px;resize:vertical}
-.btn-main{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;padding:12px 20px;border-radius:var(--r-md);font-weight:700;font-size:15px;width:100%;cursor:pointer;display:inline-block;text-align:center;text-decoration:none;font-family:var(--font)}
-.btn-sm{padding:8px 16px;font-size:13px;width:auto}
-.btn-red{background:var(--red)}
-.admin-tabs{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;-ms-overflow-style:none;scrollbar-width:none}
-.admin-tabs::-webkit-scrollbar{display:none}
-.admin-tabs a{padding:10px 18px;background:var(--card);border-radius:30px;text-decoration:none;font-weight:600;color:var(--muted);white-space:nowrap;border:1px solid var(--border);transition:.2s;font-size:14px;cursor:pointer}
-.admin-tabs a.active{background:var(--primary);color:white;border-color:var(--primary)}
-table{width:100%;min-width:400px;border-collapse:collapse;font-size:13px}
-th{background:#F9FAFB;padding:10px;text-align:left}
-td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle}
-.flash-message{background:var(--green);color:white;padding:12px 20px;border-radius:var(--r-md);margin:20px 0;font-weight:600;font-size:14px;display:none;position:sticky;top:70px;z-index:999}
-.flash-message.error{background:var(--red)}
-.view-section{display:none}
-.view-section.active{display:block}
+textarea.form-control{min-height:100px;resize:vertical}
+.btn-main{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;padding:14px 20px;border-radius:var(--r-md);font-weight:700;font-size:15px;width:100%;cursor:pointer;font-family:var(--font)}
+.flash-msg{background:var(--green);color:white;padding:12px 16px;border-radius:var(--r-md);margin:15px 0;font-weight:600;font-size:14px;display:none}
+.flash-msg.error{background:var(--red)}
+.view{display:none}
+.view.active{display:block}
 .auth-show{display:none}
 .admin-show{display:none}
-.guest-show{display:inline-block}
-.ch-item{display:flex;align-items:center;padding:16px;background:var(--card);border-radius:var(--r-md);margin-bottom:10px;border:1px solid var(--border);cursor:pointer;transition:.2s}
-.ch-item:hover{border-color:var(--primary);transform:translateX(4px)}
-.ch-item.locked{opacity:.7;cursor:default}
-.ch-num{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-right:14px;flex-shrink:0}
+.guest-show{display:inline-flex}
+.ch-item{display:flex;align-items:center;padding:14px;background:var(--card);border-radius:var(--r-md);margin-bottom:10px;border:1px solid var(--border);cursor:pointer;transition:.2s}
+.ch-item:hover{border-color:var(--primary)}
+.ch-item.locked{opacity:.6}
+.ch-num{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-right:12px;flex-shrink:0}
 .ch-item.locked .ch-num{background:var(--border);color:var(--muted)}
-.ch-info{flex-grow:1}
-.ch-info h4{font-size:14px;font-weight:700;margin-bottom:2px}
-.ch-lock{color:var(--yellow);font-size:20px;margin-left:10px}
-.ch-free{background:var(--green);color:white;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-left:10px}
-.lock-box{text-align:center;padding:40px 20px}
-.lock-box i{font-size:48px;color:var(--yellow);margin-bottom:16px;display:block}
-.lock-box h3{font-size:20px;margin-bottom:8px}
-.lock-box p{color:var(--muted);margin-bottom:20px;font-size:14px}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
+.ch-info h4{font-size:14px;font-weight:700}
+.ch-free{background:var(--green);color:white;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-left:auto}
+.ch-lock{color:var(--yellow);font-size:18px;margin-left:auto}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
 .breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600;cursor:pointer}
 .breadcrumb span{color:var(--border)}
-.gumroad-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--primary));color:white;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--font);transition:.2s}
-.gumroad-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(124,58,237,.3)}
-.content-area{background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);border:1px solid var(--border);margin:15px 0;line-height:1.8;font-size:15px}
-.content-area h1,.content-area h2,.content-area h3{color:var(--dark);margin:20px 0 10px}
+.lock-box{text-align:center;padding:40px 20px}
+.lock-box i{font-size:48px;color:var(--yellow);margin-bottom:16px;display:block}
+.lock-box h3{margin-bottom:8px}
+.lock-box p{color:var(--muted);margin-bottom:20px}
+.gumroad-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--primary));color:white;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--font)}
+.content-area{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--border);margin:15px 0;line-height:1.8;font-size:15px;overflow-x:auto}
+.content-area h1,.content-area h2,.content-area h3{margin:20px 0 10px}
 .content-area p{margin-bottom:12px}
-.content-area table{border-collapse:collapse;margin:15px 0}
+.content-area table{border-collapse:collapse;margin:15px 0;width:100%}
 .content-area table th,.content-area table td{border:1px solid var(--border);padding:8px 12px;text-align:left}
-.content-area table th{background:#F9FAFB;font-weight:700}
-.content-area img{max-width:100%;border-radius:8px;margin:10px 0}
+.content-area table th{background:#F9FAFB}
 .content-area ul,.content-area ol{margin:10px 0 10px 20px}
-.content-area li{margin-bottom:5px}
-.install-banner{background:linear-gradient(135deg,#1E1B4B,#7C3AED);color:white;padding:16px;border-radius:12px;margin:15px 0;display:flex;align-items:center;gap:12px}
+.content-area img{max-width:100%;border-radius:8px}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--primary);color:white;font-weight:800;font-size:14px;margin-right:8px}
+.install-banner{background:linear-gradient(135deg,#1E1B4B,var(--primary));color:white;padding:14px;border-radius:12px;margin:15px 0;display:flex;align-items:center;gap:12px}
 .install-banner .btn-ok{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:white;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
-.verify-box{background:#F0FDF4;border:2px solid #BBF7D0;border-radius:16px;padding:24px;margin-top:20px}
-.step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--primary);color:white;font-weight:800;font-size:14px;margin-right:10px}
+.verify-box{background:#F0FDF4;border:2px solid #BBF7D0;border-radius:16px;padding:20px;margin-top:20px}
+.admin-tabs{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px}
+.admin-tabs::-webkit-scrollbar{display:none}
+.admin-tabs a{padding:10px 16px;background:var(--card);border-radius:30px;font-weight:600;color:var(--muted);white-space:nowrap;border:1px solid var(--border);font-size:13px;cursor:pointer}
+.admin-tabs a.active{background:var(--primary);color:white;border-color:var(--primary)}
+.err-box{background:#FEF2F2;border:2px solid #FECACA;border-radius:12px;padding:20px;margin:20px 0;color:#991B1B;text-align:center}
 @media(min-width:768px){
 body{padding-bottom:30px}
 .mobile-nav{display:none}
-.desktop-nav{display:flex;gap:25px;list-style:none;align-items:center}
+.desktop-nav{display:flex;gap:20px;list-style:none;align-items:center}
 .desktop-nav a{color:var(--dark);text-decoration:none;font-weight:600;font-size:15px;cursor:pointer}
-.hero{padding:60px;margin:40px 0;border-radius:var(--r-xl)}
-.hero h2{font-size:42px}
-.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.hero{padding:50px;margin:30px 0}
+.hero h2{font-size:40px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
 .card-img{height:160px}
-.card-body{padding:20px}
-.card-title{font-size:18px}
-.card-desc{display:block;font-size:13px;color:var(--muted);margin-bottom:15px}
-.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card-body{padding:18px}
+.card-title{font-size:17px}
 }
 </style>
 </head>
 <body>
+
 <header>
 <div class="container">
-<a onclick="navigate('home')" class="site-title"><i class="fa-solid fa-microscope"></i> Mastery LMS</a>
+<a onclick="go('home')" class="site-title"><i class="fa-solid fa-microscope"></i> Mastery LMS</a>
 <ul class="desktop-nav">
-<li><a onclick="navigate('home')">Home</a></li>
+<li><a onclick="go('home')">Home</a></li>
 <li class="auth-show" id="d-user" style="background:#F3F4F6;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:700;"></li>
-<li class="auth-show"><a onclick="navigate('library')" style="color:var(--primary);font-weight:800;">My Library</a></li>
-<li class="admin-show"><a onclick="navigate('admin')" style="color:var(--secondary);">Admin</a></li>
-<li class="auth-show"><a onclick="doLogout()" class="btn-glass" style="color:var(--muted);border-color:var(--border);">Logout</a></li>
-<li class="guest-show"><a onclick="navigate('login')" class="btn-glass" style="background:var(--primary);color:white;border:none;">Login</a></li>
+<li class="auth-show"><a onclick="go('library')" style="color:var(--primary);font-weight:800;">My Library</a></li>
+<li class="admin-show"><a onclick="go('admin')" style="color:var(--secondary);">Admin</a></li>
+<li class="auth-show"><a onclick="doLogout()" style="color:var(--muted);cursor:pointer;">Logout</a></li>
+<li class="guest-show"><a onclick="go('login')" class="btn-glass" style="background:var(--primary);color:white;border:none;">Login</a></li>
 </ul>
 </div>
 </header>
 
 <main class="container">
-<div id="flash-msg" class="flash-message"></div>
+<div id="flash" class="flash-msg"></div>
 
+<!-- HOME -->
+<div id="v-home" class="view active">
 <div class="install-banner" id="install-banner">
-<i class="fa-solid fa-mobile-screen-button" style="font-size:30px;"></i>
-<div style="flex:1;"><strong>Install as App</strong><p style="font-size:12px;opacity:.8;margin-top:2px;">Tap browser menu then "Add to Home Screen"</p></div>
-<button class="btn-ok" onclick="document.getElementById('install-banner').style.display='none'">OK</button>
+<i class="fa-solid fa-mobile-screen-button" style="font-size:28px;"></i>
+<div style="flex:1;"><strong>Install as App</strong><br><span style="font-size:11px;opacity:.8;">Tap browser menu then "Add to Home Screen"</span></div>
+<button class="btn-ok" onclick="this.parentElement.style.display='none'">OK</button>
 </div>
-
-<div id="view-home" class="view-section active">
 <div class="hero">
 <h2>Master Medical Lab<br>Technology MCQs</h2>
 <p>Detailed notes, MCQs and explanations. First chapter of every subject is completely FREE.</p>
-<a onclick="document.getElementById('browse-here').scrollIntoView({behavior:'smooth'})" class="btn-glass">Browse Subjects</a>
+<a onclick="document.getElementById('subject-list').scrollIntoView({behavior:'smooth'})" class="btn-glass">Browse Subjects</a>
 </div>
-<h3 class="section-title" id="browse-here">All Subjects</h3>
-<div id="home-subjects"></div>
+<h3 class="section-title" id="subject-list">All Subjects</h3>
+<div id="home-list"></div>
 </div>
 
-<div id="view-subject" class="view-section">
-<div class="breadcrumb" id="subj-breadcrumb"></div>
+<!-- SUBJECT -->
+<div id="v-subject" class="view">
+<div class="breadcrumb" id="subj-bc"></div>
 <div id="subj-hero"></div>
 <h3 class="section-title">Chapters</h3>
-<div id="subj-chapters"></div>
+<div id="subj-chs"></div>
 </div>
 
-<div id="view-chapter" class="view-section">
-<div class="breadcrumb" id="ch-breadcrumb"></div>
-<div id="ch-title-area"></div>
+<!-- CHAPTER -->
+<div id="v-chapter" class="view">
+<div class="breadcrumb" id="ch-bc"></div>
+<div id="ch-title"></div>
 <div class="content-area" id="ch-content"></div>
 <div style="text-align:center;margin:20px 0;">
-<button class="btn-glass" id="ch-back-btn" style="background:var(--primary);color:white;border:none;">Back to Chapters</button>
+<button class="btn-main" id="ch-back" style="width:auto;padding:10px 24px;">Back to Chapters</button>
 </div>
 </div>
 
-<div id="view-verify" class="view-section">
-<h3 class="section-title">Verify Your Purchase</h3>
+<!-- VERIFY -->
+<div id="v-verify" class="view">
+<h3 class="section-title">Verify Purchase</h3>
 <div class="box" style="max-width:550px;">
 <div style="background:#F0F9FF;border:1px solid #BAE6FD;border-radius:12px;padding:16px;margin-bottom:20px;">
 <h4 style="color:#0369A1;margin-bottom:8px;"><i class="fa-solid fa-circle-info"></i> How it works:</h4>
 <div style="font-size:13px;color:#0C4A6E;line-height:2;">
-<span class="step-num">1</span> Go to subject page and click "Buy on Gumroad"<br>
-<span class="step-num">2</span> Pay on Gumroad with card/PayPal<br>
-<span class="step-num">3</span> Copy your Receipt ID<br>
-<span class="step-num">4</span> Come back here and paste it below<br>
-<span class="step-num">5</span> Admin will verify and unlock access!
+<span class="step-num">1</span> Click "Buy on Gumroad" on subject page<br>
+<span class="step-num">2</span> Pay with card/PayPal<br>
+<span class="step-num">3</span> Copy Receipt ID<br>
+<span class="step-num">4</span> Paste it below<br>
+<span class="step-num">5</span> Admin verifies and unlocks!
 </div>
 </div>
 <form id="verify-form">
-<div class="form-group"><label>Your Email (same as Gumroad)</label><input type="email" id="verify-email" class="form-control" required placeholder="email@example.com"></div>
-<div class="form-group"><label>Gumroad Receipt ID</label><input type="text" id="verify-receipt" class="form-control" required placeholder="e.g., Sale#ABC123XYZ"></div>
-<div class="form-group"><label>Which Subject did you buy?</label><select id="verify-subject" class="form-control"></select></div>
-<button type="submit" class="btn-main"><i class="fa-solid fa-paper-plane"></i> Submit for Verification</button>
+<div class="form-group"><label>Email (same as Gumroad)</label><input type="email" id="vf-email" class="form-control" required></div>
+<div class="form-group"><label>Receipt ID</label><input type="text" id="vf-receipt" class="form-control" required placeholder="From Gumroad receipt"></div>
+<div class="form-group"><label>Subject</label><select id="vf-subject" class="form-control"></select></div>
+<button type="submit" class="btn-main">Submit Verification</button>
 </form>
-<div class="verify-box" id="verify-status" style="display:none;"></div>
+<div class="verify-box" id="vf-status" style="display:none;"></div>
 </div>
 </div>
 
-<div id="view-library" class="view-section">
+<!-- LIBRARY -->
+<div id="v-library" class="view">
 <div class="hero" style="background:var(--secondary);padding:20px;margin-top:10px;">
-<h2 style="font-size:24px;margin:0;"><i class="fa-solid fa-book-open"></i> My Library</h2>
-<p id="lib-user" style="margin:5px 0 0;font-size:14px;opacity:.9;font-weight:600;"></p>
+<h2 style="font-size:22px;margin:0;"><i class="fa-solid fa-book-open"></i> My Library</h2>
+<p id="lib-user" style="margin:5px 0 0;font-size:13px;opacity:.9;"></p>
 </div>
-<div id="lib-content"></div>
+<div id="lib-list"></div>
 </div>
 
-<div id="view-login" class="view-section">
+<!-- LOGIN -->
+<div id="v-login" class="view">
 <div class="box" style="max-width:400px;margin:40px auto;">
 <h2 style="text-align:center;margin-bottom:20px;">Login</h2>
 <form id="login-form">
-<div class="form-group"><label>Email</label><input type="email" id="login-email" class="form-control" required placeholder="your@email.com"></div>
-<div class="form-group"><label>Password</label><input type="password" id="login-pass" class="form-control" required placeholder="Your password"></div>
+<div class="form-group"><label>Email</label><input type="email" id="lg-email" class="form-control" required placeholder="your@email.com"></div>
+<div class="form-group"><label>Password</label><input type="password" id="lg-pass" class="form-control" required placeholder="Password"></div>
 <button type="submit" class="btn-main">Login</button>
-<div style="text-align:center;margin-top:15px;font-size:13px;">No account? <a onclick="navigate('register')" style="color:var(--primary);cursor:pointer;font-weight:700;">Register here</a></div>
+<div style="text-align:center;margin-top:15px;font-size:13px;">No account? <a onclick="go('register')" style="color:var(--primary);cursor:pointer;font-weight:700;">Register</a></div>
 </form>
 </div>
 </div>
 
-<div id="view-register" class="view-section">
+<!-- REGISTER -->
+<div id="v-register" class="view">
 <div class="box" style="max-width:400px;margin:40px auto;">
-<h2 style="text-align:center;margin-bottom:20px;">Create Account</h2>
+<h2 style="text-align:center;margin-bottom:20px;">Register</h2>
 <form id="reg-form">
-<div class="form-group"><label>Email</label><input type="email" id="reg-email" class="form-control" required placeholder="your@email.com"></div>
-<div class="form-group"><label>Password (minimum 6 characters)</label><input type="password" id="reg-pass" class="form-control" required placeholder="Minimum 6 characters"></div>
-<div class="form-group"><label>Confirm Password</label><input type="password" id="reg-confirm" class="form-control" required placeholder="Type again"></div>
+<div class="form-group"><label>Email</label><input type="email" id="rg-email" class="form-control" required placeholder="your@email.com"></div>
+<div class="form-group"><label>Password (6+ characters)</label><input type="password" id="rg-pass" class="form-control" required placeholder="Min 6 characters"></div>
+<div class="form-group"><label>Confirm Password</label><input type="password" id="rg-conf" class="form-control" required placeholder="Again"></div>
 <button type="submit" class="btn-main">Register</button>
-<div style="text-align:center;margin-top:15px;font-size:13px;">Have account? <a onclick="navigate('login')" style="color:var(--primary);cursor:pointer;font-weight:700;">Login</a></div>
+<div style="text-align:center;margin-top:15px;font-size:13px;">Have account? <a onclick="go('login')" style="color:var(--primary);cursor:pointer;font-weight:700;">Login</a></div>
 </form>
 </div>
 </div>
 
-<div id="view-admin" class="view-section">
-<div class="hero" style="padding:20px;background:var(--dark);margin-top:10px;margin-bottom:15px;">
-<h2 style="font-size:24px;margin:0;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h2>
-<p style="opacity:.7;font-size:13px;margin-top:4px;">Add subjects, paste HTML content, verify orders</p>
+<!-- ADMIN -->
+<div id="v-admin" class="view">
+<div class="hero" style="padding:20px;background:var(--dark);margin-top:10px;">
+<h2 style="font-size:22px;margin:0;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h2>
 </div>
 <div class="admin-tabs">
-<a onclick="showATab('add')" id="atab-add" class="active"><i class="fa-solid fa-plus"></i> Add Subject</a>
-<a onclick="showATab('chapter')" id="atab-chapter"><i class="fa-solid fa-file-code"></i> Add Chapter</a>
-<a onclick="showATab('manage')" id="atab-manage"><i class="fa-solid fa-book"></i> Manage</a>
-<a onclick="showATab('orders')" id="atab-orders"><i class="fa-solid fa-receipt"></i> Orders</a>
+<a onclick="tab('add')" id="t-add" class="active"><i class="fa-solid fa-plus"></i> Subject</a>
+<a onclick="tab('ch')" id="t-ch"><i class="fa-solid fa-file-code"></i> Chapter</a>
+<a onclick="tab('mg')" id="t-mg"><i class="fa-solid fa-book"></i> Manage</a>
+<a onclick="tab('ord')" id="t-ord"><i class="fa-solid fa-receipt"></i> Orders</a>
 </div>
 
-<div id="atab-add" class="atab-view">
+<div id="p-add" class="tab-panel">
 <div class="box">
-<h3><i class="fa-solid fa-plus-circle"></i> Add New Subject</h3>
-<form id="add-subject-form">
+<h3>Add New Subject</h3>
+<form id="subj-form">
 <div class="form-group"><label>Subject Name</label><input type="text" id="as-name" class="form-control" required placeholder="e.g., RBCs Disorder"></div>
 <div class="form-group"><label>Description</label><textarea id="as-desc" class="form-control" required placeholder="Short description"></textarea></div>
-<div class="form-group"><label>Price (USD) - Enter 0 for free</label><input type="number" id="as-price" class="form-control" required value="5" min="0" step="0.01"></div>
-<div class="form-group"><label>Gumroad Product URL</label><input type="url" id="as-gumroad" class="form-control" placeholder="https://gumroad.com/l/xxxxx"></div>
+<div class="form-group"><label>Price (USD) - 0 for free</label><input type="number" id="as-price" class="form-control" value="5" min="0" step="0.01"></div>
+<div class="form-group"><label>Gumroad URL</label><input type="url" id="as-gum" class="form-control" placeholder="https://gumroad.com/l/xxxxx"></div>
 <button type="submit" class="btn-main">Create Subject</button>
 </form>
 </div>
 </div>
 
-<div id="atab-chapter" class="atab-view" style="display:none;">
+<div id="p-ch" class="tab-panel" style="display:none;">
 <div class="box">
-<h3><i class="fa-solid fa-file-code"></i> Add Chapter with HTML Content</h3>
-<p style="font-size:13px;color:var(--muted);margin-bottom:15px;">Select a subject, give chapter title, and paste your FULL HTML code below.</p>
-<div class="form-group"><label>Select Subject</label><select id="ch-subject" class="form-control"></select></div>
-<div class="form-group"><label>Chapter Title</label><input type="text" id="ch-title" class="form-control" required placeholder="e.g., Erythropoiesis - Introduction"></div>
-<div class="form-group"><label>Paste FULL HTML Code</label>
-<textarea id="ch-html" class="form-control" style="min-height:300px;font-family:monospace;font-size:12px;" placeholder="Paste your complete HTML code here. Example:
-<h2>Erythropoiesis</h2>
-<p>Erythropoiesis is the process of RBC production...</p>
+<h3>Add Chapter with HTML Content</h3>
+<p style="font-size:13px;color:var(--muted);margin-bottom:15px;">Select subject, give title, paste your FULL HTML code. Students will see it exactly as you paste it.</p>
+<div class="form-group"><label>Select Subject</label><select id="ch-sel" class="form-control"></select></div>
+<div class="form-group"><label>Chapter Title</label><input type="text" id="ch-title-input" class="form-control" required placeholder="e.g., Erythropoiesis"></div>
+<div class="form-group"><label>Paste FULL HTML Code Here</label>
+<textarea id="ch-html-input" class="form-control" style="min-height:300px;font-family:monospace;font-size:12px;" placeholder="Paste your HTML here. Example:
+
+<h2>Topic Name</h2>
+<p>Explanation text...</p>
 <table>
 <tr><th>Question</th><th>Answer</th></tr>
-<tr><td>Normal RBC count?</td><td>4.5-5.5 million</td></tr>
+<tr><td>Q1?</td><td>A1</td></tr>
 </table>
-<p>Any HTML you paste here will display exactly as-is to students.</p>"></textarea>
+
+Any HTML you paste here will display exactly as-is to students."></textarea>
 </div>
-<button onclick="addChapter()" class="btn-main"><i class="fa-solid fa-plus"></i> Add Chapter</button>
-<div id="ch-result" style="margin-top:10px;font-size:13px;"></div>
+<button onclick="addCh()" class="btn-main">Add Chapter</button>
+<div id="ch-res" style="margin-top:10px;font-size:13px;"></div>
 </div>
 </div>
 
-<div id="atab-manage" class="atab-view" style="display:none;">
+<div id="p-mg" class="tab-panel" style="display:none;">
 <div class="box">
-<h3 style="margin-bottom:15px;"><i class="fa-solid fa-book"></i> All Subjects & Chapters</h3>
-<div id="manage-content"></div>
+<h3 style="margin-bottom:15px;">All Subjects & Chapters</h3>
+<div id="mg-list"></div>
 </div>
 </div>
 
-<div id="atab-orders" class="atab-view" style="display:none;">
+<div id="p-ord" class="tab-panel" style="display:none;">
 <div class="box">
-<h3 style="margin-bottom:15px;"><i class="fa-solid fa-receipt"></i> Orders</h3>
-<p style="font-size:12px;color:var(--muted);margin-bottom:15px;">Check Gumroad dashboard to verify receipts then click Confirm.</p>
-<div style="overflow-x:auto;"><table id="admin-orders-table"></table></div>
+<h3 style="margin-bottom:15px;">Orders</h3>
+<p style="font-size:12px;color:var(--muted);margin-bottom:15px;">Verify receipts on Gumroad dashboard then click Confirm.</p>
+<div style="overflow-x:auto;"><table id="ord-tbl"></table></div>
 </div>
 </div>
 </div>
 </main>
 
 <nav class="mobile-nav">
-<a onclick="navigate('home')" id="mn-home" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a>
-<a onclick="navigate('verify')" id="mn-verify" class="nav-item auth-show"><i class="fa-solid fa-circle-check"></i> Verify</a>
-<a onclick="navigate('login')" id="mn-login" class="nav-item guest-show" style="display:flex;"><i class="fa-solid fa-user"></i> Login</a>
-<a onclick="navigate('library')" id="mn-library" class="nav-item auth-show"><i class="fa-solid fa-book-open"></i> Library</a>
-<a onclick="navigate('admin')" id="mn-admin" class="nav-item admin-show"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+<a onclick="go('home')" id="mn-home" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+<a onclick="go('verify')" id="mn-verify" class="nav-item auth-show"><i class="fa-solid fa-circle-check"></i> Verify</a>
+<a onclick="go('login')" id="mn-login" class="nav-item guest-show" style="display:flex;"><i class="fa-solid fa-user"></i> Login</a>
+<a onclick="go('library')" id="mn-library" class="nav-item auth-show"><i class="fa-solid fa-book-open"></i> Library</a>
+<a onclick="go('admin')" id="mn-admin" class="nav-item admin-show"><i class="fa-solid fa-shield-halved"></i> Admin</a>
 <a onclick="doLogout()" class="nav-item auth-show"><i class="fa-solid fa-power-off"></i> Logout</a>
 </nav>
 
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import{getDatabase,ref,set,onValue,push,remove,update}from"https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
-
-var firebaseConfig={
-apiKey:"AIzaSyDUZE3XaBrTXP9BHV3rIvhlrfgGhWbjQBY",
-authDomain:"mastery-lms-e153c.firebaseapp.com",
-databaseURL:"https://mastery-lms-e153c-default-rtdb.firebaseio.com",
-projectId:"mastery-lms-e153c",
-storageBucket:"mastery-lms-e153c.firebasestorage.app",
-messagingSenderId:"43972740535",
-appId:"1:43972740535:web:66966b5132f80716549432"
-};
-
-var app=initializeApp(firebaseConfig);
-var auth=getAuth(app);
-var db=getDatabase(app);
-
-window.currentUser='loading';
-window.isAdmin=false;
-window.subjectsData={};
-window.ordersData={};
+<script>
+// ============================================
+// BASIC FUNCTIONS (WORK WITHOUT FIREBASE)
+// ============================================
+var DB=null;
+var AUTH=null;
+var currentUser=null;
+var isAdmin=false;
+var subjectsData={};
+var ordersData={};
 var ADMIN_EMAIL='admin@masterylms.com';
 
-function flash(msg,type){var el=document.getElementById('flash-msg');el.textContent=msg;el.className='flash-message '+(type||'success');el.style.display='block';setTimeout(function(){el.style.display='none';},5000);}
-window.flash=flash;
+function flash(msg,isErr){
+var el=document.getElementById('flash');
+el.textContent=msg;
+el.className='flash-msg'+(isErr?' error':'');
+el.style.display='block';
+setTimeout(function(){el.style.display='none';},5000);
+}
 
-function esc(s){if(!s)return '';return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){
+if(!s)return '';
+var d=document.createElement('div');
+d.textContent=s;
+return d.innerHTML;
+}
 
-function hasPurchased(uid,sid){if(!window.ordersData)return false;for(var k in window.ordersData){var o=window.ordersData[k];if(o.user_id===uid&&o.subject_id===sid&&o.status==='Confirmed')return true;}return false;}
+// NAVIGATION - DEFINED IMMEDIATELY
+function go(view){
+// Hide all views
+var views=document.querySelectorAll('.view');
+for(var i=0;i<views.length;i++)views[i].classList.remove('active');
 
-function getChapterList(subj){if(!subj.chapters)return[];var arr=[];for(var cid in subj.chapters)arr.push({id:cid,data:subj.chapters[cid]});arr.sort(function(a,b){return(a.data.order||0)-(b.data.order||0);});return arr;}
+// Show target view
+var target=document.getElementById('v-'+view);
+if(target)target.classList.add('active');
 
-// NAVIGATION
-window.navigate=function(view){
-if(window.location.hash!=='#'+view)window.history.pushState(null,null,'#'+view);
-document.querySelectorAll('.view-section').forEach(function(el){el.classList.remove('active');});
-document.querySelectorAll('.mobile-nav .nav-item').forEach(function(el){el.classList.remove('active');});
-var tgt=document.getElementById('view-'+view);if(tgt)tgt.classList.add('active');
-var mn=document.getElementById('mn-'+view);if(mn)mn.classList.add('active');
+// Update mobile nav
+var navs=document.querySelectorAll('.mobile-nav .nav-item');
+for(var i=0;i<navs.length;i++)navs[i].classList.remove('active');
+var mn=document.getElementById('mn-'+view);
+if(mn)mn.classList.add('active');
+
+// Update hash
+if(window.location.hash!==('#'+view)){
+window.history.pushState(null,null,'#'+view);
+}
+
+// Route handlers
 if(view==='home')renderHome();
+else if(view==='login'||view==='register'){/* just show */}
 else if(view.indexOf('subject-')===0)renderSubject(view.replace('subject-',''));
-else if(view.indexOf('chapter-')===0){var p=view.replace('chapter-','').split('-');if(p.length>=2)renderChapter(p[0],p[1]);}
+else if(view.indexOf('chapter-')===0){
+var p=view.replace('chapter-','').split('-');
+if(p.length>=2)renderChapter(p[0],p[1]);
+}
 else if(view==='verify')renderVerify();
 else if(view==='library')loadLibrary();
+else if(view==='admin')renderManage();
+
 window.scrollTo(0,0);
-};
-window.addEventListener('hashchange',function(){var v=window.location.hash.replace('#','')||'home';navigate(v);});
+}
+window.go=go;
 
-// AUTH
-onAuthStateChanged(auth,function(user){
-if(user){
-window.currentUser=user;window.isAdmin=(user.email===ADMIN_EMAIL);
-document.getElementById('d-user').innerHTML='<i class="fa-solid fa-user-circle"></i> '+user.email;
-document.querySelectorAll('.auth-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
-document.querySelectorAll('.guest-show').forEach(function(el){el.style.display='none';});
-if(window.isAdmin)document.querySelectorAll('.admin-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
-else document.querySelectorAll('.admin-show').forEach(function(el){el.style.display='none';});
-var cv=window.location.hash.replace('#','')||'home';
-if(cv==='login'||cv==='register')navigate('home');
+function showUI(){
+if(currentUser){
+var els=document.querySelectorAll('.auth-show');
+for(var i=0;i<els.length;i++)els[i].style.display='flex';
+els=document.querySelectorAll('.guest-show');
+for(var i=0;i<els.length;i++)els[i].style.display='none';
+document.getElementById('d-user').innerHTML='<i class="fa-solid fa-user-circle"></i> '+currentUser.email;
+if(isAdmin){
+els=document.querySelectorAll('.admin-show');
+for(var i=0;i<els.length;i++)els[i].style.display='flex';
 }else{
-window.currentUser=null;window.isAdmin=false;
-document.querySelectorAll('.auth-show').forEach(function(el){el.style.display='none';});
-document.querySelectorAll('.admin-show').forEach(function(el){el.style.display='none';});
-document.querySelectorAll('.guest-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
-var cv=window.location.hash.replace('#','')||'home';
-if(['library','verify','admin'].indexOf(cv)!==-1)navigate('login');
+els=document.querySelectorAll('.admin-show');
+for(var i=0;i<els.length;i++)els[i].style.display='none';
 }
-});
+}else{
+var els=document.querySelectorAll('.auth-show');
+for(var i=0;i<els.length;i++)els[i].style.display='none';
+els=document.querySelectorAll('.admin-show');
+for(var i=0;i<els.length;i++)els[i].style.display='none';
+els=document.querySelectorAll('.guest-show');
+for(var i=0;i<els.length;i++)els[i].style.display='flex';
+}
+}
 
-// DATA
-onValue(ref(db,'subjects'),function(snap){window.subjectsData=snap.val()||{};var cv=window.location.hash.replace('#','')||'home';if(cv==='home')renderHome();if(cv==='admin')renderManage();updateChapterDropdown();updateVerifyDropdown();});
-onValue(ref(db,'orders'),function(snap){window.ordersData=snap.val()||{};var cv=window.location.hash.replace('#','')||'home';if(cv==='admin')renderAdminOrders();if(cv==='library')loadLibrary();});
+function hasPurchased(uid,sid){
+if(!ordersData)return false;
+for(var k in ordersData){
+var o=ordersData[k];
+if(o.user_id===uid&&o.subject_id===sid&&o.status==='Confirmed')return true;
+}
+return false;
+}
 
+function getChapters(subj){
+if(!subj.chapters)return[];
+var arr=[];
+for(var cid in subj.chapters)arr.push({id:cid,data:subj.chapters[cid]});
+arr.sort(function(a,b){return(a.data.order||0)-(b.data.order||0);});
+return arr;
+}
+
+// ============================================
 // HOME
+// ============================================
 function renderHome(){
-var c=document.getElementById('home-subjects');
-var keys=Object.keys(window.subjectsData);
-if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><i class="fa-solid fa-book" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p style="color:var(--muted);">No subjects yet.</p></div>';return;}
-var html='<div class="grid">';
-for(var sid in window.subjectsData){
-var s=window.subjectsData[sid];
-var chCount=s.chapters?Object.keys(s.chapters).length:0;
-html+='<div class="card" onclick="navigate(\'subject-'+sid+'\')">';
-html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(s.name)+'" class="card-img">';
-html+='<div class="card-body"><div class="card-title">'+esc(s.name)+'</div><div class="card-desc">'+esc(s.description||'').substring(0,60)+'...</div>';
-html+='<div class="card-footer"><span class="price">'+(s.price>0?'$'+s.price:'FREE')+'</span><span style="font-size:11px;color:var(--muted);">'+chCount+' chapters</span></div></div></div>';
+var c=document.getElementById('home-list');
+var keys=Object.keys(subjectsData);
+if(keys.length===0){
+c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><i class="fa-solid fa-book" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p style="color:var(--muted);">No subjects yet. Admin can add from Admin Panel.</p></div>';
+return;
 }
-html+='</div>';c.innerHTML=html;document.title='Mastery LMS - Medical Lab MCQs';
+var html='<div class="grid">';
+for(var sid in subjectsData){
+var s=subjectsData[sid];
+var chC=s.chapters?Object.keys(s.chapters).length:0;
+html+='<div class="card" onclick="go(\'subject-'+sid+'\')">';
+html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(s.name)+'" class="card-img">';
+html+='<div class="card-body"><div class="card-title">'+esc(s.name)+'</div>';
+html+='<div class="card-footer"><span class="price">'+(s.price>0?'$'+s.price:'FREE')+'</span><span style="font-size:11px;color:var(--muted);">'+chC+' ch</span></div></div></div>';
+}
+html+='</div>';
+c.innerHTML=html;
 }
 
-// SUBJECT (Chapters list)
+// ============================================
+// SUBJECT (Chapters List)
+// ============================================
 function renderSubject(sid){
-var subj=window.subjectsData[sid];if(!subj){navigate('home');return;}
-document.getElementById('subj-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> '+esc(subj.name);
-document.getElementById('subj-hero').innerHTML='<div class="hero" style="padding:20px;"><h2 style="font-size:22px;margin:0;">'+esc(subj.name)+'</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9;">'+esc(subj.description||'')+'</p></div>';
-var chapters=getChapterList(subj);
-var container=document.getElementById('subj-chapters');
-if(chapters.length===0){container.innerHTML='<div class="box" style="text-align:center;">No chapters yet. Admin can add chapters from Admin Panel.</div>';return;}
-var uid=window.currentUser?window.currentUser.uid:null;
+var subj=subjectsData[sid];
+if(!subj){go('home');return;}
+
+document.getElementById('subj-bc').innerHTML='<a onclick="go(\'home\')">Home</a> <span>/</span> '+esc(subj.name);
+document.getElementById('subj-hero').innerHTML='<div class="hero" style="padding:20px;"><h2 style="font-size:20px;margin:0;">'+esc(subj.name)+'</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9;">'+esc(subj.description||'')+'</p></div>';
+
+var chapters=getChapters(subj);
+var container=document.getElementById('subj-chs');
+if(chapters.length===0){
+container.innerHTML='<div class="box" style="text-align:center;">No chapters yet.</div>';
+return;
+}
+
+var uid=currentUser?currentUser.uid:null;
 var purchased=uid?hasPurchased(uid,sid):false;
 var isFree=!subj.price||subj.price<=0;
 var html='';
+
 for(var i=0;i<chapters.length;i++){
-var ch=chapters[i];var isFirst=(i===0);
-var canAccess=isFirst||isFree||purchased||window.isAdmin;
+var ch=chapters[i];
+var isFirst=(i===0);
+var canAccess=isFirst||isFree||purchased||isAdmin;
+
 if(canAccess){
-html+='<div class="ch-item" onclick="navigate(\'chapter-'+sid+'-'+ch.id+'\')">';
+html+='<div class="ch-item" onclick="go(\'chapter-'+sid+'-'+ch.id+'\')">';
 html+='<div class="ch-num">'+(i+1)+'</div>';
 html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4></div>';
 if(isFirst)html+='<span class="ch-free">FREE</span>';
@@ -412,213 +453,407 @@ html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4></div>';
 html+='<i class="fa-solid fa-lock ch-lock"></i></div>';
 }
 }
-if(!purchased&&!isFree&&!window.isAdmin){
+
+if(!purchased&&!isFree&&!isAdmin){
 html+='<div class="box" style="text-align:center;margin-top:20px;">';
 html+='<i class="fa-solid fa-lock-open" style="font-size:36px;color:var(--primary);margin-bottom:10px;display:block;"></i>';
 html+='<h3>Unlock All Chapters</h3>';
-html+='<p style="color:var(--muted);margin-bottom:20px;">Get full access to all '+chapters.length+' chapters for $'+subj.price+'</p>';
+html+='<p style="color:var(--muted);margin-bottom:16px;">Full access for $'+subj.price+'</p>';
 if(subj.gumroad_url){
 html+='<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad - $'+subj.price+'</a>';
-html+='<p style="font-size:13px;color:var(--muted);margin-top:16px;">After payment go to <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;font-weight:700;text-decoration:underline;">Verify Purchase</a></p>';
-}else{
-html+='<p style="color:var(--red);font-size:13px;">Gumroad link not set. Contact admin.</p>';
+html+='<p style="font-size:13px;color:var(--muted);margin-top:14px;">After payment: <a onclick="go(\'verify\')" style="color:var(--primary);cursor:pointer;font-weight:700;">Verify Purchase</a></p>';
 }
 html+='</div>';
 }
-container.innerHTML=html;document.title=subj.name+' - Mastery LMS';
+container.innerHTML=html;
 }
 
-// CHAPTER (Render HTML content)
+// ============================================
+// CHAPTER (Show HTML Content)
+// ============================================
 function renderChapter(sid,cid){
-var subj=window.subjectsData[sid];if(!subj||!subj.chapters||!subj.chapters[cid]){navigate('home');return;}
+var subj=subjectsData[sid];
+if(!subj||!subj.chapters||!subj.chapters[cid]){go('home');return;}
 var ch=subj.chapters[cid];
-var chapters=getChapterList(subj);
-var chapterIndex=-1;for(var i=0;i<chapters.length;i++){if(chapters[i].id===cid)chapterIndex=i;}
-var isFirst=(chapterIndex===0);var isFree=!subj.price||subj.price<=0;
-var uid=window.currentUser?window.currentUser.uid:null;var purchased=uid?hasPurchased(uid,sid):false;
-var canAccess=isFirst||isFree||purchased||window.isAdmin;
+var chapters=getChapters(subj);
+var chapterIndex=-1;
+for(var i=0;i<chapters.length;i++){if(chapters[i].id===cid)chapterIndex=i;}
 
-document.getElementById('ch-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> <a onclick="navigate(\'subject-'+sid+'\')">'+esc(subj.name)+'</a> <span>/</span> '+esc(ch.title);
-document.getElementById('ch-back-btn').setAttribute('onclick',"navigate('subject-"+sid+"')");
-document.title=ch.title+' - Mastery LMS';
+var isFirst=(chapterIndex===0);
+var isFree=!subj.price||subj.price<=0;
+var uid=currentUser?currentUser.uid:null;
+var purchased=uid?hasPurchased(uid,sid):false;
+var canAccess=isFirst||isFree||purchased||isAdmin;
+
+document.getElementById('ch-bc').innerHTML='<a onclick="go(\'home\')">Home</a> <span>/</span> <a onclick="go(\'subject-'+sid+'\')">'+esc(subj.name)+'</a> <span>/</span> '+esc(ch.title);
+document.getElementById('ch-back').setAttribute('onclick',"go('subject-"+sid+"')");
 
 if(!canAccess){
-document.getElementById('ch-title-area').innerHTML='';
-document.getElementById('ch-content').innerHTML='<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Chapter Locked</h3><p>This chapter requires a purchase.</p>'+(subj.gumroad_url?'<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn btn-sm" style="width:auto;"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad</a><p style="font-size:12px;color:var(--muted);margin-top:12px;">After payment <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;">verify here</a></p>':'')+'</div>';
+document.getElementById('ch-title').innerHTML='';
+document.getElementById('ch-content').innerHTML='<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Locked</h3><p>Purchase to access.</p>'+(subj.gumroad_url?'<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn" style="font-size:14px;padding:12px 20px;">Buy on Gumroad</a>':'')+'</div>';
 return;
 }
 
-document.getElementById('ch-title-area').innerHTML='<h2 style="font-size:20px;font-weight:800;margin-bottom:5px;">'+esc(ch.title)+'</h2>';
-// RENDER THE STORED HTML DIRECTLY
-document.getElementById('ch-content').innerHTML=ch.html_content||'<p style="color:var(--muted);text-align:center;">No content in this chapter yet.</p>';
+document.getElementById('ch-title').innerHTML='<h2 style="font-size:18px;font-weight:800;">'+esc(ch.title)+'</h2>';
+document.getElementById('ch-content').innerHTML=ch.html_content||'<p style="color:var(--muted);text-align:center;">No content yet.</p>';
 }
 
+// ============================================
 // VERIFY
+// ============================================
 function renderVerify(){
-if(!window.currentUser||window.currentUser==='loading'){navigate('login');return;}
-document.getElementById('verify-email').value=window.currentUser.email;
-updateVerifyDropdown();
+if(!currentUser){go('login');return;}
+document.getElementById('vf-email').value=currentUser.email;
+updateVfDropdown();
 }
 
-function updateVerifyDropdown(){var sel=document.getElementById('verify-subject');if(!sel)return;var h='<option value="">-- Select Subject --</option>';for(var sid in window.subjectsData){var s=window.subjectsData[sid];if(s.price>0)h+='<option value="'+sid+'">'+esc(s.name)+' ($'+s.price+')</option>';}sel.innerHTML=h;}
+function updateVfDropdown(){
+var sel=document.getElementById('vf-subject');
+if(!sel)return;
+var h='<option value="">-- Select --</option>';
+for(var sid in subjectsData){
+var s=subjectsData[sid];
+if(s.price>0)h+='<option value="'+sid+'">'+esc(s.name)+' ($'+s.price+')</option>';
+}
+sel.innerHTML=h;
+}
 
 document.getElementById('verify-form').addEventListener('submit',async function(e){
 e.preventDefault();
-if(!window.currentUser||window.currentUser==='loading'){flash('Login first.','error');return;}
-var email=document.getElementById('verify-email').value;
-var receipt=document.getElementById('verify-receipt').value;
-var sid=document.getElementById('verify-subject').value;
-if(!sid){flash('Select a subject.','error');return;}
+if(!currentUser){flash('Login first.',true);return;}
+if(!DB){flash('Database not connected.',true);return;}
+var email=document.getElementById('vf-email').value;
+var receipt=document.getElementById('vf-receipt').value;
+var sid=document.getElementById('vf-subject').value;
+if(!sid){flash('Select subject.',true);return;}
 try{
-await push(ref(db,'orders'),{user_id:window.currentUser.uid,email:email,subject_id:sid,receipt_id:receipt,status:'Pending',timestamp:Date.now()});
-var vs=document.getElementById('verify-status');vs.style.display='block';
-vs.innerHTML='<h4 style="color:#065F46;"><i class="fa-solid fa-clock"></i> Submitted!</h4><p style="font-size:13px;color:#065F46;">Admin will verify your payment. Check <a onclick="navigate(\'library\')" style="color:var(--primary);cursor:pointer;font-weight:700;">My Library</a> for updates.</p>';
-document.getElementById('verify-form').reset();document.getElementById('verify-email').value=email;
-flash('Submitted! Waiting for admin.');
-}catch(err){flash('Error: '+err.message,'error');}
+var {push:dbPush}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+await dbPush(DB.ref('orders'),{user_id:currentUser.uid,email:email,subject_id:sid,receipt_id:receipt,status:'Pending',timestamp:Date.now()});
+document.getElementById('vf-status').style.display='block';
+document.getElementById('vf-status').innerHTML='<h4 style="color:#065F46;"><i class="fa-solid fa-clock"></i> Submitted!</h4><p style="font-size:13px;color:#065F46;">Admin will verify. Check <a onclick="go(\'library\')" style="color:var(--primary);cursor:pointer;font-weight:700;">Library</a>.</p>';
+document.getElementById('verify-form').reset();
+document.getElementById('vf-email').value=email;
+flash('Submitted!');
+}catch(err){flash('Error: '+err.message,true);}
 });
 
+// ============================================
 // LIBRARY
+// ============================================
 function loadLibrary(){
-var c=document.getElementById('lib-content');
-if(window.currentUser==='loading'){c.innerHTML='<div class="box" style="text-align:center;padding:50px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:30px;color:var(--primary);display:block;margin:0 auto 10px;"></i>Loading...</div>';return;}
-if(!window.currentUser){c.innerHTML='<div class="box" style="text-align:center;"><p>Please login.</p></div>';return;}
-document.getElementById('lib-user').textContent='Logged in as: '+window.currentUser.email;
+var c=document.getElementById('lib-list');
+if(!currentUser){c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><p>Please login.</p></div>';return;}
+document.getElementById('lib-user').textContent='Logged in: '+currentUser.email;
 var confirmed={};var pending={};
-for(var k in window.ordersData){var o=window.ordersData[k];if(o.user_id===window.currentUser.uid){if(o.status==='Confirmed')confirmed[o.subject_id]=true;else if(o.status==='Pending')pending[o.subject_id]=true;}}
-var all={};for(var s in confirmed)all[s]='confirmed';for(var s in pending)if(!all[s])all[s]='pending';
-var keys=Object.keys(all);
-if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:50px;"><i class="fa-solid fa-book-open" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p>No purchases yet. First chapter is always free!</p><button class="btn-main btn-sm" onclick="navigate(\'home\')" style="width:auto;margin-top:10px;">Browse Subjects</button></div>';return;}
-var html='<div class="grid">';
-for(var i=0;i<keys.length;i++){var sid=keys[i];var subj=window.subjectsData[sid];if(!subj)continue;
-html+='<div class="card" onclick="navigate(\'subject-'+sid+'\')">';
-html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(subj.name)+'" class="card-img" style="height:140px;">';
-html+='<div class="card-body"><div class="card-title">'+esc(subj.name)+'</div><div style="margin-top:auto;padding-top:10px;">';
-if(all[sid]==='confirmed')html+='<div style="background:#D1FAE5;color:#065F46;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-check-circle"></i> Full Access</div>';
-else html+='<div style="background:#FEF3C7;color:#92400E;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-clock"></i> Pending</div>';
-html+='</div></div></div>';
+for(var k in ordersData){
+var o=ordersData[k];
+if(o.user_id===currentUser.uid){
+if(o.status==='Confirmed')confirmed[o.subject_id]=true;
+else if(o.status==='Pending')pending[o.subject_id]=true;
 }
-html+='</div>';c.innerHTML=html;
+}
+var all={};
+for(var s in confirmed)all[s]='confirmed';
+for(var s in pending)if(!all[s])all[s]='pending';
+var keys=Object.keys(all);
+if(keys.length===0){
+c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><p>No purchases yet. First chapter is always free!</p><button class="btn-main" onclick="go(\'home\')" style="width:auto;padding:10px 20px;margin-top:10px;">Browse</button></div>';
+return;
+}
+var html='<div class="grid">';
+for(var i=0;i<keys.length;i++){
+var sid=keys[i];var subj=subjectsData[sid];if(!subj)continue;
+html+='<div class="card" onclick="go(\'subject-'+sid+'\')">';
+html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(subj.name)+'" class="card-img" style="height:130px;">';
+html+='<div class="card-body"><div class="card-title">'+esc(subj.name)+'</div>';
+if(all[sid]==='confirmed')html+='<div style="background:#D1FAE5;color:#065F46;padding:6px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;margin-top:8px;"><i class="fa-solid fa-check-circle"></i> Full Access</div>';
+else html+='<div style="background:#FEF3C7;color:#92400E;padding:6px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;margin-top:8px;"><i class="fa-solid fa-clock"></i> Pending</div>';
+html+='</div></div>';
+}
+html+='</div>';
+c.innerHTML=html;
 }
 
+// ============================================
 // ADMIN TABS
-window.showATab=function(tab){document.querySelectorAll('.admin-tabs a').forEach(function(el){el.classList.remove('active');});document.querySelectorAll('.atab-view').forEach(function(el){el.style.display='none';});document.getElementById('atab-'+tab).style.display='block';};
+// ============================================
+function tab(name){
+var tabs=document.querySelectorAll('.admin-tabs a');
+for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('active');
+var panels=document.querySelectorAll('.tab-panel');
+for(var i=0;i<panels.length;i++)panels[i].style.display='none';
+document.getElementById('t-'+name).classList.add('active');
+document.getElementById('p-'+name).style.display='block';
+}
+window.tab=tab;
 
 // ADD SUBJECT
-document.getElementById('add-subject-form').addEventListener('submit',async function(e){
+document.getElementById('subj-form').addEventListener('submit',async function(e){
 e.preventDefault();
+if(!DB){flash('Database not connected.',true);return;}
 try{
-await push(ref(db,'subjects'),{
+var {push:dbPush}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+await dbPush(DB.ref('subjects'),{
 name:document.getElementById('as-name').value,
 description:document.getElementById('as-desc').value,
 price:parseFloat(document.getElementById('as-price').value)||0,
-gumroad_url:document.getElementById('as-gumroad').value.trim(),
+gumroad_url:document.getElementById('as-gum').value.trim(),
 chapters:{},
 created_at:Date.now()
 });
-document.getElementById('add-subject-form').reset();
-flash('Subject created! Now add chapters.');showATab('chapter');updateChapterDropdown();
-}catch(err){flash('Error: '+err.message,'error');}
+document.getElementById('subj-form').reset();
+flash('Subject created! Now add chapters.');
+tab('ch');
+updateChDropdown();
+updateVfDropdown();
+}catch(err){flash('Error: '+err.message,true);}
 });
 
 // ADD CHAPTER
-function updateChapterDropdown(){var sel=document.getElementById('ch-subject');if(!sel)return;var h='<option value="">-- Select Subject --</option>';for(var sid in window.subjectsData)h+='<option value="'+sid+'">'+esc(window.subjectsData[sid].name)+'</option>';sel.innerHTML=h;}
+function updateChDropdown(){
+var sel=document.getElementById('ch-sel');
+if(!sel)return;
+var h='<option value="">-- Select Subject --</option>';
+for(var sid in subjectsData)h+='<option value="'+sid+'">'+esc(subjectsData[sid].name)+'</option>';
+sel.innerHTML=h;
+}
 
-window.addChapter=async function(){
-var sid=document.getElementById('ch-subject').value;
-var title=document.getElementById('ch-title').value.trim();
-var htmlContent=document.getElementById('ch-html').value.trim();
-var resultEl=document.getElementById('ch-result');
-if(!sid){resultEl.innerHTML='<span style="color:var(--red);">Please select a subject!</span>';return;}
-if(!title){resultEl.innerHTML='<span style="color:var(--red);">Please enter chapter title!</span>';return;}
-if(!htmlContent){resultEl.innerHTML='<span style="color:var(--red);">Please paste HTML content!</span>';return;}
-resultEl.innerHTML='<span style="color:var(--primary);"><i class="fa-solid fa-spinner fa-spin"></i> Adding chapter...</span>';
+window.addCh=async function(){
+if(!DB){flash('Database not connected.',true);return;}
+var sid=document.getElementById('ch-sel').value;
+var title=document.getElementById('ch-title-input').value.trim();
+var htmlContent=document.getElementById('ch-html-input').value;
+var res=document.getElementById('ch-res');
+if(!sid){res.innerHTML='<span style="color:var(--red);">Select a subject!</span>';return;}
+if(!title){res.innerHTML='<span style="color:var(--red);">Enter title!</span>';return;}
+if(!htmlContent.trim()){res.innerHTML='<span style="color:var(--red);">Paste HTML!</span>';return;}
+res.innerHTML='<span style="color:var(--primary);"><i class="fa-solid fa-spinner fa-spin"></i> Adding...</span>';
 try{
-var subj=window.subjectsData[sid];
-var existingChapters=subj.chapters?Object.keys(subj.chapters).length:0;
-await push(ref(db,'subjects/'+sid+'/chapters'),{
+var {push:dbPush}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+var subj=subjectsData[sid];
+var count=subj.chapters?Object.keys(subj.chapters).length:0;
+await dbPush(DB.ref('subjects/'+sid+'/chapters'),{
 title:title,
 html_content:htmlContent,
-order:existingChapters+1,
+order:count+1,
 created_at:Date.now()
 });
-document.getElementById('ch-title').value='';
-document.getElementById('ch-html').value='';
-resultEl.innerHTML='<span style="color:var(--green);"><i class="fa-solid fa-check"></i> Chapter added successfully! It is now visible on the website.</span>';
+document.getElementById('ch-title-input').value='';
+document.getElementById('ch-html-input').value='';
+res.innerHTML='<span style="color:var(--green);"><i class="fa-solid fa-check"></i> Chapter added! Visible on website now.</span>';
 flash('Chapter added!');
-}catch(err){resultEl.innerHTML='<span style="color:var(--red);">Error: '+err.message+'</span>';}
+}catch(err){res.innerHTML='<span style="color:var(--red);">Error: '+err.message+'</span>';}
 };
 
-// MANAGE (Admin)
+// MANAGE
 function renderManage(){
-var c=document.getElementById('manage-content');
-if(Object.keys(window.subjectsData).length===0){c.innerHTML='<p style="color:var(--muted);text-align:center;">No subjects yet.</p>';return;}
+var c=document.getElementById('mg-list');
+var keys=Object.keys(subjectsData);
+if(keys.length===0){c.innerHTML='<p style="color:var(--muted);text-align:center;">No subjects.</p>';return;}
 var html='';
-for(var sid in window.subjectsData){
-var s=window.subjectsData[sid];
-var chapters=getChapterList(s);
-html+='<div style="border:2px solid var(--border);border-radius:12px;padding:16px;margin-bottom:15px;">';
-html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
-html+='<div><strong style="font-size:16px;">'+esc(s.name)+'</strong><br><span style="font-size:12px;color:var(--muted);">'+(s.price>0?'$'+s.price':'Free')+' | '+chapters.length+' chapters | '+(s.gumroad_url?'<span style="color:var(--green);">Gumroad set</span>':'<span style="color:var(--red);">No Gumroad</span>')+'</span></div>';
-html+='<button onclick="deleteSubject(\''+sid+'\')" style="background:var(--red);color:white;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold;">Delete</button></div>';
-if(chapters.length>0){
-html+='<div style="padding-left:10px;">';
-for(var i=0;i<chapters.length;i++){
-var ch=chapters[i];
-html+='<div style="display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #f0f0f0;">';
-html+='<span style="font-size:13px;"><strong>'+(i+1)+'.</strong> '+esc(ch.data.title)+'</span>';
-html+='<button onclick="deleteChapter(\''+sid+'\',\''+ch.id+'\')" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;"><i class="fa-solid fa-trash"></i></button></div>';
+for(var sid in subjectsData){
+var s=subjectsData[sid];
+var chs=getChapters(s);
+html+='<div style="border:2px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px;">';
+html+='<div style="display:flex;justify-content:space-between;align-items:center;">';
+html+='<div><strong>'+esc(s.name)+'</strong><br><span style="font-size:12px;color:var(--muted);">'+(s.price>0?'$'+s.price:'Free')+' | '+chs.length+' ch</span></div>';
+html+='<button onclick="delSubj(\''+sid+'\')" style="background:var(--red);color:white;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold;">Delete</button></div>';
+if(chs.length>0){
+html+='<div style="margin-top:8px;padding-left:8px;">';
+for(var i=0;i<chs.length;i++){
+html+='<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:13px;">';
+html+='<span><strong>'+(i+1)+'.</strong> '+esc(chs[i].data.title)+'</span>';
+html+='<button onclick="delCh(\''+sid+'\',\''+chs[i].id+'\')" style="background:none;border:none;color:var(--red);cursor:pointer;"><i class="fa-solid fa-trash"></i></button></div>';
 }
 html+='</div>';
-}else{
-html+='<p style="font-size:12px;color:var(--muted);padding:10px;">No chapters yet.</p>';
 }
 html+='</div>';
 }
 c.innerHTML=html;
 }
 
-window.deleteSubject=async function(sid){if(!confirm('Delete this subject and ALL its chapters?'))return;try{await remove(ref(db,'subjects/'+sid));flash('Deleted.');}catch(err){flash('Error','error');}};
+window.delSubj=async function(sid){
+if(!confirm('Delete subject and ALL chapters?'))return;
+try{
+var {remove:dbRemove}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+await dbRemove(DB.ref('subjects/'+sid));
+flash('Deleted.');
+}catch(err){flash('Error',true);}
+};
 
-window.deleteChapter=async function(sid,cid){if(!confirm('Delete this chapter?'))return;try{await remove(ref(db,'subjects/'+sid+'/chapters/'+cid));flash('Chapter deleted.');}catch(err){flash('Error','error');}};
+window.delCh=async function(sid,cid){
+if(!confirm('Delete chapter?'))return;
+try{
+var {remove:dbRemove}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+await dbRemove(DB.ref('subjects/'+sid+'/chapters/'+cid));
+flash('Chapter deleted.');
+}catch(err){flash('Error',true);}
+};
 
 // ADMIN ORDERS
 function renderAdminOrders(){
-var table=document.getElementById('admin-orders-table');
-if(!window.ordersData||Object.keys(window.ordersData).length===0){table.innerHTML='<tr><td style="padding:20px;text-align:center;color:var(--muted);">No orders yet.</td></tr>';return;}
+var table=document.getElementById('ord-tbl');
+if(!ordersData||Object.keys(ordersData).length===0){
+table.innerHTML='<tr><td style="padding:20px;text-align:center;color:var(--muted);">No orders yet.</td></tr>';
+return;
+}
 var h='<tr><th>Email</th><th>Subject</th><th>Receipt</th><th>Status</th><th>Action</th></tr>';
-var orders=Object.entries(window.ordersData).sort(function(a,b){return(b[1].timestamp||0)-(a[1].timestamp||0);});
-for(var i=0;i<orders.length;i++){var id=orders[i][0];var o=orders[i][1];
-var subjName=window.subjectsData[o.subject_id]?window.subjectsData[o.subject_id].name:'Unknown';
+var orders=Object.entries(ordersData).sort(function(a,b){return(b[1].timestamp||0)-(a[1].timestamp||0);});
+for(var i=0;i<orders.length;i++){
+var id=orders[i][0];var o=orders[i][1];
+var sName=subjectsData[o.subject_id]?subjectsData[o.subject_id].name:'?';
 var sc=o.status==='Confirmed'?'#D1FAE5;color:#065F46':'#FEF3C7;color:#92400E';
-h+='<tr><td>'+esc(o.email)+'</td><td>'+esc(subjName)+'</td><td style="font-family:monospace;font-size:11px;">'+esc(o.receipt_id||'N/A')+'</td><td><span style="background:'+sc+';padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;">'+o.status+'</span></td><td>';
-if(o.status==='Pending')h+='<button onclick="confirmOrder(\''+id+'\')" style="padding:6px 10px;background:var(--dark);color:white;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:bold;">Confirm</button>';
+h+='<tr><td>'+esc(o.email)+'</td><td>'+esc(sName)+'</td><td style="font-family:monospace;font-size:11px;">'+esc(o.receipt_id||'-')+'</td>';
+h+='<td><span style="background:'+sc+';padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;">'+o.status+'</span></td>';
+h+='<td>';
+if(o.status==='Pending')h+='<button onclick="confirmOrd(\''+id+'\')" style="padding:6px 10px;background:var(--dark);color:white;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:bold;">Confirm</button>';
 else h+='<i class="fa-solid fa-check-double" style="color:var(--green);"></i>';
-h+='</td></tr>';}
+h+='</td></tr>';
+}
 table.innerHTML=h;
 }
 
-window.confirmOrder=async function(id){try{await update(ref(db,'orders/'+id),{status:'Confirmed'});flash('Confirmed! Student has access.');}catch(err){flash('Error','error');}};
+window.confirmOrd=async function(id){
+try{
+var {update:dbUpdate}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+await dbUpdate(DB.ref('orders/'+id),{status:'Confirmed'});
+flash('Confirmed! Student has access.');
+}catch(err){flash('Error',true);}
+};
 
-// AUTH
+// ============================================
+// AUTH FORMS
+// ============================================
 document.getElementById('reg-form').addEventListener('submit',async function(e){
-e.preventDefault();var email=document.getElementById('reg-email').value;var pass=document.getElementById('reg-pass').value;var conf=document.getElementById('reg-confirm').value;
-if(pass.length<6){flash('Password 6+ characters.','error');return;}
-if(pass!==conf){flash('Passwords do not match.','error');return;}
-try{var cred=await createUserWithEmailAndPassword(auth,email,pass);await set(ref(db,'users/'+cred.user.uid),{email:email,role:email===ADMIN_EMAIL?'admin':'user'});flash('Registered!');if(email===ADMIN_EMAIL)navigate('admin');else navigate('home');}
-catch(err){if(err.code==='auth/email-already-in-use')flash('Email already registered.','error');else flash('Error: '+err.message,'error');}
+e.preventDefault();
+if(!AUTH){flash('System loading. Wait and try again.',true);return;}
+var email=document.getElementById('rg-email').value;
+var pass=document.getElementById('rg-pass').value;
+var conf=document.getElementById('rg-conf').value;
+if(pass.length<6){flash('Password 6+ chars.',true);return;}
+if(pass!==conf){flash('Passwords do not match.',true);return;}
+try{
+var {createUserWithEmailAndPassword:reg,updateProfile:upd}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js');
+var {set:dbSet}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+var cred=await reg(AUTH,email,pass);
+await dbSet(DB.ref('users/'+cred.user.uid),{email:email,role:email===ADMIN_EMAIL?'admin':'user'});
+flash('Registered!');
+if(email===ADMIN_EMAIL)go('admin');else go('home');
+}catch(err){
+if(err.code==='auth/email-already-in-use')flash('Email already registered. Try login.',true);
+else if(err.code==='auth/weak-password')flash('Password 6+ chars.',true);
+else flash('Error: '+err.message,true);
+}
 });
 
 document.getElementById('login-form').addEventListener('submit',async function(e){
-e.preventDefault();try{await signInWithEmailAndPassword(auth,document.getElementById('login-email').value,document.getElementById('login-pass').value);flash('Welcome!');}
-catch(err){if(err.code==='auth/user-not-found')flash('No account. Register first.','error');else if(err.code==='auth/invalid-credential')flash('Wrong email or password.','error');else flash('Error: '+err.message,'error');}
+e.preventDefault();
+if(!AUTH){flash('System loading. Wait and try again.',true);return;}
+try{
+var {signInWithEmailAndPassword:login}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js');
+await login(AUTH,document.getElementById('lg-email').value,document.getElementById('lg-pass').value);
+flash('Welcome!');
+}catch(err){
+if(err.code==='auth/user-not-found')flash('No account. Register first.',true);
+else if(err.code==='auth/invalid-credential')flash('Wrong email or password.',true);
+else flash('Error: '+err.message,true);
+}
 });
 
-window.doLogout=async function(){await signOut(auth);navigate('login');flash('Logged out.');};
+window.doLogout=async function(){
+if(!AUTH)return;
+try{
+var {signOut:out}=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js');
+await out(AUTH);
+go('login');
+flash('Logged out.');
+}catch(err){flash('Error',true);}
+};
 
-if('serviceWorker' in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('service-worker.js').catch(function(){});});
-updateChapterDropdown();updateVerifyDropdown();
-var init=window.location.hash.replace('#','')||'home';navigate(init);
+// ============================================
+// FIREBASE INIT (SAFE - WON'T CRASH UI)
+// ============================================
+async function initFirebase(){
+try{
+var firebase=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js');
+var authMod=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js');
+var dbMod=await import('https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js');
+
+var firebaseConfig={
+apiKey:"AIzaSyDUZE3XaBrTXP9BHV3rIvhlrfgGhWbjQBY",
+authDomain:"mastery-lms-e153c.firebaseapp.com",
+databaseURL:"https://mastery-lms-e153c-default-rtdb.firebaseio.com",
+projectId:"mastery-lms-e153c",
+storageBucket:"mastery-lms-e153c.firebasestorage.app",
+messagingSenderId:"43972740535",
+appId:"1:43972740535:web:66966b5132f80716549432"
+};
+
+var app=firebase.initializeApp(firebaseConfig);
+AUTH=authMod.getAuth(app);
+DB=dbMod.getDatabase(app);
+
+// Auth state listener
+authMod.onAuthStateChanged(AUTH,function(user){
+if(user){
+currentUser=user;
+isAdmin=(user.email===ADMIN_EMAIL);
+}else{
+currentUser=null;
+isAdmin=false;
+}
+showUI();
+var cv=window.location.hash.replace('#','')||'home';
+if(currentUser&&(cv==='login'||cv==='register'))go('home');
+if(!currentUser&&['library','verify','admin'].indexOf(cv)!==-1)go('login');
+});
+
+// Data listeners
+dbMod.onValue(DB.ref('subjects'),function(snap){
+subjectsData=snap.val()||{};
+var cv=window.location.hash.replace('#','')||'home';
+if(cv==='home')renderHome();
+if(cv.indexOf('subject-')===0)renderSubject(cv.replace('subject-',''));
+if(cv==='admin')renderManage();
+updateChDropdown();
+updateVfDropdown();
+});
+
+dbMod.onValue(DB.ref('orders'),function(snap){
+ordersData=snap.val()||{};
+var cv=window.location.hash.replace('#','')||'home';
+if(cv==='admin')renderAdminOrders();
+if(cv==='library')loadLibrary();
+});
+
+console.log('Firebase connected!');
+
+}catch(err){
+console.error('Firebase error:',err);
+flash('Database connection error. Check Firebase settings.',true);
+}
+}
+
+// ============================================
+// INIT
+// ============================================
+initFirebase();
+showUI();
+
+// Handle hash routing
+window.addEventListener('hashchange',function(){
+var v=window.location.hash.replace('#','')||'home';
+go(v);
+});
+
+// PWA
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('service-worker.js').catch(function(){});
+}
+
+// Initial route
+var startView=window.location.hash.replace('#','')||'home';
+go(startView);
 </script>
 </body>
 </html>
