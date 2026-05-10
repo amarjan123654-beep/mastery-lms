@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Mastery LMS - Medical Lab MCQs</title>
 <meta name="description" content="Practice 2000+ Medical Lab Technology MCQs with detailed explanations. First chapter FREE.">
-<meta name="keywords" content="MLT MCQs, medical lab technology, nursing MCQs, NCLEX, quiz, exam prep">
 <meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mastery LMS - Medical Lab MCQs">
-<meta property="og:description" content="Practice 2000+ MLT MCQs. First chapter FREE.">
 <meta name="theme-color" content="#7C3AED">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -56,6 +52,7 @@ header .container{display:flex;justify-content:space-between;align-items:center}
 textarea.form-control{min-height:80px;resize:vertical}
 .btn-main{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border:none;padding:12px 20px;border-radius:var(--r-md);font-weight:700;font-size:15px;width:100%;cursor:pointer;display:inline-block;text-align:center;text-decoration:none;font-family:var(--font)}
 .btn-sm{padding:8px 16px;font-size:13px;width:auto}
+.btn-red{background:var(--red)}
 .admin-tabs{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto;padding-bottom:5px;-ms-overflow-style:none;scrollbar-width:none}
 .admin-tabs::-webkit-scrollbar{display:none}
 .admin-tabs a{padding:10px 18px;background:var(--card);border-radius:30px;text-decoration:none;font-weight:600;color:var(--muted);white-space:nowrap;border:1px solid var(--border);transition:.2s;font-size:14px;cursor:pointer}
@@ -63,7 +60,7 @@ textarea.form-control{min-height:80px;resize:vertical}
 table{width:100%;min-width:400px;border-collapse:collapse;font-size:13px}
 th{background:#F9FAFB;padding:10px;text-align:left}
 td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle}
-.flash-message{background:var(--green);color:white;padding:12px 20px;border-radius:var(--r-md);margin:20px 0;font-weight:600;font-size:14px;display:none}
+.flash-message{background:var(--green);color:white;padding:12px 20px;border-radius:var(--r-md);margin:20px 0;font-weight:600;font-size:14px;display:none;position:sticky;top:70px;z-index:999}
 .flash-message.error{background:var(--red)}
 .view-section{display:none}
 .view-section.active{display:block}
@@ -77,28 +74,8 @@ td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle}
 .ch-item.locked .ch-num{background:var(--border);color:var(--muted)}
 .ch-info{flex-grow:1}
 .ch-info h4{font-size:14px;font-weight:700;margin-bottom:2px}
-.ch-info span{font-size:12px;color:var(--muted)}
 .ch-lock{color:var(--yellow);font-size:20px;margin-left:10px}
 .ch-free{background:var(--green);color:white;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-left:10px}
-.quiz-wrap{padding:10px 0}
-.quiz-bar{width:100%;height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:16px}
-.quiz-bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:4px;transition:width .4s}
-.quiz-count{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:12px}
-.quiz-q{font-size:18px;font-weight:800;line-height:1.5;margin-bottom:20px;color:var(--dark)}
-.quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-.quiz-opt{display:flex;align-items:center;padding:16px;background:var(--card);border:2px solid var(--border);border-radius:var(--r-md);cursor:pointer;transition:.2s;font-size:14px;font-weight:600;text-align:left;font-family:var(--font);width:100%}
-.quiz-opt:hover:not(:disabled){border-color:var(--primary);transform:translateX(4px)}
-.quiz-opt .q-letter{width:36px;height:36px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800;margin-right:14px;flex-shrink:0;transition:.2s}
-.quiz-opt.correct{background:#D1FAE5;border-color:var(--green);color:#065F46}
-.quiz-opt.correct .q-letter{background:var(--green);color:white}
-.quiz-opt.incorrect{background:#FEE2E2;border-color:var(--red);color:#991B1B}
-.quiz-opt.incorrect .q-letter{background:var(--red);color:white}
-.quiz-opt:disabled{cursor:default}
-.quiz-exp{padding:18px;background:#FEF3C7;border-left:6px solid var(--yellow);border-radius:var(--r-md);color:#92400E;font-weight:600;line-height:1.6;font-size:14px;margin-bottom:20px;display:none}
-.quiz-result{text-align:center;padding:40px 20px}
-.quiz-score{font-size:64px;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:20px 0}
-.quiz-result h3{font-size:24px;font-weight:800;margin-bottom:8px}
-.quiz-result p{color:var(--muted);margin-bottom:25px}
 .lock-box{text-align:center;padding:40px 20px}
 .lock-box i{font-size:48px;color:var(--yellow);margin-bottom:16px;display:block}
 .lock-box h3{font-size:20px;margin-bottom:8px}
@@ -106,13 +83,20 @@ td{padding:10px;border-bottom:1px solid var(--border);vertical-align:middle}
 .breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:10px;flex-wrap:wrap}
 .breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600;cursor:pointer}
 .breadcrumb span{color:var(--border)}
-.install-banner{background:linear-gradient(135deg,#1E1B4B,#7C3AED);color:white;padding:16px;border-radius:12px;margin:15px 0;display:flex;align-items:center;gap:12px}
-.install-banner .btn-ok{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:white;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
 .gumroad-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF90E8,var(--primary));color:white;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;font-family:var(--font);transition:.2s}
 .gumroad-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(124,58,237,.3)}
+.content-area{background:var(--card);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);border:1px solid var(--border);margin:15px 0;line-height:1.8;font-size:15px}
+.content-area h1,.content-area h2,.content-area h3{color:var(--dark);margin:20px 0 10px}
+.content-area p{margin-bottom:12px}
+.content-area table{border-collapse:collapse;margin:15px 0}
+.content-area table th,.content-area table td{border:1px solid var(--border);padding:8px 12px;text-align:left}
+.content-area table th{background:#F9FAFB;font-weight:700}
+.content-area img{max-width:100%;border-radius:8px;margin:10px 0}
+.content-area ul,.content-area ol{margin:10px 0 10px 20px}
+.content-area li{margin-bottom:5px}
+.install-banner{background:linear-gradient(135deg,#1E1B4B,#7C3AED);color:white;padding:16px;border-radius:12px;margin:15px 0;display:flex;align-items:center;gap:12px}
+.install-banner .btn-ok{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:white;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
 .verify-box{background:#F0FDF4;border:2px solid #BBF7D0;border-radius:16px;padding:24px;margin-top:20px}
-.verify-box h4{color:#065F46;margin-bottom:10px}
-.step-box{background:var(--card);border:2px solid var(--border);border-radius:var(--r-lg);padding:20px;margin-bottom:12px}
 .step-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--primary);color:white;font-weight:800;font-size:14px;margin-right:10px}
 @media(min-width:768px){
 body{padding-bottom:30px}
@@ -127,7 +111,6 @@ body{padding-bottom:30px}
 .card-title{font-size:18px}
 .card-desc{display:block;font-size:13px;color:var(--muted);margin-bottom:15px}
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.quiz-q{font-size:22px}
 }
 </style>
 </head>
@@ -151,22 +134,20 @@ body{padding-bottom:30px}
 
 <div class="install-banner" id="install-banner">
 <i class="fa-solid fa-mobile-screen-button" style="font-size:30px;"></i>
-<div style="flex:1;"><strong>Install as App</strong><p style="font-size:12px;opacity:.8;margin-top:2px;">Tap browser menu (3 dots) then "Add to Home Screen"</p></div>
+<div style="flex:1;"><strong>Install as App</strong><p style="font-size:12px;opacity:.8;margin-top:2px;">Tap browser menu then "Add to Home Screen"</p></div>
 <button class="btn-ok" onclick="document.getElementById('install-banner').style.display='none'">OK</button>
 </div>
 
-<!-- HOME -->
 <div id="view-home" class="view-section active">
 <div class="hero">
 <h2>Master Medical Lab<br>Technology MCQs</h2>
-<p>Practice 2000+ MCQs with detailed explanations. First chapter of every subject is completely FREE.</p>
+<p>Detailed notes, MCQs and explanations. First chapter of every subject is completely FREE.</p>
 <a onclick="document.getElementById('browse-here').scrollIntoView({behavior:'smooth'})" class="btn-glass">Browse Subjects</a>
 </div>
 <h3 class="section-title" id="browse-here">All Subjects</h3>
 <div id="home-subjects"></div>
 </div>
 
-<!-- SUBJECT -->
 <div id="view-subject" class="view-section">
 <div class="breadcrumb" id="subj-breadcrumb"></div>
 <div id="subj-hero"></div>
@@ -174,28 +155,30 @@ body{padding-bottom:30px}
 <div id="subj-chapters"></div>
 </div>
 
-<!-- QUIZ -->
-<div id="view-quiz" class="view-section">
-<div class="breadcrumb" id="quiz-breadcrumb"></div>
-<div class="box quiz-wrap" id="quiz-container"></div>
+<div id="view-chapter" class="view-section">
+<div class="breadcrumb" id="ch-breadcrumb"></div>
+<div id="ch-title-area"></div>
+<div class="content-area" id="ch-content"></div>
+<div style="text-align:center;margin:20px 0;">
+<button class="btn-glass" id="ch-back-btn" style="background:var(--primary);color:white;border:none;">Back to Chapters</button>
+</div>
 </div>
 
-<!-- VERIFY -->
 <div id="view-verify" class="view-section">
 <h3 class="section-title">Verify Your Purchase</h3>
 <div class="box" style="max-width:550px;">
 <div style="background:#F0F9FF;border:1px solid #BAE6FD;border-radius:12px;padding:16px;margin-bottom:20px;">
-<h4 style="color:#0369A1;margin-bottom:8px;"><i class="fa-solid fa-circle-info"></i> How to get access:</h4>
+<h4 style="color:#0369A1;margin-bottom:8px;"><i class="fa-solid fa-circle-info"></i> How it works:</h4>
 <div style="font-size:13px;color:#0C4A6E;line-height:2;">
-<span class="step-num">1</span> Go to the subject page → Click "Buy on Gumroad"<br>
+<span class="step-num">1</span> Go to subject page and click "Buy on Gumroad"<br>
 <span class="step-num">2</span> Pay on Gumroad with card/PayPal<br>
-<span class="step-num">3</span> Copy your Receipt ID from Gumroad<br>
+<span class="step-num">3</span> Copy your Receipt ID<br>
 <span class="step-num">4</span> Come back here and paste it below<br>
-<span class="step-num">5</span> Admin will verify → Access unlocked!
+<span class="step-num">5</span> Admin will verify and unlock access!
 </div>
 </div>
 <form id="verify-form">
-<div class="form-group"><label>Your Email (same email used on Gumroad)</label><input type="email" id="verify-email" class="form-control" required placeholder="email@example.com"></div>
+<div class="form-group"><label>Your Email (same as Gumroad)</label><input type="email" id="verify-email" class="form-control" required placeholder="email@example.com"></div>
 <div class="form-group"><label>Gumroad Receipt ID</label><input type="text" id="verify-receipt" class="form-control" required placeholder="e.g., Sale#ABC123XYZ"></div>
 <div class="form-group"><label>Which Subject did you buy?</label><select id="verify-subject" class="form-control"></select></div>
 <button type="submit" class="btn-main"><i class="fa-solid fa-paper-plane"></i> Submit for Verification</button>
@@ -204,7 +187,6 @@ body{padding-bottom:30px}
 </div>
 </div>
 
-<!-- LIBRARY -->
 <div id="view-library" class="view-section">
 <div class="hero" style="background:var(--secondary);padding:20px;margin-top:10px;">
 <h2 style="font-size:24px;margin:0;"><i class="fa-solid fa-book-open"></i> My Library</h2>
@@ -213,7 +195,6 @@ body{padding-bottom:30px}
 <div id="lib-content"></div>
 </div>
 
-<!-- LOGIN -->
 <div id="view-login" class="view-section">
 <div class="box" style="max-width:400px;margin:40px auto;">
 <h2 style="text-align:center;margin-bottom:20px;">Login</h2>
@@ -226,30 +207,28 @@ body{padding-bottom:30px}
 </div>
 </div>
 
-<!-- REGISTER -->
 <div id="view-register" class="view-section">
 <div class="box" style="max-width:400px;margin:40px auto;">
 <h2 style="text-align:center;margin-bottom:20px;">Create Account</h2>
 <form id="reg-form">
 <div class="form-group"><label>Email</label><input type="email" id="reg-email" class="form-control" required placeholder="your@email.com"></div>
 <div class="form-group"><label>Password (minimum 6 characters)</label><input type="password" id="reg-pass" class="form-control" required placeholder="Minimum 6 characters"></div>
-<div class="form-group"><label>Confirm Password</label><input type="password" id="reg-confirm" class="form-control" required placeholder="Type password again"></div>
+<div class="form-group"><label>Confirm Password</label><input type="password" id="reg-confirm" class="form-control" required placeholder="Type again"></div>
 <button type="submit" class="btn-main">Register</button>
-<div style="text-align:center;margin-top:15px;font-size:13px;">Have account? <a onclick="navigate('login')" style="color:var(--primary);cursor:pointer;font-weight:700;">Login here</a></div>
+<div style="text-align:center;margin-top:15px;font-size:13px;">Have account? <a onclick="navigate('login')" style="color:var(--primary);cursor:pointer;font-weight:700;">Login</a></div>
 </form>
 </div>
 </div>
 
-<!-- ADMIN -->
 <div id="view-admin" class="view-section">
 <div class="hero" style="padding:20px;background:var(--dark);margin-top:10px;margin-bottom:15px;">
 <h2 style="font-size:24px;margin:0;"><i class="fa-solid fa-shield-halved"></i> Admin Panel</h2>
-<p style="opacity:.7;font-size:13px;margin-top:4px;">Manage subjects, import MCQs, verify orders</p>
+<p style="opacity:.7;font-size:13px;margin-top:4px;">Add subjects, paste HTML content, verify orders</p>
 </div>
 <div class="admin-tabs">
 <a onclick="showATab('add')" id="atab-add" class="active"><i class="fa-solid fa-plus"></i> Add Subject</a>
-<a onclick="showATab('import')" id="atab-import"><i class="fa-solid fa-file-import"></i> Import MCQs</a>
-<a onclick="showATab('manage')" id="atab-manage"><i class="fa-solid fa-book"></i> Subjects</a>
+<a onclick="showATab('chapter')" id="atab-chapter"><i class="fa-solid fa-file-code"></i> Add Chapter</a>
+<a onclick="showATab('manage')" id="atab-manage"><i class="fa-solid fa-book"></i> Manage</a>
 <a onclick="showATab('orders')" id="atab-orders"><i class="fa-solid fa-receipt"></i> Orders</a>
 </div>
 
@@ -258,46 +237,47 @@ body{padding-bottom:30px}
 <h3><i class="fa-solid fa-plus-circle"></i> Add New Subject</h3>
 <form id="add-subject-form">
 <div class="form-group"><label>Subject Name</label><input type="text" id="as-name" class="form-control" required placeholder="e.g., RBCs Disorder"></div>
-<div class="form-group"><label>Description</label><textarea id="as-desc" class="form-control" required placeholder="Short description about this subject"></textarea></div>
+<div class="form-group"><label>Description</label><textarea id="as-desc" class="form-control" required placeholder="Short description"></textarea></div>
 <div class="form-group"><label>Price (USD) - Enter 0 for free</label><input type="number" id="as-price" class="form-control" required value="5" min="0" step="0.01"></div>
 <div class="form-group"><label>Gumroad Product URL</label><input type="url" id="as-gumroad" class="form-control" placeholder="https://gumroad.com/l/xxxxx"></div>
-<div class="form-group"><label>Cover Image (optional)</label><input type="file" id="as-img" class="form-control" accept="image/*"></div>
 <button type="submit" class="btn-main">Create Subject</button>
 </form>
 </div>
 </div>
 
-<div id="atab-import" class="atab-view" style="display:none;">
+<div id="atab-chapter" class="atab-view" style="display:none;">
 <div class="box">
-<h3><i class="fa-solid fa-file-import"></i> Import MCQs (JSON)</h3>
-<p style="font-size:13px;color:var(--muted);margin-bottom:15px;">Paste MCQ JSON below. First select a subject or create a new one.</p>
-<div class="form-group"><label>Select Existing Subject</label><select id="imp-subject" class="form-control"></select></div>
-<div class="form-group"><label>Or Type New Subject Name (if creating)</label><input type="text" id="imp-new-name" class="form-control" placeholder="Leave empty if using selected subject above"></div>
-<div class="form-group"><label>Price for New Subject (USD)</label><input type="number" id="imp-price" class="form-control" value="5" min="0" step="0.01"></div>
-<div class="form-group"><label>Gumroad URL for New Subject</label><input type="url" id="imp-gumroad" class="form-control" placeholder="https://gumroad.com/l/xxxxx"></div>
-<div class="form-group">
-<label>Paste JSON Data</label>
-<textarea id="imp-json" class="form-control" style="min-height:200px;font-family:monospace;font-size:12px;" placeholder='Paste JSON like this:
-[{"name":"Subject Name","chapters":[{"title":"Chapter 1","questions":[{"q":"Question?","c":"Correct Answer","d":["Wrong1","Wrong2","Wrong3"],"exp":"Explanation"}]}]}]'></textarea>
+<h3><i class="fa-solid fa-file-code"></i> Add Chapter with HTML Content</h3>
+<p style="font-size:13px;color:var(--muted);margin-bottom:15px;">Select a subject, give chapter title, and paste your FULL HTML code below.</p>
+<div class="form-group"><label>Select Subject</label><select id="ch-subject" class="form-control"></select></div>
+<div class="form-group"><label>Chapter Title</label><input type="text" id="ch-title" class="form-control" required placeholder="e.g., Erythropoiesis - Introduction"></div>
+<div class="form-group"><label>Paste FULL HTML Code</label>
+<textarea id="ch-html" class="form-control" style="min-height:300px;font-family:monospace;font-size:12px;" placeholder="Paste your complete HTML code here. Example:
+<h2>Erythropoiesis</h2>
+<p>Erythropoiesis is the process of RBC production...</p>
+<table>
+<tr><th>Question</th><th>Answer</th></tr>
+<tr><td>Normal RBC count?</td><td>4.5-5.5 million</td></tr>
+</table>
+<p>Any HTML you paste here will display exactly as-is to students.</p>"></textarea>
 </div>
-<button onclick="doImport()" class="btn-main">Import MCQs</button>
-<div id="imp-result" style="margin-top:10px;font-size:13px;"></div>
+<button onclick="addChapter()" class="btn-main"><i class="fa-solid fa-plus"></i> Add Chapter</button>
+<div id="ch-result" style="margin-top:10px;font-size:13px;"></div>
 </div>
 </div>
 
 <div id="atab-manage" class="atab-view" style="display:none;">
-<div class="box" style="overflow-x:auto;">
-<table id="admin-subj-table"></table>
+<div class="box">
+<h3 style="margin-bottom:15px;"><i class="fa-solid fa-book"></i> All Subjects & Chapters</h3>
+<div id="manage-content"></div>
 </div>
 </div>
 
 <div id="atab-orders" class="atab-view" style="display:none;">
 <div class="box">
-<h3 style="margin-bottom:15px;"><i class="fa-solid fa-receipt"></i> Orders / Verifications</h3>
-<p style="font-size:12px;color:var(--muted);margin-bottom:15px;">Check Gumroad dashboard to verify receipts. Then click "Confirm" to unlock access for students.</p>
-<div style="overflow-x:auto;">
-<table id="admin-orders-table"></table>
-</div>
+<h3 style="margin-bottom:15px;"><i class="fa-solid fa-receipt"></i> Orders</h3>
+<p style="font-size:12px;color:var(--muted);margin-bottom:15px;">Check Gumroad dashboard to verify receipts then click Confirm.</p>
+<div style="overflow-x:auto;"><table id="admin-orders-table"></table></div>
 </div>
 </div>
 </div>
@@ -336,15 +316,14 @@ window.isAdmin=false;
 window.subjectsData={};
 window.ordersData={};
 var ADMIN_EMAIL='admin@masterylms.com';
-var QS={active:false,sid:null,cid:null,questions:[],opts:[],idx:0,score:0,answered:false,total:0};
 
-function flash(msg,type){var el=document.getElementById('flash-msg');el.textContent=msg;el.className='flash-message '+(type||'success');el.style.display='block';setTimeout(function(){el.style.display='none';},4000);}
+function flash(msg,type){var el=document.getElementById('flash-msg');el.textContent=msg;el.className='flash-message '+(type||'success');el.style.display='block';setTimeout(function(){el.style.display='none';},5000);}
 window.flash=flash;
-function esc(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-async function compressImg(file){return new Promise(function(resolve){var r=new FileReader();r.onload=function(e){var img=new Image();img.onload=function(){var c=document.createElement('canvas');var mx=500;var sc=img.width>mx?(mx/img.width):1;c.width=img.width*sc;c.height=img.height*sc;c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',0.7));};img.src=e.target.result;};r.readAsDataURL(file);});}
+function esc(s){if(!s)return '';return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 function hasPurchased(uid,sid){if(!window.ordersData)return false;for(var k in window.ordersData){var o=window.ordersData[k];if(o.user_id===uid&&o.subject_id===sid&&o.status==='Confirmed')return true;}return false;}
+
 function getChapterList(subj){if(!subj.chapters)return[];var arr=[];for(var cid in subj.chapters)arr.push({id:cid,data:subj.chapters[cid]});arr.sort(function(a,b){return(a.data.order||0)-(b.data.order||0);});return arr;}
 
 // NAVIGATION
@@ -356,26 +335,22 @@ var tgt=document.getElementById('view-'+view);if(tgt)tgt.classList.add('active')
 var mn=document.getElementById('mn-'+view);if(mn)mn.classList.add('active');
 if(view==='home')renderHome();
 else if(view.indexOf('subject-')===0)renderSubject(view.replace('subject-',''));
-else if(view.indexOf('quiz-')===0){var parts=view.replace('quiz-','').split('-');if(parts.length>=2)renderQuiz(parts[0],parts[1]);}
+else if(view.indexOf('chapter-')===0){var p=view.replace('chapter-','').split('-');if(p.length>=2)renderChapter(p[0],p[1]);}
 else if(view==='verify')renderVerify();
 else if(view==='library')loadLibrary();
 window.scrollTo(0,0);
 };
 window.addEventListener('hashchange',function(){var v=window.location.hash.replace('#','')||'home';navigate(v);});
 
-// AUTH STATE
+// AUTH
 onAuthStateChanged(auth,function(user){
 if(user){
-window.currentUser=user;
-window.isAdmin=(user.email===ADMIN_EMAIL);
+window.currentUser=user;window.isAdmin=(user.email===ADMIN_EMAIL);
 document.getElementById('d-user').innerHTML='<i class="fa-solid fa-user-circle"></i> '+user.email;
 document.querySelectorAll('.auth-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
 document.querySelectorAll('.guest-show').forEach(function(el){el.style.display='none';});
-if(window.isAdmin){
-document.querySelectorAll('.admin-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
-}else{
-document.querySelectorAll('.admin-show').forEach(function(el){el.style.display='none';});
-}
+if(window.isAdmin)document.querySelectorAll('.admin-show').forEach(function(el){el.style.display=el.tagName==='LI'?'block':'flex';});
+else document.querySelectorAll('.admin-show').forEach(function(el){el.style.display='none';});
 var cv=window.location.hash.replace('#','')||'home';
 if(cv==='login'||cv==='register')navigate('home');
 }else{
@@ -388,36 +363,35 @@ if(['library','verify','admin'].indexOf(cv)!==-1)navigate('login');
 }
 });
 
-// DATA LISTENERS
-onValue(ref(db,'subjects'),function(snap){window.subjectsData=snap.val()||{};var cv=window.location.hash.replace('#','')||'home';if(cv==='home')renderHome();if(cv==='admin')renderAdminSubjects();updateImportDropdown();updateVerifyDropdown();});
+// DATA
+onValue(ref(db,'subjects'),function(snap){window.subjectsData=snap.val()||{};var cv=window.location.hash.replace('#','')||'home';if(cv==='home')renderHome();if(cv==='admin')renderManage();updateChapterDropdown();updateVerifyDropdown();});
 onValue(ref(db,'orders'),function(snap){window.ordersData=snap.val()||{};var cv=window.location.hash.replace('#','')||'home';if(cv==='admin')renderAdminOrders();if(cv==='library')loadLibrary();});
 
 // HOME
 function renderHome(){
 var c=document.getElementById('home-subjects');
 var keys=Object.keys(window.subjectsData);
-if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><i class="fa-solid fa-book" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p style="color:var(--muted);">No subjects yet. Admin can add subjects from Admin Panel.</p></div>';return;}
+if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:40px;"><i class="fa-solid fa-book" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p style="color:var(--muted);">No subjects yet.</p></div>';return;}
 var html='<div class="grid">';
 for(var sid in window.subjectsData){
 var s=window.subjectsData[sid];
 var chCount=s.chapters?Object.keys(s.chapters).length:0;
-var qCount=0;if(s.chapters)for(var cid in s.chapters)if(s.chapters[cid].questions)qCount+=s.chapters[cid].questions.length;
 html+='<div class="card" onclick="navigate(\'subject-'+sid+'\')">';
-html+='<img src="'+(s.image||'https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(s.name))+'" class="card-img" onerror="this.src=\'https://placehold.co/400x200?text=No+Image\'">';
+html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(s.name)+'" class="card-img">';
 html+='<div class="card-body"><div class="card-title">'+esc(s.name)+'</div><div class="card-desc">'+esc(s.description||'').substring(0,60)+'...</div>';
-html+='<div class="card-footer"><span class="price">'+(s.price>0?'$'+s.price:'FREE')+'</span><span style="font-size:11px;color:var(--muted);">'+chCount+' ch | '+qCount+' Q</span></div></div></div>';
+html+='<div class="card-footer"><span class="price">'+(s.price>0?'$'+s.price:'FREE')+'</span><span style="font-size:11px;color:var(--muted);">'+chCount+' chapters</span></div></div></div>';
 }
-html+='</div>';c.innerHTML=html;document.title='Mastery LMS - Medical Lab Technology MCQs';
+html+='</div>';c.innerHTML=html;document.title='Mastery LMS - Medical Lab MCQs';
 }
 
-// SUBJECT
+// SUBJECT (Chapters list)
 function renderSubject(sid){
 var subj=window.subjectsData[sid];if(!subj){navigate('home');return;}
 document.getElementById('subj-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> '+esc(subj.name);
 document.getElementById('subj-hero').innerHTML='<div class="hero" style="padding:20px;"><h2 style="font-size:22px;margin:0;">'+esc(subj.name)+'</h2><p style="margin:5px 0 0;font-size:13px;opacity:.9;">'+esc(subj.description||'')+'</p></div>';
 var chapters=getChapterList(subj);
 var container=document.getElementById('subj-chapters');
-if(chapters.length===0){container.innerHTML='<div class="box" style="text-align:center;">No chapters yet.</div>';return;}
+if(chapters.length===0){container.innerHTML='<div class="box" style="text-align:center;">No chapters yet. Admin can add chapters from Admin Panel.</div>';return;}
 var uid=window.currentUser?window.currentUser.uid:null;
 var purchased=uid?hasPurchased(uid,sid):false;
 var isFree=!subj.price||subj.price<=0;
@@ -426,15 +400,15 @@ for(var i=0;i<chapters.length;i++){
 var ch=chapters[i];var isFirst=(i===0);
 var canAccess=isFirst||isFree||purchased||window.isAdmin;
 if(canAccess){
-html+='<div class="ch-item" onclick="navigate(\'quiz-'+sid+'-'+ch.id+'\')">';
+html+='<div class="ch-item" onclick="navigate(\'chapter-'+sid+'-'+ch.id+'\')">';
 html+='<div class="ch-num">'+(i+1)+'</div>';
-html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4><span>'+(ch.data.questions?ch.data.questions.length:0)+' Questions</span></div>';
+html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4></div>';
 if(isFirst)html+='<span class="ch-free">FREE</span>';
 html+='</div>';
 }else{
 html+='<div class="ch-item locked">';
 html+='<div class="ch-num">'+(i+1)+'</div>';
-html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4><span>'+(ch.data.questions?ch.data.questions.length:0)+' Questions</span></div>';
+html+='<div class="ch-info"><h4>'+esc(ch.data.title)+'</h4></div>';
 html+='<i class="fa-solid fa-lock ch-lock"></i></div>';
 }
 }
@@ -445,70 +419,39 @@ html+='<h3>Unlock All Chapters</h3>';
 html+='<p style="color:var(--muted);margin-bottom:20px;">Get full access to all '+chapters.length+' chapters for $'+subj.price+'</p>';
 if(subj.gumroad_url){
 html+='<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad - $'+subj.price+'</a>';
-html+='<p style="font-size:13px;color:var(--muted);margin-top:16px;">After payment, go to <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;font-weight:700;text-decoration:underline;">Verify Purchase</a> page to unlock access.</p>';
+html+='<p style="font-size:13px;color:var(--muted);margin-top:16px;">After payment go to <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;font-weight:700;text-decoration:underline;">Verify Purchase</a></p>';
 }else{
-html+='<p style="color:var(--red);font-size:13px;">Gumroad link not configured. Contact admin.</p>';
+html+='<p style="color:var(--red);font-size:13px;">Gumroad link not set. Contact admin.</p>';
 }
 html+='</div>';
 }
 container.innerHTML=html;document.title=subj.name+' - Mastery LMS';
 }
 
-// QUIZ
-function renderQuiz(sid,cid){
+// CHAPTER (Render HTML content)
+function renderChapter(sid,cid){
 var subj=window.subjectsData[sid];if(!subj||!subj.chapters||!subj.chapters[cid]){navigate('home');return;}
-var ch=subj.chapters[cid];var chapters=getChapterList(subj);
+var ch=subj.chapters[cid];
+var chapters=getChapterList(subj);
 var chapterIndex=-1;for(var i=0;i<chapters.length;i++){if(chapters[i].id===cid)chapterIndex=i;}
 var isFirst=(chapterIndex===0);var isFree=!subj.price||subj.price<=0;
 var uid=window.currentUser?window.currentUser.uid:null;var purchased=uid?hasPurchased(uid,sid):false;
 var canAccess=isFirst||isFree||purchased||window.isAdmin;
+
+document.getElementById('ch-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> <a onclick="navigate(\'subject-'+sid+'\')">'+esc(subj.name)+'</a> <span>/</span> '+esc(ch.title);
+document.getElementById('ch-back-btn').setAttribute('onclick',"navigate('subject-"+sid+"')");
+document.title=ch.title+' - Mastery LMS';
+
 if(!canAccess){
-document.getElementById('quiz-container').innerHTML='<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Chapter Locked</h3><p>This chapter requires a purchase to access.</p>'+(subj.gumroad_url?'<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn btn-sm" style="width:auto;"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad - $'+subj.price+'</a><p style="font-size:12px;color:var(--muted);margin-top:12px;">After payment, <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;">verify here</a></p>':'<p style="color:var(--red);font-size:13px;">Contact admin for access.</p>')+'</div>';
-document.getElementById('quiz-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> <a onclick="navigate(\'subject-'+sid+'\')">'+esc(subj.name)+'</a> <span>/</span> '+esc(ch.title);
-document.title='Locked - '+ch.title;return;
-}
-var questions=ch.questions||[];
-if(questions.length===0){document.getElementById('quiz-container').innerHTML='<div class="box" style="text-align:center;">No questions in this chapter yet.</div>';return;}
-document.getElementById('quiz-breadcrumb').innerHTML='<a onclick="navigate(\'home\')">Home</a> <span>/</span> <a onclick="navigate(\'subject-'+sid+'\')">'+esc(subj.name)+'</a> <span>/</span> '+esc(ch.title);
-QS={active:true,sid:sid,cid:cid,questions:questions,idx:0,score:0,answered:false,total:questions.length,opts:[]};
-for(var i=0;i<questions.length;i++){var opts=[questions[i].c];if(questions[i].d)for(var j=0;j<questions[i].d.length;j++)opts.push(questions[i].d[j]);for(var k=opts.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1));var tmp=opts[k];opts[k]=opts[r];opts[r]=tmp;}QS.opts.push(opts);}
-renderQ();document.title=ch.title+' - Quiz';
+document.getElementById('ch-title-area').innerHTML='';
+document.getElementById('ch-content').innerHTML='<div class="lock-box"><i class="fa-solid fa-lock"></i><h3>Chapter Locked</h3><p>This chapter requires a purchase.</p>'+(subj.gumroad_url?'<a href="'+esc(subj.gumroad_url)+'" target="_blank" class="gumroad-btn btn-sm" style="width:auto;"><i class="fa-solid fa-credit-card"></i> Buy on Gumroad</a><p style="font-size:12px;color:var(--muted);margin-top:12px;">After payment <a onclick="navigate(\'verify\')" style="color:var(--primary);cursor:pointer;">verify here</a></p>':'')+'</div>';
+return;
 }
 
-function renderQ(){
-var q=QS.questions[QS.idx];var opts=QS.opts[QS.idx];var pct=(QS.idx/QS.total*100);
-var h='<div class="quiz-bar"><div class="quiz-bar-fill" style="width:'+pct+'%"></div></div>';
-h+='<div class="quiz-count">Question '+(QS.idx+1)+' of '+QS.total+'</div>';
-h+='<h3 class="quiz-q">'+esc(q.q)+'</h3><div class="quiz-opts">';
-for(var i=0;i<opts.length;i++){h+='<button class="quiz-opt" onclick="pickOpt('+i+')" id="qopt-'+i+'"><span class="q-letter">'+String.fromCharCode(65+i)+'</span><span>'+esc(opts[i])+'</span></button>';}
-h+='</div><div class="quiz-exp" id="q-exp"><strong>Explanation:</strong><br>'+esc(q.exp||'No explanation provided.')+'</div>';
-h+='<button class="btn-main quiz-next" id="q-next" onclick="nextQ()" style="display:none;">Next Question</button>';
-document.getElementById('quiz-container').innerHTML=h;QS.answered=false;
+document.getElementById('ch-title-area').innerHTML='<h2 style="font-size:20px;font-weight:800;margin-bottom:5px;">'+esc(ch.title)+'</h2>';
+// RENDER THE STORED HTML DIRECTLY
+document.getElementById('ch-content').innerHTML=ch.html_content||'<p style="color:var(--muted);text-align:center;">No content in this chapter yet.</p>';
 }
-
-window.pickOpt=function(idx){
-if(QS.answered)return;QS.answered=true;
-var q=QS.questions[QS.idx];var opts=QS.opts[QS.idx];
-if(opts[idx]===q.c){QS.score++;document.getElementById('qopt-'+idx).classList.add('correct');}
-else{document.getElementById('qopt-'+idx).classList.add('incorrect');for(var i=0;i<opts.length;i++)if(opts[i]===q.c)document.getElementById('qopt-'+i).classList.add('correct');}
-document.querySelectorAll('.quiz-opt').forEach(function(b){b.disabled=true;});
-document.getElementById('q-exp').style.display='block';
-var nb=document.getElementById('q-next');nb.textContent=QS.idx<QS.total-1?'Next Question':'See Results';nb.style.display='inline-block';
-};
-
-window.nextQ=function(){QS.idx++;if(QS.idx>=QS.total)showResults();else renderQ();};
-
-function showResults(){
-var pct=Math.round((QS.score/QS.total)*100);var col=pct>=80?'var(--green)':pct>=50?'var(--yellow)':'var(--red)';
-var h='<div class="quiz-result"><div class="quiz-score" style="background:linear-gradient(135deg,'+col+',var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">'+pct+'%</div><h3>Quiz Complete!</h3><p>'+QS.score+' out of '+QS.total+' correct answers</p>';
-h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">';
-h+='<button class="btn-main btn-sm" onclick="retryQuiz()" style="width:auto;"><i class="fa-solid fa-redo"></i> Try Again</button>';
-h+='<button class="btn-glass" onclick="navigate(\'subject-'+QS.sid+'\')" style="background:var(--primary);color:white;border:none;">Back to Chapters</button></div></div>';
-document.getElementById('quiz-container').innerHTML=h;QS.active=false;
-}
-
-window.retryQuiz=function(){QS.idx=0;QS.score=0;QS.answered=false;QS.opts=[];
-for(var i=0;i<QS.questions.length;i++){var opts=[QS.questions[i].c];if(QS.questions[i].d)for(var j=0;j<QS.questions[i].d.length;j++)opts.push(QS.questions[i].d[j]);for(var k=opts.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1));var tmp=opts[k];opts[k]=opts[r];opts[r]=tmp;}QS.opts.push(opts);}renderQ();};
 
 // VERIFY
 function renderVerify(){
@@ -517,35 +460,21 @@ document.getElementById('verify-email').value=window.currentUser.email;
 updateVerifyDropdown();
 }
 
-function updateVerifyDropdown(){
-var sel=document.getElementById('verify-subject');if(!sel)return;
-var h='<option value="">-- Select Subject --</option>';
-for(var sid in window.subjectsData){var s=window.subjectsData[sid];if(s.price>0)h+='<option value="'+sid+'">'+esc(s.name)+' ($'+s.price+')</option>';}
-sel.innerHTML=h;
-}
+function updateVerifyDropdown(){var sel=document.getElementById('verify-subject');if(!sel)return;var h='<option value="">-- Select Subject --</option>';for(var sid in window.subjectsData){var s=window.subjectsData[sid];if(s.price>0)h+='<option value="'+sid+'">'+esc(s.name)+' ($'+s.price+')</option>';}sel.innerHTML=h;}
 
 document.getElementById('verify-form').addEventListener('submit',async function(e){
 e.preventDefault();
-if(!window.currentUser||window.currentUser==='loading'){flash('Please login first.','error');return;}
+if(!window.currentUser||window.currentUser==='loading'){flash('Login first.','error');return;}
 var email=document.getElementById('verify-email').value;
 var receipt=document.getElementById('verify-receipt').value;
 var sid=document.getElementById('verify-subject').value;
-if(!sid){flash('Please select a subject.','error');return;}
+if(!sid){flash('Select a subject.','error');return;}
 try{
-await push(ref(db,'orders'),{
-user_id:window.currentUser.uid,
-email:email,
-subject_id:sid,
-receipt_id:receipt,
-status:'Pending',
-timestamp:Date.now()
-});
-var vs=document.getElementById('verify-status');
-vs.style.display='block';
-vs.innerHTML='<h4><i class="fa-solid fa-clock"></i> Verification Submitted!</h4><p style="font-size:13px;color:#065F46;line-height:1.6;">Your receipt has been submitted successfully. The admin will check Gumroad dashboard to verify your payment.</p><p style="font-size:13px;color:#065F46;line-height:1.6;margin-top:8px;">Once confirmed, ALL chapters of this subject will be unlocked automatically.</p><p style="font-size:12px;color:var(--muted);margin-top:10px;">Check <a onclick="navigate(\'library\')" style="color:var(--primary);cursor:pointer;font-weight:700;">My Library</a> for status updates.</p>';
-document.getElementById('verify-form').reset();
-document.getElementById('verify-email').value=email;
-flash('Verification submitted! Waiting for admin.');
+await push(ref(db,'orders'),{user_id:window.currentUser.uid,email:email,subject_id:sid,receipt_id:receipt,status:'Pending',timestamp:Date.now()});
+var vs=document.getElementById('verify-status');vs.style.display='block';
+vs.innerHTML='<h4 style="color:#065F46;"><i class="fa-solid fa-clock"></i> Submitted!</h4><p style="font-size:13px;color:#065F46;">Admin will verify your payment. Check <a onclick="navigate(\'library\')" style="color:var(--primary);cursor:pointer;font-weight:700;">My Library</a> for updates.</p>';
+document.getElementById('verify-form').reset();document.getElementById('verify-email').value=email;
+flash('Submitted! Waiting for admin.');
 }catch(err){flash('Error: '+err.message,'error');}
 });
 
@@ -553,23 +482,20 @@ flash('Verification submitted! Waiting for admin.');
 function loadLibrary(){
 var c=document.getElementById('lib-content');
 if(window.currentUser==='loading'){c.innerHTML='<div class="box" style="text-align:center;padding:50px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:30px;color:var(--primary);display:block;margin:0 auto 10px;"></i>Loading...</div>';return;}
-if(!window.currentUser){c.innerHTML='<div class="box" style="text-align:center;"><p>Please login first.</p></div>';return;}
+if(!window.currentUser){c.innerHTML='<div class="box" style="text-align:center;"><p>Please login.</p></div>';return;}
 document.getElementById('lib-user').textContent='Logged in as: '+window.currentUser.email;
 var confirmed={};var pending={};
 for(var k in window.ordersData){var o=window.ordersData[k];if(o.user_id===window.currentUser.uid){if(o.status==='Confirmed')confirmed[o.subject_id]=true;else if(o.status==='Pending')pending[o.subject_id]=true;}}
-var allSids={};
-for(var s in confirmed)allSids[s]='confirmed';
-for(var s in pending)if(!allSids[s])allSids[s]='pending';
-var keys=Object.keys(allSids);
-if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:50px;"><i class="fa-solid fa-book-open" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p>No purchases yet. First chapter of every subject is always free!</p><button class="btn-main btn-sm" onclick="navigate(\'home\')" style="width:auto;margin-top:10px;">Browse Subjects</button></div>';return;}
+var all={};for(var s in confirmed)all[s]='confirmed';for(var s in pending)if(!all[s])all[s]='pending';
+var keys=Object.keys(all);
+if(keys.length===0){c.innerHTML='<div class="box" style="text-align:center;padding:50px;"><i class="fa-solid fa-book-open" style="font-size:40px;color:var(--border);margin-bottom:10px;display:block;"></i><p>No purchases yet. First chapter is always free!</p><button class="btn-main btn-sm" onclick="navigate(\'home\')" style="width:auto;margin-top:10px;">Browse Subjects</button></div>';return;}
 var html='<div class="grid">';
 for(var i=0;i<keys.length;i++){var sid=keys[i];var subj=window.subjectsData[sid];if(!subj)continue;
-var st=allSids[sid];var chCount=subj.chapters?Object.keys(subj.chapters).length:0;
 html+='<div class="card" onclick="navigate(\'subject-'+sid+'\')">';
-html+='<img src="'+(subj.image||'https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(subj.name))+'" class="card-img" style="height:140px;">';
+html+='<img src="https://placehold.co/400x200/7C3AED/ffffff?text='+encodeURIComponent(subj.name)+'" class="card-img" style="height:140px;">';
 html+='<div class="card-body"><div class="card-title">'+esc(subj.name)+'</div><div style="margin-top:auto;padding-top:10px;">';
-if(st==='confirmed')html+='<div style="background:#D1FAE5;color:#065F46;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-check-circle"></i> Full Access - '+chCount+' Chapters</div>';
-else html+='<div style="background:#FEF3C7;color:#92400E;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-clock"></i> Pending Verification</div>';
+if(all[sid]==='confirmed')html+='<div style="background:#D1FAE5;color:#065F46;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-check-circle"></i> Full Access</div>';
+else html+='<div style="background:#FEF3C7;color:#92400E;padding:8px;border-radius:8px;font-size:12px;text-align:center;font-weight:bold;"><i class="fa-solid fa-clock"></i> Pending</div>';
 html+='</div></div></div>';
 }
 html+='</div>';c.innerHTML=html;
@@ -581,112 +507,117 @@ window.showATab=function(tab){document.querySelectorAll('.admin-tabs a').forEach
 // ADD SUBJECT
 document.getElementById('add-subject-form').addEventListener('submit',async function(e){
 e.preventDefault();
-var name=document.getElementById('as-name').value;
-var desc=document.getElementById('as-desc').value;
-var price=parseFloat(document.getElementById('as-price').value)||0;
-var gumroad=document.getElementById('as-gumroad').value.trim();
-var imgFile=document.getElementById('as-img').files[0];
-var img='';if(imgFile)img=await compressImg(imgFile);
 try{
-await push(ref(db,'subjects'),{name:name,description:desc,price:price,gumroad_url:gumroad,image:img,chapters:{},created_at:Date.now()});
+await push(ref(db,'subjects'),{
+name:document.getElementById('as-name').value,
+description:document.getElementById('as-desc').value,
+price:parseFloat(document.getElementById('as-price').value)||0,
+gumroad_url:document.getElementById('as-gumroad').value.trim(),
+chapters:{},
+created_at:Date.now()
+});
 document.getElementById('add-subject-form').reset();
-flash('Subject created! Now import MCQs.');showATab('import');updateImportDropdown();updateVerifyDropdown();
+flash('Subject created! Now add chapters.');showATab('chapter');updateChapterDropdown();
 }catch(err){flash('Error: '+err.message,'error');}
 });
 
-// IMPORT MCQs
-function updateImportDropdown(){var sel=document.getElementById('imp-subject');var h='<option value="">-- Select Subject --</option>';for(var sid in window.subjectsData)h+='<option value="'+sid+'">'+esc(window.subjectsData[sid].name)+'</option>';sel.innerHTML=h;}
+// ADD CHAPTER
+function updateChapterDropdown(){var sel=document.getElementById('ch-subject');if(!sel)return;var h='<option value="">-- Select Subject --</option>';for(var sid in window.subjectsData)h+='<option value="'+sid+'">'+esc(window.subjectsData[sid].name)+'</option>';sel.innerHTML=h;}
 
-window.doImport=async function(){
-var selSid=document.getElementById('imp-subject').value;
-var newName=document.getElementById('imp-new-name').value.trim();
-var price=parseFloat(document.getElementById('imp-price').value)||5;
-var gumroad=document.getElementById('imp-gumroad').value.trim();
-var jsonStr=document.getElementById('imp-json').value.trim();
-var resultEl=document.getElementById('imp-result');
-if(!jsonStr){resultEl.innerHTML='<span style="color:var(--red);">Please paste JSON data!</span>';return;}
-var data;try{data=JSON.parse(jsonStr);if(!Array.isArray(data))data=[data];}catch(e){resultEl.innerHTML='<span style="color:var(--red);">JSON parse error: '+e.message+'</span>';return;}
-resultEl.innerHTML='<span style="color:var(--primary);"><i class="fa-solid fa-spinner fa-spin"></i> Importing...</span>';
+window.addChapter=async function(){
+var sid=document.getElementById('ch-subject').value;
+var title=document.getElementById('ch-title').value.trim();
+var htmlContent=document.getElementById('ch-html').value.trim();
+var resultEl=document.getElementById('ch-result');
+if(!sid){resultEl.innerHTML='<span style="color:var(--red);">Please select a subject!</span>';return;}
+if(!title){resultEl.innerHTML='<span style="color:var(--red);">Please enter chapter title!</span>';return;}
+if(!htmlContent){resultEl.innerHTML='<span style="color:var(--red);">Please paste HTML content!</span>';return;}
+resultEl.innerHTML='<span style="color:var(--primary);"><i class="fa-solid fa-spinner fa-spin"></i> Adding chapter...</span>';
 try{
-for(var si=0;si<data.length;si++){var item=data[si];var subjectName=item.name||newName||'Untitled';var subjectId=selSid;
-if(!subjectId||newName){var newSubj=await push(ref(db,'subjects'),{name:subjectName,description:item.description||'',price:price,gumroad_url:gumroad,image:'',chapters:{},created_at:Date.now()});subjectId=newSubj.key;}
-if(item.chapters)for(var ci=0;ci<item.chapters.length;ci++){var ch=item.chapters[ci];await push(ref(db,'subjects/'+subjectId+'/chapters'),{title:ch.title||'Chapter '+(ci+1),order:ci+1,questions:ch.questions||[],created_at:Date.now()});}}
-resultEl.innerHTML='<span style="color:var(--green);"><i class="fa-solid fa-check"></i> Import successful! '+data.length+' subject(s) imported.</span>';updateImportDropdown();updateVerifyDropdown();flash('MCQs imported!');
+var subj=window.subjectsData[sid];
+var existingChapters=subj.chapters?Object.keys(subj.chapters).length:0;
+await push(ref(db,'subjects/'+sid+'/chapters'),{
+title:title,
+html_content:htmlContent,
+order:existingChapters+1,
+created_at:Date.now()
+});
+document.getElementById('ch-title').value='';
+document.getElementById('ch-html').value='';
+resultEl.innerHTML='<span style="color:var(--green);"><i class="fa-solid fa-check"></i> Chapter added successfully! It is now visible on the website.</span>';
+flash('Chapter added!');
 }catch(err){resultEl.innerHTML='<span style="color:var(--red);">Error: '+err.message+'</span>';}
 };
 
-// ADMIN SUBJECTS TABLE
-function renderAdminSubjects(){
-var table=document.getElementById('admin-subj-table');
-if(Object.keys(window.subjectsData).length===0){table.innerHTML='<tr><td style="padding:20px;text-align:center;color:var(--muted);">No subjects yet. Add one from the "Add Subject" tab.</td></tr>';return;}
-var h='<tr><th>Name</th><th>Chapters</th><th>Questions</th><th>Price</th><th>Gumroad</th><th>Action</th></tr>';
-for(var sid in window.subjectsData){var s=window.subjectsData[sid];var chC=s.chapters?Object.keys(s.chapters).length:0;var qC=0;if(s.chapters)for(var cid in s.chapters)if(s.chapters[cid].questions)qC+=s.chapters[cid].questions.length;
-h+='<tr><td style="font-weight:700;">'+esc(s.name)+'</td><td>'+chC+'</td><td>'+qC+'</td><td style="color:var(--primary);font-weight:700;">'+(s.price>0?'$'+s.price:'Free')+'</td><td>'+(s.gumroad_url?'<a href="'+esc(s.gumroad_url)+'" target="_blank" style="color:var(--green);font-size:11px;">Set ✅</a>':'<span style="color:var(--red);font-size:11px;">Not set ❌</span>')+'</td><td><button onclick="deleteSubject(\''+sid+'\')" style="color:var(--red);background:none;border:none;cursor:pointer;font-size:16px;"><i class="fa-solid fa-trash"></i></button></td></tr>';}
-table.innerHTML=h;
+// MANAGE (Admin)
+function renderManage(){
+var c=document.getElementById('manage-content');
+if(Object.keys(window.subjectsData).length===0){c.innerHTML='<p style="color:var(--muted);text-align:center;">No subjects yet.</p>';return;}
+var html='';
+for(var sid in window.subjectsData){
+var s=window.subjectsData[sid];
+var chapters=getChapterList(s);
+html+='<div style="border:2px solid var(--border);border-radius:12px;padding:16px;margin-bottom:15px;">';
+html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">';
+html+='<div><strong style="font-size:16px;">'+esc(s.name)+'</strong><br><span style="font-size:12px;color:var(--muted);">'+(s.price>0?'$'+s.price':'Free')+' | '+chapters.length+' chapters | '+(s.gumroad_url?'<span style="color:var(--green);">Gumroad set</span>':'<span style="color:var(--red);">No Gumroad</span>')+'</span></div>';
+html+='<button onclick="deleteSubject(\''+sid+'\')" style="background:var(--red);color:white;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:bold;">Delete</button></div>';
+if(chapters.length>0){
+html+='<div style="padding-left:10px;">';
+for(var i=0;i<chapters.length;i++){
+var ch=chapters[i];
+html+='<div style="display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #f0f0f0;">';
+html+='<span style="font-size:13px;"><strong>'+(i+1)+'.</strong> '+esc(ch.data.title)+'</span>';
+html+='<button onclick="deleteChapter(\''+sid+'\',\''+ch.id+'\')" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;"><i class="fa-solid fa-trash"></i></button></div>';
+}
+html+='</div>';
+}else{
+html+='<p style="font-size:12px;color:var(--muted);padding:10px;">No chapters yet.</p>';
+}
+html+='</div>';
+}
+c.innerHTML=html;
 }
 
-window.deleteSubject=async function(sid){if(!confirm('Delete this subject and all its chapters?'))return;try{await remove(ref(db,'subjects/'+sid));flash('Subject deleted.');}catch(err){flash('Error: '+err.message,'error');}};
+window.deleteSubject=async function(sid){if(!confirm('Delete this subject and ALL its chapters?'))return;try{await remove(ref(db,'subjects/'+sid));flash('Deleted.');}catch(err){flash('Error','error');}};
 
-// ADMIN ORDERS TABLE
+window.deleteChapter=async function(sid,cid){if(!confirm('Delete this chapter?'))return;try{await remove(ref(db,'subjects/'+sid+'/chapters/'+cid));flash('Chapter deleted.');}catch(err){flash('Error','error');}};
+
+// ADMIN ORDERS
 function renderAdminOrders(){
 var table=document.getElementById('admin-orders-table');
-if(!window.ordersData||Object.keys(window.ordersData).length===0){table.innerHTML='<tr><td style="padding:20px;text-align:center;color:var(--muted);">No orders yet. Orders will appear here when students submit verification.</td></tr>';return;}
-var h='<tr><th>Customer Email</th><th>Subject</th><th>Receipt ID</th><th>Status</th><th>Action</th></tr>';
+if(!window.ordersData||Object.keys(window.ordersData).length===0){table.innerHTML='<tr><td style="padding:20px;text-align:center;color:var(--muted);">No orders yet.</td></tr>';return;}
+var h='<tr><th>Email</th><th>Subject</th><th>Receipt</th><th>Status</th><th>Action</th></tr>';
 var orders=Object.entries(window.ordersData).sort(function(a,b){return(b[1].timestamp||0)-(a[1].timestamp||0);});
 for(var i=0;i<orders.length;i++){var id=orders[i][0];var o=orders[i][1];
 var subjName=window.subjectsData[o.subject_id]?window.subjectsData[o.subject_id].name:'Unknown';
 var sc=o.status==='Confirmed'?'#D1FAE5;color:#065F46':'#FEF3C7;color:#92400E';
 h+='<tr><td>'+esc(o.email)+'</td><td>'+esc(subjName)+'</td><td style="font-family:monospace;font-size:11px;">'+esc(o.receipt_id||'N/A')+'</td><td><span style="background:'+sc+';padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;">'+o.status+'</span></td><td>';
-if(o.status==='Pending')h+='<button onclick="confirmOrder(\''+id+'\')" style="padding:6px 10px;background:var(--dark);color:white;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:bold;">Confirm ✅</button>';
-else h+='<i class="fa-solid fa-check-double" style="color:var(--green);font-size:16px;"></i>';
+if(o.status==='Pending')h+='<button onclick="confirmOrder(\''+id+'\')" style="padding:6px 10px;background:var(--dark);color:white;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:bold;">Confirm</button>';
+else h+='<i class="fa-solid fa-check-double" style="color:var(--green);"></i>';
 h+='</td></tr>';}
 table.innerHTML=h;
 }
 
-window.confirmOrder=async function(id){try{await update(ref(db,'orders/'+id),{status:'Confirmed'});flash('Order confirmed! Student now has full access.');}catch(err){flash('Error: '+err.message,'error');}};
+window.confirmOrder=async function(id){try{await update(ref(db,'orders/'+id),{status:'Confirmed'});flash('Confirmed! Student has access.');}catch(err){flash('Error','error');}};
 
-// AUTH FORMS
+// AUTH
 document.getElementById('reg-form').addEventListener('submit',async function(e){
-e.preventDefault();
-var email=document.getElementById('reg-email').value;
-var pass=document.getElementById('reg-pass').value;
-var confirm=document.getElementById('reg-confirm').value;
-if(pass.length<6){flash('Password must be at least 6 characters.','error');return;}
-if(pass!==confirm){flash('Passwords do not match.','error');return;}
-try{
-var cred=await createUserWithEmailAndPassword(auth,email,pass);
-await set(ref(db,'users/'+cred.user.uid),{email:email,role:email===ADMIN_EMAIL?'admin':'user'});
-flash('Account created successfully!');
-if(email===ADMIN_EMAIL)navigate('admin');
-else navigate('home');
-}catch(err){
-if(err.code==='auth/email-already-in-use')flash('This email is already registered. Try logging in.','error');
-else if(err.code==='auth/weak-password')flash('Password must be at least 6 characters.','error');
-else if(err.code==='auth/invalid-email')flash('Please enter a valid email address.','error');
-else flash('Error: '+err.message,'error');
-}
+e.preventDefault();var email=document.getElementById('reg-email').value;var pass=document.getElementById('reg-pass').value;var conf=document.getElementById('reg-confirm').value;
+if(pass.length<6){flash('Password 6+ characters.','error');return;}
+if(pass!==conf){flash('Passwords do not match.','error');return;}
+try{var cred=await createUserWithEmailAndPassword(auth,email,pass);await set(ref(db,'users/'+cred.user.uid),{email:email,role:email===ADMIN_EMAIL?'admin':'user'});flash('Registered!');if(email===ADMIN_EMAIL)navigate('admin');else navigate('home');}
+catch(err){if(err.code==='auth/email-already-in-use')flash('Email already registered.','error');else flash('Error: '+err.message,'error');}
 });
 
 document.getElementById('login-form').addEventListener('submit',async function(e){
-e.preventDefault();
-try{
-await signInWithEmailAndPassword(auth,document.getElementById('login-email').value,document.getElementById('login-pass').value);
-flash('Welcome back!');
-}catch(err){
-if(err.code==='auth/user-not-found')flash('No account found with this email. Please register first.','error');
-else if(err.code==='auth/wrong-password')flash('Incorrect password. Please try again.','error');
-else if(err.code==='auth/invalid-email')flash('Please enter a valid email address.','error');
-else if(err.code==='auth/invalid-credential')flash('Invalid email or password. Please check and try again.','error');
-else flash('Login failed. Please try again.','error');
-}
+e.preventDefault();try{await signInWithEmailAndPassword(auth,document.getElementById('login-email').value,document.getElementById('login-pass').value);flash('Welcome!');}
+catch(err){if(err.code==='auth/user-not-found')flash('No account. Register first.','error');else if(err.code==='auth/invalid-credential')flash('Wrong email or password.','error');else flash('Error: '+err.message,'error');}
 });
 
 window.doLogout=async function(){await signOut(auth);navigate('login');flash('Logged out.');};
 
-// PWA
 if('serviceWorker' in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('service-worker.js').catch(function(){});});
-
-updateImportDropdown();updateVerifyDropdown();
+updateChapterDropdown();updateVerifyDropdown();
 var init=window.location.hash.replace('#','')||'home';navigate(init);
 </script>
 </body>
